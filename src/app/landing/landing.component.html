@@ -1,0 +1,81 @@
+
+ <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">AIANR</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+                
+            <ul class="nav navbar-nav navbar-right">
+              <li><a ><i class="fa fa-user" aria-hidden="true"></i> {{userName}}</a></li>
+              <li><a [routerLink]="['/logout']" ><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+            </ul>
+            
+          </div>
+        </div>
+      </nav>
+
+<div class="container">
+        <div class="row">
+            <div class="col-md-7 col-lg-offset-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <span class="glyphicon glyphicon-comment"></span> Chats
+                       
+                    </div>
+                    <div class="panel-body" style="overflow: scroll; height: xyz;" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+                        <ul class="chat" >
+
+                <li class="right clearfix" *ngFor="let row of chatLists">
+                        <div *ngIf="row.user"><span class="chat-img pull-right">
+                        <img src="http://placehold.it/50/FA6F57/fff&text={{userImg}}" alt="User Avatar" class="img-circle" />
+                    </span>
+                        <div class="chat-body clearfix">
+                            <div class="header">
+                                <small class=" text-muted">
+                                <span class="glyphicon glyphicon-time"></span>{{row.created_at | timeAgo}}</small>
+                                
+                                <strong class="pull-right primary-font">{{_globalSettings.username}}</strong>
+                            </div>
+                            <p id="valueId" [innerHTML]="row.value"></p>
+                        </div>
+                        </div>
+                      
+                    <div *ngIf="row.machine"><span class="chat-img pull-left">
+                    <img src="http://placehold.it/50/55C1E7/fff&text={{machineImg}}" alt="User Avatar" class="img-circle" />
+                    </span>
+                    <div class="chat-body clearfix">
+                        <div class="header">
+                            <strong class="primary-font">Machine</strong>
+                            <small class=" text-muted">
+                                    <span class="glyphicon glyphicon-time"></span>{{row.created_at | timeAgo}}</small>
+                        </div>
+                        <p id="valueId" [innerHTML]="row.value"></p>
+                    </div>
+                    </div>
+                </li>
+                
+
+                            
+                        </ul>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="input-group">
+                            <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." [(ngModel)]="searchreq"  />
+                            <span class="input-group-btn">
+                                <button class="btn btn-warning btn-sm" id="btn-chat" (click)="searchBot()">
+                                    Send</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
