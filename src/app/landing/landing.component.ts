@@ -31,6 +31,7 @@ export class LandingComponent implements OnInit{
       
    ){
        //this.searchreq = "who is leave on today";
+       this.searchreq = "today leave list";
        //this.chatLists.push(JSON.parse(localStorage.getItem("chats")));
         let chts = JSON.parse(localStorage.getItem("chats"));
         console.log(chts);
@@ -57,11 +58,15 @@ export class LandingComponent implements OnInit{
    searchBot(){
              this.chatLists.push({'user':true,"value":this.searchreq,"created_at":Date.now()});
       this._landingService.getsearchResponse(this.searchreq).subscribe(response => {
-            let res = response.result;
-            this.chatLists.push({'machine':true,"value":res.data,"created_at":Date.now()});
+            let res = response.result.data;
+            let session = response.result.data.session;
+            this.chatLists.push({'machine':true,"value":res.response,"created_at":Date.now()});
             console.log("-------------------------------");
-            console.log(this.chatLists);
+            console.log(session);
+            console.log(response);
             localStorage.setItem("chats",JSON.stringify(this.chatLists));
+            localStorage.setItem("sessions",JSON.stringify(session));
+            
    },
  err =>{
   console.log("error msg");

@@ -38,18 +38,23 @@ export class LoginComponent implements OnInit {
 
   authenticate(){
     this._loginService.getAuthenticate(this.email,this.password).subscribe(response => {
-        let res = response.result;
+        let res = response.result.data;
+        let session = response.result.data.session;
+        let statusCode = response.result.statusCode;
+        let successText = response.result.successText;
+
     
-       if(res.statusCode == 200){
-        this.lSuccess = res.successText;
+       if(statusCode == 200){
+        this.lSuccess = successText;
         
-        localStorage.setItem("userId",res.data[0]);
-        localStorage.setItem("email",res.data[1]);
-        localStorage.setItem("firstname",res.data[3]);
-        localStorage.setItem("designation",res.data[5]);
-        localStorage.setItem("reporting_manager",res.data[6]);
-        localStorage.setItem("location",res.data[7]);
+        localStorage.setItem("userId",res.response[0]);
+        localStorage.setItem("email",res.response[1]);
+        localStorage.setItem("firstname",res.response[3]);
+        localStorage.setItem("designation",res.response[5]);
+        localStorage.setItem("reporting_manager",res.response[6]);
+        localStorage.setItem("location",res.response[7]);
         localStorage.setItem("authentication",JSON.stringify(true));
+        localStorage.setItem("sessions",JSON.stringify(session));
         setTimeout(() => {
           this._router.navigate(['/landing']); 
         }, 2000);
@@ -58,8 +63,8 @@ export class LoginComponent implements OnInit {
         this._globalSettings.authenticated = JSON.parse(localStorage.getItem("authentication"));
         
        }else{
-        console.log(res.successText);
-        this.lError = res.successText;
+        console.log(successText);
+        this.lError = successText;
        }
    },
  err =>{

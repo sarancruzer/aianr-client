@@ -24,7 +24,7 @@ export class LandingService {
   //    }
   
      getsearchResponse(searchText){
-          this.list ={"sentences":searchText,"email":localStorage.getItem("email")}
+          this.list ={"sentences":searchText,"sessions":localStorage.getItem("sessions")}
           return this._http.post(this.apiUrl+'searchBotsNew',this.list,this.headers)
           .map(res =>res.json())
           .do(data => console.log(JSON.stringify(data)));
