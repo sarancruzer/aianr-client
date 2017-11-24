@@ -23,7 +23,7 @@
                 
               </div>
               <div class="message my-message">
-                {{row.value}}
+                <p id="valueId" [innerHTML]="row.value"></p>
               </div>
             </div>
             <div *ngIf="row.machine">
@@ -33,7 +33,7 @@
                   
                 </div>
                 <div class="message other-message float-right">
-                  {{row.value}}
+                    <p id="valueId" [innerHTML]="row.value"></p>
                 </div>
               </div>
             </li>
