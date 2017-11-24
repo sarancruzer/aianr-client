@@ -121,6 +121,9 @@ position: relative;
     
     .other-message {
       background: $blue;
+      width: auto;
+      min-width: 300px;
+      max-width: 900px;
       
       &:after {
         border-bottom-color: $blue;
