@@ -1,25 +1,70 @@
 
- <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">AIANR</a>
+
+<section class="content">
+    <div class="container clearfix">   
+      <div class="chat">
+        <div class="chat-header clearfix">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01_green.jpg" alt="avatar" />
+          
+          <div class="chat-about">
+            <div class="chat-with">Chat with Vincent Porter</div>
+            <div class="chat-num-messages">already 1 902 messages</div>
           </div>
-          <div id="navbar" class="navbar-collapse collapse">
+          <i class="fa fa-star"></i>
+        </div> <!-- end chat-header -->
+        
+        <div class="slimScrollDiv chat-history" style="overflow: scroll; height: xyz;" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+          <ul>
+            <li class="clearfix" *ngFor="let row of chatLists">
+              <div *ngIf="row.user">
+              <div class="message-data align-right">
+                <span class="message-data-time" >{{row.created_at | timeAgo}}</span> &nbsp; &nbsp;
+                <span class="message-data-name" >{{_globalSettings.username}}</span> <i class="fa fa-circle me"></i>
                 
-            <ul class="nav navbar-nav navbar-right">
-              <li><a ><i class="fa fa-user" aria-hidden="true"></i> {{userName}}</a></li>
-              <li><a [routerLink]="['/logout']" ><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
-            </ul>
+              </div>
+              <div class="message my-message">
+                {{row.value}}
+              </div>
+            </div>
+            <div *ngIf="row.machine">
+                <div class="message-data align-right">
+                  <span class="message-data-time" >{{row.created_at | timeAgo}}</span> &nbsp; &nbsp;
+                  <span class="message-data-name" >Machine</span> <i class="fa fa-circle me"></i>
+                  
+                </div>
+                <div class="message other-message float-right">
+                  {{row.value}}
+                </div>
+              </div>
+            </li>
+           
             
+          </ul>
+          
+        </div> <!-- end chat-history -->
+              
+        <form class="ai_margin">
+        <div class="col-lg-10">
+          <div class="form-group">
+            <input type="text" class="form-control ai_textbox" name="searchreq" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Text" [(ngModel)]="searchreq">        
           </div>
-        </div>
-      </nav>
+          </div>
+          <div class="col-lg-2">
+          <div class="form-group">
+          <button type="button" class="btn btn-primary ai_send"><i class="material-icons"  (click)="searchBot()">&#xE163;</i></button>
+          </div>
+          </div>
+        </form>
+         <!-- end chat-message -->
+        
+      </div> <!-- end chat -->
+      
+    </div> <!-- end container -->
+  </section>
+
+  
+
+<!--   
 
 <div class="container">
         <div class="row">
@@ -78,4 +123,4 @@
             </div>
         </div>
     </div>
-    
+     -->

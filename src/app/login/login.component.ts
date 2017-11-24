@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.email = "bala@nlp.com";
+    this.email = "ManikandanC@quadrupleindia.com";
     this.password = "123456";
 
   }
@@ -47,12 +47,7 @@ export class LoginComponent implements OnInit {
        if(statusCode == 200){
         this.lSuccess = successText;
         
-        localStorage.setItem("userId",res.response[0]);
         localStorage.setItem("email",res.response[1]);
-        localStorage.setItem("firstname",res.response[3]);
-        localStorage.setItem("designation",res.response[5]);
-        localStorage.setItem("reporting_manager",res.response[6]);
-        localStorage.setItem("location",res.response[7]);
         localStorage.setItem("authentication",JSON.stringify(true));
         localStorage.setItem("sessions",JSON.stringify(session));
         setTimeout(() => {

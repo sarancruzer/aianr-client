@@ -1,0 +1,22 @@
+.sidebar .menu {
+    position: relative;
+    overflow-y: auto;
+    height: 90vh;
+    background: #2d323e;
+    color: #fff;
+}
+.sidebar .menu .list a {
+    color: #fff;
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+    width: 100%;
+    padding: 10px 13px;
+}
+.sidebar .menu .list a span {
+    margin: 7px 0 7px 12px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    overflow: hidden;
+}
