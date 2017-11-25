@@ -46,7 +46,7 @@
         <form class="ai_margin">
         <div class="col-lg-10">
           <div class="form-group">
-            <input type="text" class="form-control ai_textbox" name="searchreq" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Text" [(ngModel)]="searchreq">        
+            <input type="text" class="form-control ai_textbox" name="searchreq" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Text" [(ngModel)]="searchreq" (keyup.enter)="searchBot()" autofocus>        
           </div>
           </div>
           <div class="col-lg-2">

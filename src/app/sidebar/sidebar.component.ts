@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ElementRef ,Renderer} from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor(private _router:Router) { }
+  constructor(private _router:Router,private el: ElementRef,private renderer: Renderer) { }
   
     ngOnInit() {
+
+      
       
     }
     
@@ -28,4 +30,27 @@ export class SidebarComponent implements OnInit {
       this._router.navigate(['/login']); 
     }
 
+
+  //   check(event){
+  //     console.log("toggle action");
+  //     let uii = event.target.classList;
+  //     console.log(event);
+  //     console.log(event.target);
+  //     console.log(event.target.classList);      
+  //     event.target.classList.toggle('toggled'); // To toggle
+  //   }
+
+  //   menuToggle(event:any) {
+  //     console.log(event.target.classList.contains("opened"));
+  //     event.target.classList.toggle('toggled'); // To toggle
+  //     if(event.target.classList.contains("opened")){
+  //       console.log("true");
+  //       //this.renderer.setElementClass(event.target,"opened",false);
+  //     }else{
+  //       console.log("false");
+  //      // this.renderer.setElementClass(event.target,"opened",true);
+  //     }
+
+      
+  // }
 }
