@@ -42,7 +42,7 @@ export class LandingComponent implements OnInit{
       //  this.searchreq = "How many leaves are remaining for this financial year"; 
       //  this.searchreq = "How many kinds of leave does our organization provide";  
       //  this.searchreq = "How many hours is the permission considered";
-        this.searchreq = "What is the work hour timing"; 
+      //  this.searchreq = "What is the work hour timing"; 
       //  this.searchreq = "Whom should I contact to inform my leave of absence"; 
       //  this.searchreq = "What is the commencement time of lunch break"; 
       //  this.searchreq = "How many public holidays does the organization provide in a year"; 
@@ -74,6 +74,7 @@ export class LandingComponent implements OnInit{
       this.userImg = "U"
       this.machineImg = "M";     
       
+     
     }
 
  
