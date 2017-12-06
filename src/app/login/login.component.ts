@@ -31,9 +31,22 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.clearLocalStorage();
     this.email = "ManikandanC@quadrupleindia.com";
     this.password = "123456";
 
+  }
+
+  clearLocalStorage(){
+    localStorage.removeItem("userId");
+    localStorage.removeItem("email");
+    localStorage.removeItem("firstname");
+    localStorage.removeItem("designation");
+    localStorage.removeItem("reporting_manager");
+    localStorage.removeItem("location");
+    localStorage.removeItem("authentication");
+    localStorage.removeItem("chats");
+    localStorage.removeItem("sessions");
   }
 
   authenticate(){

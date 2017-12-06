@@ -78,20 +78,23 @@ $.AdminBSB.leftSideBar = {
         //Collapse or Expand Menu
         $('.menu-toggle').on('click', function (e) {
             var $this = $(this);
+            console.log("JQUERY");
+            // console.log($(this));
             var $content = $this.next();
+            // console.log($this.next());
+            // console.log(e.target);
+            // if ($($this.parents('ul')[0]).hasClass('list')) {
+            //     var $not = $(e.target).hasClass('menu-toggle') ? e.target : $(e.target).parents('.menu-toggle');
 
-            if ($($this.parents('ul')[0]).hasClass('list')) {
-                var $not = $(e.target).hasClass('menu-toggle') ? e.target : $(e.target).parents('.menu-toggle');
+            //     $.each($('.menu-toggle.toggled').not($not).next(), function (i, val) {
+            //         if ($(val).is(':visible')) {
+            //             $(val).prev().toggleClass('toggled');
+            //             $(val).slideUp();
+            //         }
+            //     });
+            // }
 
-                $.each($('.menu-toggle.toggled').not($not).next(), function (i, val) {
-                    if ($(val).is(':visible')) {
-                        $(val).prev().toggleClass('toggled');
-                        $(val).slideUp();
-                    }
-                });
-            }
-
-            $this.toggleClass('toggled');
+           // $this.toggleClass('toggled');
             $content.slideToggle(320);
         });
 
@@ -124,8 +127,8 @@ $.AdminBSB.leftSideBar = {
 
             //Scroll active menu item when page load, if option set = true
             if ($.AdminBSB.options.leftSideBar.scrollActiveItemWhenPageLoad) {
-                var activeItemOffsetTop = $('.menu .list li.active')[0].offsetTop
-                if (activeItemOffsetTop > 150) $el.slimscroll({ scrollTo: activeItemOffsetTop + 'px' });
+                // var activeItemOffsetTop = $('.menu .list li.active')[0].offsetTop
+                // if (activeItemOffsetTop > 150) $el.slimscroll({ scrollTo: activeItemOffsetTop + 'px' });
             }
         }
     },
