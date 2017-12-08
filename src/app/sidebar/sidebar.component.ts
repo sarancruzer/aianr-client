@@ -1,3 +1,4 @@
+import { GlobalSettings } from './../_class/global-settings';
 import { Router } from '@angular/router';
 import { Component, OnInit,ElementRef ,Renderer} from '@angular/core';
 
@@ -8,22 +9,19 @@ import { Component, OnInit,ElementRef ,Renderer} from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor(private _router:Router,private el: ElementRef,private renderer: Renderer) { }
+  constructor(private _router:Router,private _globalSettings:GlobalSettings,private el: ElementRef,private renderer: Renderer) { }
   
     ngOnInit() {
-      
+      this._globalSettings.username = localStorage.getItem("employeeName");      
+      this._globalSettings.email = localStorage.getItem("email");      
     }
 
     
     logout(){
-      localStorage.removeItem("userId");
+      localStorage.removeItem("employeeName");
       localStorage.removeItem("email");
-      localStorage.removeItem("firstname");
-      localStorage.removeItem("designation");
-      localStorage.removeItem("reporting_manager");
-      localStorage.removeItem("location");
+      localStorage.removeItem("employeeNumber");
       localStorage.removeItem("authentication");
-      localStorage.removeItem("chats");
       localStorage.removeItem("sessions");
   
       this._router.navigate(['/login']); 

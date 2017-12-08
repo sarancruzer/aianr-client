@@ -6,7 +6,6 @@ import { Observable } from 'rxjs/Observable';
 import { LoginService } from "../_service/login.service"
 import { GlobalSettings } from "../_class/global-settings";
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -25,8 +24,7 @@ export class LoginComponent implements OnInit {
     private _router: Router,
     private _http: Http,
     private _loginService:LoginService,
-    private _globalSettings:GlobalSettings
-    
+    private _globalSettings:GlobalSettings    
     
   ) { }
 
@@ -38,37 +36,44 @@ export class LoginComponent implements OnInit {
   }
 
   clearLocalStorage(){
-    localStorage.removeItem("userId");
+    localStorage.removeItem("employeeName");
     localStorage.removeItem("email");
-    localStorage.removeItem("firstname");
-    localStorage.removeItem("designation");
-    localStorage.removeItem("reporting_manager");
-    localStorage.removeItem("location");
-    localStorage.removeItem("authentication");
-    localStorage.removeItem("chats");
+    localStorage.removeItem("employeeNumber");
     localStorage.removeItem("sessions");
+    localStorage.removeItem("chats");
   }
 
   authenticate(){
+
+   
     this._loginService.getAuthenticate(this.email,this.password).subscribe(response => {
         let res = response.result.data;
         let session = response.result.data.session;
+        let currentUser = response.result.data.currentUser;
         let statusCode = response.result.statusCode;
         let successText = response.result.successText;
 
-    
+        console.log("currentUser");    
+        console.log(currentUser);
+        console.log(session);
+       
+
        if(statusCode == 200){
         this.lSuccess = successText;
         
-        localStorage.setItem("email",res.response[1]);
+        localStorage.setItem("employeeName",currentUser.employeename);
+        localStorage.setItem("email",currentUser.officemailid);
+        localStorage.setItem("employeeNumber",currentUser.employeenumber);
         localStorage.setItem("authentication",JSON.stringify(true));
         localStorage.setItem("sessions",JSON.stringify(session));
-        setTimeout(() => {
-          this._router.navigate(['/landing']); 
-        }, 2000);
-
-        this._globalSettings.username = localStorage.getItem("firstname");
+        // setTimeout(() => {
+        //   this._router.navigate(['/landing']); 
+        // }, 2000);
+        
+        this._globalSettings.username = localStorage.getItem("employeeName");
         this._globalSettings.authenticated = JSON.parse(localStorage.getItem("authentication"));
+        this._router.navigate(['/landing']); 
+        
         
        }else{
         console.log(successText);

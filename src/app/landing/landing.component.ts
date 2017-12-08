@@ -30,32 +30,7 @@ export class LandingComponent implements OnInit{
     private _globalSettings: GlobalSettings
       
    ){
-      //  this.searchreq = "who is on leave today";
-      //  this.searchreq = "why they are leave";
-      //  this.searchreq = "why he is leave";
-      //  this.searchreq = "today leave list"; 
-      //  this.searchreq = "How many casual leaves can be taken in a year?";
-      //  this.searchreq = "How many days do we work in a week";
-      //  this.searchreq = "How many permission can be taken in a month";
-      //  this.searchreq = "How many months is considered for maternity leave"; 
-      //  this.searchreq = "How many leaves do we get in a financial year";
-      //  this.searchreq = "How many leaves are remaining for this financial year"; 
-      //  this.searchreq = "How many kinds of leave does our organization provide";  
-      //  this.searchreq = "How many hours is the permission considered";
-      //  this.searchreq = "What is the work hour timing"; 
-      //  this.searchreq = "Whom should I contact to inform my leave of absence"; 
-      //  this.searchreq = "What is the commencement time of lunch break"; 
-      //  this.searchreq = "How many public holidays does the organization provide in a year"; 
-       
-
-      //  this.searchreq = "How many public holidays does the organization provide in a year"; 
-      //  this.searchreq = "How many public holidays does the organization provide in a year"; 
-      //  this.searchreq = "How many public holidays does the organization provide in a year"; 
-      //  this.searchreq = "How many public holidays does the organization provide in a year"; 
-       
-       
-       
-       //this.chatLists.push(JSON.parse(localStorage.getItem("chats")));
+            //this.chatLists.push(JSON.parse(localStorage.getItem("chats")));
         let chts = JSON.parse(localStorage.getItem("chats"));
         console.log(chts);
         if(chts === null){
@@ -68,6 +43,7 @@ export class LandingComponent implements OnInit{
     }   
 
     ngOnInit(){
+      this._globalSettings.username = localStorage.getItem("employeeName");      
       
       this.chatLists = JSON.parse(localStorage.getItem("chats"));
       //this.userImg = this._globalSettings.username.charAt(0)
@@ -79,7 +55,9 @@ export class LandingComponent implements OnInit{
 
  
    searchBot(){
-             this.chatLists.push({'user':true,"value":this.searchreq,"created_at":Date.now()});
+
+    if(this.searchreq != null){
+             this.chatLists.push({'user':true,"value":this.searchreq,"created_at":Date.now()});              
       this._landingService.getsearchResponse(this.searchreq).subscribe(response => {
             let res = response.result.data;
             let session = response.result.data.session;
@@ -96,8 +74,13 @@ export class LandingComponent implements OnInit{
   console.log("error msg");
   //this.donationlistprovider.showErrorToast(err);
 })
-}
+}else{
+  //this.chatLists.push({'user':true,"value":this.searchreq,"created_at":Date.now()});  
+  this.chatLists.push({'machine':true,"value":"Please enter your question","created_at":Date.now()});
+  localStorage.setItem("chats",JSON.stringify(this.chatLists));
 
+}
+   }
 
 
 }

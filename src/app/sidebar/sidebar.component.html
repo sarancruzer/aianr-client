@@ -2,12 +2,12 @@
     <!-- User Info -->
     <div class="user-info">
         <div class="image">
-            <img src="images/user.png" width="48" height="48" alt="User" />
+            <img src="../../assets/images/user.png" width="48" height="48" alt="User" />
         </div>
         <div class="info-container">
-            <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
-            <div class="email">john.doe@example.com</div>
-            <div class="btn-group user-helper-dropdown">
+            <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{_globalSettings.username}}</div>
+            <div class="email">{{_globalSettings.email}}</div>
+            <!-- <div class="btn-group user-helper-dropdown">
                 <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                 <ul class="dropdown-menu pull-right">
                     <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
@@ -18,10 +18,101 @@
                     <li role="seperator" class="divider"></li>
                     <li><a href="javascript:void(0);" (click)="logout()"><i class="material-icons">input</i>Sign Out</a></li>
                 </ul>
-            </div>
+            </div> -->
         </div>
     </div>
-    <!-- #User Info -->
+   
+
+    <div class="nav-side-menu">       
+        <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+            <div class="menu-list">
+                <ul id="menu-content" class="menu-content collapse out">
+                    <li class="active">
+                      <a href="javascript:void(0);">
+                      <i class="fa fa-dashboard fa-lg"></i>  Dashboard
+                      </a>
+                    </li>
+                    <li data-toggle="collapse" data-target="#service" class="collapsed">
+                            <a href="javascript:void(0);"><i class="fa fa-user fa-lg"></i>  Employee <span class="arrow"></span></a>
+                          </li>  
+                          <ul class="sub-menu collapse" id="service">
+                              <li>
+                              <a href="javascript:void(0);">How many days do we work in a week</a>
+                              </li>
+                          </ul>
+
+                    <li  data-toggle="collapse" data-target="#products" class="collapsed ">
+                      <a href="javascript:void(0);"><i class="fa fa-calendar-plus-o fa-lg"></i>  Leaves <span class="arrow"></span></a>
+                    </li>
+                    <ul class="sub-menu collapse" id="products">
+                        <li>
+                            <a href="javascript:void(0);">who is on leave today</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">today leave list</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">How many casual leaves can be taken in a year</a>
+                        </li>
+                        <li>
+                                <a href="javascript:void(0);">How many permission can be taken in a month</a>
+                         </li>
+                        <li>
+                                    <a href="javascript:void(0);">How many permission can be taken in a month</a>
+                        </li>
+                        <li>
+                                <a href="javascript:void(0);">How many months is considered for maternity leave</a>
+                    </li>
+                    <li>
+                            <a href="javascript:void(0);">How many leaves do i get in a financial year</a>
+                         </li>
+                    <li>
+                        <a href="javascript:void(0);">How many leaves are remaining for this financial year</a>
+                     </li>
+                     <li>
+                            <a href="javascript:void(0);">How many kinds of leave does our organization provide</a>
+                         </li>
+                    <li>
+                        <a href="javascript:void(0);">How many hours is the permission considered</a>
+                        </li>
+                    <li>
+                        <a href="javascript:void(0);">What is the work hour timing</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Whom should I contact to inform my leave of absence</a>
+                            </li>
+                                     
+                        <li>
+                            <a href="javascript:void(0);">What is the commencement time of lunch break</a>
+                            </li>
+    
+                            <li>
+                                <a href="javascript:void(0);">How many public holidays does the organization provide in a year</a>
+                                </li>
+                    </ul>
+    
+    
+                 
+    
+    
+                    <li data-toggle="collapse" data-target="#new" class="collapsed">
+                      <a href="javascript:void(0);"><i class="fa fa-file-text fa-lg"></i>  About </a>
+                    </li>                    
+    
+    
+                     <li>
+                      <a href="javascript:void(0);">
+                      <i class="fa fa-file-text fa-lg"></i>  Reports
+                      </a>
+                      </li>
+    
+                </ul>
+         </div>
+    </div>
+
+
+
+     <!-- #User Info -->
     <!-- Menu -->
     <!-- <div class="menu">
         <ul class="list">
@@ -115,91 +206,3 @@
             </li>
         </ul>
     </div> -->
-
-
-    <div class="nav-side-menu">       
-        <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-            <div class="menu-list">
-                <ul id="menu-content" class="menu-content collapse out">
-                    <li class="active">
-                      <a href="#">
-                      <i class="fa fa-dashboard fa-lg"></i>  Dashboard
-                      </a>
-                    </li>
-                    <li data-toggle="collapse" data-target="#service" class="collapsed">
-                            <a href="#"><i class="fa fa-user fa-lg"></i>  Employee <span class="arrow"></span></a>
-                          </li>  
-                          <ul class="sub-menu collapse" id="service">
-                              <li>
-                              <a href="javascript:void(0);">How many days do we work in a week</a>
-                              </li>
-                          </ul>
-
-                    <li  data-toggle="collapse" data-target="#products" class="collapsed ">
-                      <a href="#"><i class="fa fa-calendar-plus-o fa-lg"></i>  Leaves <span class="arrow"></span></a>
-                    </li>
-                    <ul class="sub-menu collapse" id="products">
-                        <li>
-                            <a href="javascript:void(0);">who is on leave today</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);">today leave list</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);">How many casual leaves can be taken in a year</a>
-                        </li>
-                        <li>
-                                <a href="javascript:void(0);">How many permission can be taken in a month</a>
-                         </li>
-                        <li>
-                                    <a href="javascript:void(0);">How many permission can be taken in a month</a>
-                        </li>
-                        <li>
-                                <a href="javascript:void(0);">How many months is considered for maternity leave</a>
-                    </li>
-                    <li>
-                            <a href="javascript:void(0);">How many leaves do i get in a financial year</a>
-                         </li>
-                    <li>
-                        <a href="javascript:void(0);">How many leaves are remaining for this financial year</a>
-                     </li>
-                     <li>
-                            <a href="javascript:void(0);">How many kinds of leave does our organization provide</a>
-                         </li>
-                    <li>
-                        <a href="javascript:void(0);">How many hours is the permission considered</a>
-                        </li>
-                    <li>
-                        <a href="javascript:void(0);">What is the work hour timing</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);">Whom should I contact to inform my leave of absence</a>
-                            </li>
-                                     
-                        <li>
-                            <a href="javascript:void(0);">What is the commencement time of lunch break</a>
-                            </li>
-    
-                            <li>
-                                <a href="javascript:void(0);">How many public holidays does the organization provide in a year</a>
-                                </li>
-                    </ul>
-    
-    
-                 
-    
-    
-                    <li data-toggle="collapse" data-target="#new" class="collapsed">
-                      <a href="#"><i class="fa fa-file-text fa-lg"></i>  Changelogs </a>
-                    </li>                    
-    
-    
-                     <li>
-                      <a href="#">
-                      <i class="fa fa-user fa-lg"></i>  Information
-                      </a>
-                      </li>
-    
-                </ul>
-         </div>
-    </div>
