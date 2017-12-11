@@ -8040,3 +8040,24 @@ html.ie11 .dropdown-menu ul.menu li a {
 html.ie11 .bs-searchbox .form-control {
   width: 90%; }
 
+
+  .dialog-title {
+    background: linear-gradient(to top, #ef4b52 0%, #c5026a 100%);
+    color: #fff;
+    padding: 10px 15px;
+    font-size: 16px;
+}
+
+.dialog-footer {
+  position: absolute;
+  bottom: 0;
+  padding: 10px 15px;
+  border-top: 1px solid #ddd;
+  width: 100%;
+  text-align: right;
+}
+
+.favt_p p{font-size: 16px; margin-top: 10px;}
+.favt_p p i{font-size: 16px; padding-left: 20px; color: #cf1628;}
+
+  

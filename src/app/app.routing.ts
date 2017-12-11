@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { LandingComponent } from './landing/landing.component';
 import { LogoutComponent } from './logout/logout.component';
 
+
 export const routes: Routes = [
     {path: '',redirectTo: 'login',pathMatch: 'full'},
     {path: '',component: FullLayoutComponent,data: {title: 'DASHBOARD'},
