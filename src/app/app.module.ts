@@ -5,6 +5,8 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { LandingComponent } from './landing/landing.component';
@@ -14,6 +16,7 @@ import { FullLayoutComponent } from './containers/full-layout/full-layout.compon
 import { SimpleLayoutComponent } from './containers/simple-layout/simple-layout.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { DialogComponent } from './dialog/dialog.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -32,13 +35,15 @@ const appRoutes: Routes = [
     SimpleLayoutComponent,
     NavbarComponent,
     SidebarComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+     BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

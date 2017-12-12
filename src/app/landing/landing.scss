@@ -66,6 +66,11 @@ font-size: 22px !important;}
     .chat-num-messages {
       color: $gray;
     }
+    .chat-num-messages i{
+      color: #cf1628;
+      padding-right: 10px;
+      font-size: 20px;
+    }
     
     .fa-star {
       float: right;
@@ -115,7 +120,7 @@ position: relative;
         margin-left: -10px;
       }
     }
-    
+    .message i{color: #cf1628;}
     .my-message {
       background: $green;
     }

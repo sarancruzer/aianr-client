@@ -8,13 +8,18 @@
           
           <div class="chat-about">
             <div class="chat-with">{{_globalSettings.username}}</div>
-            <!-- <div class="chat-num-messages">already 1 902 messages</div> -->
+            <div class="chat-num-messages">
+                    <button (click)="showDialog = !showDialog" class="btn"><i class="fa fa-heart favt_icon" aria-hidden="true"></i>Favorite Messages</button>     
+                   
+            </div>
           </div>
           <i class="fa fa-star"></i>
         </div> <!-- end chat-header -->
         
         <div class="slimScrollDiv chat-history" style="overflow: scroll; height: xyz;" #scrollMe [scrollTop]="scrollMe.scrollHeight">
-          <ul>
+          
+         
+            <ul>
             <li class="clearfix" *ngFor="let row of chatLists">
               <div *ngIf="row.user">
               <div class="message-data align-right">
@@ -24,6 +29,7 @@
               </div>
               <div class="message my-message">
                 <p id="valueId" [innerHTML]="row.value"></p>
+                <span><i class="fa fa-heart favt_icon" aria-hidden="true"></i></span>
               </div>
             </div>
             <div *ngIf="row.machine">
@@ -60,9 +66,23 @@
       </div> <!-- end chat -->
       
     </div> <!-- end container -->
+
   </section>
 
   
+  <app-dialog [(visible)]="showDialog">
+        <header class="dialog-title">
+            <h4>Favorite Messages</h4>
+        </header>
+       <div class="favt_p">
+            <p><i class="fa fa-heart favt_icon" aria-hidden="true"></i> How many days do we work in a week</p>
+            <p><i class="fa fa-heart favt_icon" aria-hidden="true"></i> How many days do we work in a week</p>
+       </div>
+        <div class="dialog-footer">  
+            <button (click)="showDialog = !showDialog" class="btn">Close</button>
+        </div>  
+        </app-dialog>
+      
 
 <!--   
 

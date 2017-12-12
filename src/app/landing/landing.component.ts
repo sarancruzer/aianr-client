@@ -14,6 +14,7 @@ import { GlobalSettings } from "../_class/global-settings";
 })
 export class LandingComponent implements OnInit{
 
+
   searchreq : string;
   searchResponse: any;
   
