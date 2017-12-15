@@ -2490,7 +2490,7 @@ section.content {
   -ms-border-radius: 2px;
   border-radius: 2px;
   border: none;
-  font-size: 13px;
+  font-size: 14px;
   outline: none; }
   .btn:not(.btn-link):not(.btn-circle):hover {
     outline: none; }
@@ -8060,4 +8060,3 @@ html.ie11 .bs-searchbox .form-control {
 .favt_p p{font-size: 16px; margin-top: 10px;}
 .favt_p p i{font-size: 16px; padding-left: 20px; color: #cf1628;}
 
-  
