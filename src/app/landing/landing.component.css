@@ -60,3 +60,7 @@
 
 .dialog-title h4{font-size: 16px !important;}
 .dialog-title  p{font-size: 16px;}
+
+.faourites{
+    cursor: pointer;
+}

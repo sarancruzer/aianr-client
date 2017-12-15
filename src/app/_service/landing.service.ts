@@ -30,15 +30,28 @@ export class LandingService {
           .do(data => console.log(JSON.stringify(data)));
     
       }
+
+      addFavourites(params:any){
+        this.list ={"question":params,"sessions":localStorage.getItem("sessions")}
+        return this._http.post(this.apiUrl+'addFavourites',this.list,this.headers)
+        .map(res =>res.json())
+        .do(data => console.log(JSON.stringify(data)));
   
-    private extractData(res: Response) {
-    let body = res.json();
-          return body.data || {};
-      }
-      private handleErrorObservable (error: Response | any) {
-    console.error(error.message || error);
-    return Observable.throw(error.message || error);
-      }
+    }
+
+    sendReactions(flag:string,params:any){
+        this.list ={"question":params,"reaction":flag,"sessions":localStorage.getItem("sessions")}
+        return this._http.post(this.apiUrl+'sendReactions',this.list,this.headers)
+        .map(res =>res.json())
+        .do(data => console.log(JSON.stringify(data)));
+  
+    }
+    
+        
+
+      
+  
+    
      
   
 }

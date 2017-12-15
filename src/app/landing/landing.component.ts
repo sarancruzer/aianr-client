@@ -23,6 +23,9 @@ export class LandingComponent implements OnInit{
   userImg:string;
   machineImg:string;
   userName:string;
+  showDialog = false;
+
+  private favouriteLists = [];
 
   constructor(
     private _router: Router,
@@ -47,10 +50,10 @@ export class LandingComponent implements OnInit{
       this._globalSettings.username = localStorage.getItem("employeeName");      
       
       this.chatLists = JSON.parse(localStorage.getItem("chats"));
+      this.favouriteLists = JSON.parse(localStorage.getItem("favourites"));
       //this.userImg = this._globalSettings.username.charAt(0)
       this.userImg = "U"
-      this.machineImg = "M";     
-      
+      this.machineImg = "M"; 
      
     }
 
@@ -62,6 +65,7 @@ export class LandingComponent implements OnInit{
       this._landingService.getsearchResponse(this.searchreq).subscribe(response => {
             let res = response.result.data;
             let session = response.result.data.session;
+
             this.chatLists.push({'machine':true,"value":res.response,"created_at":Date.now()});
             this.searchreq = ""
             console.log("-------------------------------");
@@ -81,6 +85,41 @@ export class LandingComponent implements OnInit{
   localStorage.setItem("chats",JSON.stringify(this.chatLists));
 
 }
+}
+
+favtoAsk(question){
+  this.searchreq = question;
+  this.searchBot();
+  this.showDialog = false;
+
+}
+
+   reaction(flag,question){
+     this._landingService.sendReactions(flag,question).subscribe(response => {
+       let res = response.result.data;
+       console.log("currentUser");
+       },
+     err =>{
+     console.log("error msg");
+     //this.donationlistprovider.showErrorToast(err);
+     })
+
+     
+   }
+
+
+   addFavourites(question){
+    console.log(question);    
+    this.favouriteLists.push({'question':question});
+    localStorage.setItem("favourites",JSON.stringify(this.favouriteLists));
+    this._landingService.addFavourites(question).subscribe(response => {
+      let res = response.result.data;
+      console.log("currentUser");
+      },
+    err =>{
+    console.log("error msg");
+    //this.donationlistprovider.showErrorToast(err);
+    })
    }
 
 

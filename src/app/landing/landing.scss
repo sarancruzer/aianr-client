@@ -120,11 +120,14 @@ position: relative;
         margin-left: -10px;
       }
     }
-    .message i{color: #cf1628;}
+    .message i{color: #cf1628; font-size: 18px;}
     .my-message {
       background: $green;
     }
     
+    .message i.fa-thumbs-up{color: #fff;}
+    .message i.fa-thumbs-down{color: #fff;}
+
     .other-message {
       background: $blue;
       
@@ -220,4 +223,8 @@ position: relative;
 }
 #valueId{
   line-height: 20px;
+}
+
+.faourites{
+  cursor: pointer;
 }
