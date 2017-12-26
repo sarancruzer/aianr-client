@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { LoginComponent } from './login/login.component';
 import { LandingComponent } from './landing/landing.component';
 import { LogoutComponent } from './logout/logout.component';
+import { AboutComponent } from './about/about.component';
 
 
 export const routes: Routes = [
@@ -16,7 +17,8 @@ export const routes: Routes = [
       ]
     },
     {path: 'login',component: LoginComponent,data: {title: 'Login Page'}},
-    {path: 'logout',component: LogoutComponent,data: {title: 'Log out'}}
+    {path: 'logout',component: LogoutComponent,data: {title: 'Log out'}},
+    {path: 'about', component: AboutComponent }
   ];
 
 @NgModule({

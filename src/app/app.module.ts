@@ -17,6 +17,7 @@ import { SimpleLayoutComponent } from './containers/simple-layout/simple-layout.
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { DialogComponent } from './dialog/dialog.component';
+import { AboutComponent } from './about/about.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -36,6 +37,7 @@ const appRoutes: Routes = [
     NavbarComponent,
     SidebarComponent,
     DialogComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

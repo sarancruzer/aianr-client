@@ -275,14 +275,15 @@ Button animation
 }
 
 .button27 {
-	color: rgba(208,21,100,1);
+	color: rgba(27, 48, 101,1);
 	-webkit-transition: all 0.5s;
 	-moz-transition: all 0.5s;
 	-o-transition: all 0.5s;
 	transition: all 0.5s;
 	position: relative;
-	border: 1px solid rgb(208, 21, 100);
-	overflow: hidden;
+	border: 1px solid rgb(27, 48, 101);
+  overflow: hidden;
+  border-radius: 30px;
 }
 .button27:hover{
 	border: 1px solid rgba(255,255,255,0);
@@ -306,7 +307,7 @@ Button animation
 	transition: all 0.5s;
 	-webkit-transform: translate(-100%, -600%) rotate(30deg);
 	transform: translate(-100%, -600%)  rotate(30deg);
-	background-color: rgba(208,21,100,1);
+	background-color: rgba(27, 48, 101,1);
 	-webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
 	transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
 
