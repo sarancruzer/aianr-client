@@ -64,3 +64,18 @@
 .faourites{
     cursor: pointer;
 }
+
+ul li{
+    padding: 10px;
+    list-style: none;
+
+}
+ul li i {
+    color: red;
+    padding-right: 5px;
+}
+
+.panel-body {
+    min-height: 400px;
+    overflow-y: scroll
+}

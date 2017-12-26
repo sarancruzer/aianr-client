@@ -1,3 +1,14 @@
 li{list-style:none;}
 a{font-size: 30px;}
 .navbar{background: linear-gradient(to top, #ef4b52 0%, #c5026a 100%);}
+
+.menu {
+    min-height: 370px;
+    overflow-y: scroll;
+    height: 350px;
+}
+
+.bg-light-red {
+    background-color: rgb(201, 69, 69) !important;
+    color: #fff;
+}

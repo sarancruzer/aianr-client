@@ -29,15 +29,7 @@ export class LandingService {
           .map(res =>res.json())
           .do(data => console.log(JSON.stringify(data)));
     
-      }
-
-      addFavourites(params:any){
-        this.list ={"question":params,"sessions":localStorage.getItem("sessions")}
-        return this._http.post(this.apiUrl+'addFavourites',this.list,this.headers)
-        .map(res =>res.json())
-        .do(data => console.log(JSON.stringify(data)));
-  
-    }
+      }      
 
     sendReactions(flag:string,params:any){
         this.list ={"question":params,"reaction":flag,"sessions":localStorage.getItem("sessions")}

@@ -67,7 +67,6 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("employeeNumber",currentUser.employeenumber);
         localStorage.setItem("authentication",JSON.stringify(true));
         localStorage.setItem("sessions",JSON.stringify(session));
-        localStorage.setItem("favourites",JSON.stringify(favourites));
         
         // setTimeout(() => {
         //   this._router.navigate(['/landing']); 

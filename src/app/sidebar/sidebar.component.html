@@ -1,4 +1,4 @@
-<aside id="leftsidebar" class="sidebar">
+<aside id="leftsidebar" class="sidebar" >
     <!-- User Info -->
     <div class="user-info">
         <div class="image">
@@ -27,11 +27,12 @@
         <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
             <div class="menu-list">
                 <ul id="menu-content" class="menu-content collapse out">
-                    <li class="active">
-                      <a href="javascript:void(0);">
+                    <li class="active" routerLinkActive="active" [routerLink]="['/dashboard']">
+                      <a>
                       <i class="fa fa-dashboard fa-lg"></i>  Dashboard
                       </a>
                     </li>
+                   
                     <li data-toggle="collapse" data-target="#service" class="collapsed">
                             <a href="javascript:void(0);"><i class="fa fa-user fa-lg"></i>  Employee <span class="arrow"></span></a>
                           </li>  
@@ -46,7 +47,7 @@
                     </li>
                     <ul class="sub-menu collapse" id="products">
                         <li>
-                            <a href="javascript:void(0);">who is on leave today</a>
+                            <a href="javascript:void(0);" >who is on leave today</a>
                         </li>
                         <li>
                             <a href="javascript:void(0);">today leave list</a>
@@ -89,19 +90,17 @@
                             <li>
                                 <a href="javascript:void(0);">How many public holidays does the organization provide in a year</a>
                                 </li>
-                    </ul>
-    
-    
+                    </ul>  
                  
     
     
                     <li data-toggle="collapse" data-target="#new" class="collapsed">
-                      <a href="javascript:void(0);"><i class="fa fa-file-text fa-lg"></i>  About </a>
+                      <a routerLinkActive="about" [routerLink]="['/about']"><i class="fa fa-file-text fa-lg"></i>  About </a>
                     </li>                    
     
     
                      <li>
-                      <a href="javascript:void(0);">
+                      <a routerLinkActive="report" [routerLink]="['/report']">
                       <i class="fa fa-file-text fa-lg"></i>  Reports
                       </a>
                       </li>
@@ -110,6 +109,7 @@
          </div>
     </div>
 
+<!-- <app-landing  [childMessage]="parentMessage" style="display:none;"></app-landing> -->
 
 
      <!-- #User Info -->

@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+
+section{
+    padding: 10px;
+    height: auto;
+    min-height: 715px;
+    background: #fff;
+ 
+}
+
+section.content-1 {
+    margin: 69px 0px 0 300px !important;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    
+}
+section > div.container{
+    margin: 15px 0px;
+}

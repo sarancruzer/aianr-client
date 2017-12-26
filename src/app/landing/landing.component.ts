@@ -1,16 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Http ,Response} from '@angular/http';
 import { LandingService } from "../_service/landing.service";
 
 import { GlobalSettings } from "../_class/global-settings";
+import { FavouriteService } from '../_service/favourite.service';
+import { SidebarComponent } from '../sidebar/sidebar.component';
 
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.scss'],
-  providers:[LandingService]
+  providers:[LandingService,FavouriteService]
 })
 export class LandingComponent implements OnInit{
 
@@ -27,11 +29,13 @@ export class LandingComponent implements OnInit{
 
   private favouriteLists = [];
 
+  
   constructor(
     private _router: Router,
     private _http: Http,
-    private _landingService: LandingService,
-    private _globalSettings: GlobalSettings
+    private _service: LandingService,
+    private _globalSettings: GlobalSettings,
+    private _favouriteService:FavouriteService
       
    ){
             //this.chatLists.push(JSON.parse(localStorage.getItem("chats")));
@@ -47,11 +51,9 @@ export class LandingComponent implements OnInit{
     }   
 
     ngOnInit(){
-      this._globalSettings.username = localStorage.getItem("employeeName");      
-      
+      this.getFavourites();
+      this._globalSettings.username = localStorage.getItem("employeeName");            
       this.chatLists = JSON.parse(localStorage.getItem("chats"));
-      this.favouriteLists = JSON.parse(localStorage.getItem("favourites"));
-      //this.userImg = this._globalSettings.username.charAt(0)
       this.userImg = "U"
       this.machineImg = "M"; 
      
@@ -62,7 +64,7 @@ export class LandingComponent implements OnInit{
 
     if(this.searchreq != null){
              this.chatLists.push({'user':true,"value":this.searchreq,"created_at":Date.now()});              
-      this._landingService.getsearchResponse(this.searchreq).subscribe(response => {
+      this._service.getsearchResponse(this.searchreq).subscribe(response => {
             let res = response.result.data;
             let session = response.result.data.session;
 
@@ -87,15 +89,15 @@ export class LandingComponent implements OnInit{
 }
 }
 
-favtoAsk(question){
-  this.searchreq = question;
-  this.searchBot();
-  this.showDialog = false;
+  favtoAsk(question){
+    this.searchreq = question;
+    this.searchBot();
+    this.showDialog = false;
 
-}
+  }
 
    reaction(flag,question){
-     this._landingService.sendReactions(flag,question).subscribe(response => {
+     this._service.sendReactions(flag,question).subscribe(response => {
        let res = response.result.data;
        console.log("currentUser");
        },
@@ -112,7 +114,7 @@ favtoAsk(question){
     console.log(question);    
     this.favouriteLists.push({'question':question});
     localStorage.setItem("favourites",JSON.stringify(this.favouriteLists));
-    this._landingService.addFavourites(question).subscribe(response => {
+    this._favouriteService.addFavourites(question).subscribe(response => {
       let res = response.result.data;
       console.log("currentUser");
       },
@@ -121,6 +123,24 @@ favtoAsk(question){
     //this.donationlistprovider.showErrorToast(err);
     })
    }
+
+   getFavourites(){
+    this._favouriteService.getFavourites().subscribe(response => {
+      let res = response.result.data.info;
+      this.favouriteLists = res;
+      localStorage.setItem("favourites",JSON.stringify(res));
+      
+      console.log("currentUser");
+      },
+    err =>{
+    console.log("error msg");
+    //this.donationlistprovider.showErrorToast(err);
+    })
+   }
+
+
+
+
 
 
 }

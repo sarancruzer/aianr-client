@@ -120,7 +120,7 @@ position: relative;
         margin-left: -10px;
       }
     }
-    .message i{color: #cf1628; font-size: 18px;}
+    .message i{color: #cf1628; font-size: 20px;}
     .my-message {
       background: $green;
     }
@@ -228,3 +228,266 @@ position: relative;
 .faourites{
   cursor: pointer;
 }
+
+/*========pulse========*/  
+.pulse {
+	animation-name: pulse_animation;
+	animation-duration: 5000ms;
+	transform-origin:70% 70%;
+	animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes pulse_animation {
+	0% { transform: scale(1); }
+	30% { transform: scale(1); }
+	40% { transform: scale(1.08); }
+	50% { transform: scale(1); }
+	60% { transform: scale(1); }
+	70% { transform: scale(1.05); }
+	80% { transform: scale(1); }
+	100% { transform: scale(1); }
+}
+.shadow
+{  text-shadow:     0 1px 0 hsl(174,5%,80%),
+  0 2px 0 hsl(174,5%,75%),
+  0 3px 0 hsl(174,5%,70%),
+  0 4px 0 hsl(174,5%,66%),
+  0 5px 0 hsl(174,5%,64%),
+  0 6px 0 hsl(174,5%,62%),
+  0 7px 0 hsl(174,5%,61%),
+  0 8px 0 hsl(174,5%,60%),
+
+  0 0 5px rgba(0,0,0,.05),
+ 0 1px 3px rgba(0,0,0,.2),
+ 0 3px 5px rgba(0,0,0,.2),
+0 5px 10px rgba(0,0,0,.2),
+0 10px 10px rgba(0,0,0,.2),
+0 20px 20px rgba(0,0,0,.3);
+}
+.shadow_1
+{ text-shadow: 1px 1px 3px rgba(0,0,0,0.5);}
+
+/*==============
+Button animation
+==============*/
+.sim-button{
+	line-height: 50px;
+	height: 50px;
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 1px;
+	width: 100%;
+  cursor: pointer;
+  padding: 0px 20px;
+}
+
+.button27 {
+	color: rgba(208,21,100,1);
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+	position: relative;
+	border: 1px solid rgb(208, 21, 100);
+	overflow: hidden;
+}
+.button27:hover{
+	border: 1px solid rgba(255,255,255,0);
+}
+.button27 a{
+	color: rgba(51,51,51,1);
+	text-decoration: none;
+	display: block;
+}
+.button27::before{
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 1px;
+	z-index: 1;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+	-webkit-transform: translate(-100%, -600%) rotate(30deg);
+	transform: translate(-100%, -600%)  rotate(30deg);
+	background-color: rgba(208,21,100,1);
+	-webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+	transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+
+}
+.button27:hover::before{
+	-webkit-transform: translate(0,0);
+	transform: translate(0,0);	
+}
+/*===============
+chatbox amination
+===============*/
+@-webkit-keyframes fadeDistortion {
+  
+      0%{
+          opacity: 0;
+          -webkit-transform: skewX(-8deg) skewY(-8deg);
+          transform: skewX(-8deg) skewY(-8deg);
+      }
+  
+      25% {
+          -webkit-transform: skewX(6deg) skewY(6deg);
+          transform: skewX(6deg) skewY(6deg);
+      }
+  
+      50% {
+          -webkit-transform: skewX(-4deg) skewY(-4deg);
+          transform: skewX(-4deg) skewY(-4deg);
+      }
+  
+      75% {
+          -webkit-transform: skewX(2deg) skewY(2deg);
+          transform: skewX(2deg) skewY(2deg);
+      }
+  
+      100%{
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+      }
+  }
+  
+  @keyframes fadeDistortion {
+  
+      0%{
+          opacity: 0;
+          -webkit-transform: skewX(-8deg) skewY(-8deg);
+          transform: skewX(-8deg) skewY(-8deg);
+      }
+  
+      25% {
+          -webkit-transform: skewX(6deg) skewY(6deg);
+          transform: skewX(6deg) skewY(6deg);
+      }
+  
+      50% {
+          -webkit-transform: skewX(-4deg) skewY(-4deg);
+          transform: skewX(-4deg) skewY(-4deg);
+      }
+  
+      75% {
+          -webkit-transform: skewX(2deg) skewY(2deg);
+          transform: skewX(2deg) skewY(2deg);
+      }
+  
+      100%{
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+      }
+  }
+  
+  .fadeDistortion {
+      -webkit-animation-duration: 1s;
+      animation-duration: 1s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+      -webkit-transform-origin: center;
+      transform-origin: center;
+      -webkit-animation-name: fadeDistortion;
+      animation-name: fadeDistortion;
+  }
+
+  /*============
+  Zoom animation
+  ============*/
+  @-webkit-keyframes zoomIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(.8, .8, .8);
+        transform: scale3d(.8, .8, .8);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(.8, .8, .8);
+        transform: scale3d(.8, .8, .8);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+.zoomIn {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-name: zoomIn;
+    animation-name: zoomIn;
+}
+
+
+@-webkit-keyframes zoomIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(.8, .8, .8);
+        transform: scale3d(.8, .8, .8);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+/*=============
+Fade left
+=============*/
+@-webkit-keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-20%, 0, 0);
+        transform: translate3d(-20%, 0, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-20%, 0, 0);
+        transform: translate3d(-20%, 0, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+.fadeInLeft {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-name: fadeInLeft;
+    animation-name: fadeInLeft;
+}
+
