@@ -25,13 +25,23 @@
     font-family: verdana;
     font-size: 12px;
     font-weight: 200;
-    background-color: #ffffff;
     position: fixed;
     top: 200px;
     width: 300px;
     height: 100%;
-    color: #333333;
+    background: url(../../assets/images/side_img.jpg);
+    /* background: rgba(27, 48, 101, 1), url("side_img.jpg"); */
+    /* background-image:url("assets/images/side_img.jpg"); */
+    
   }
+  .layer {
+    background-color: rgba(27, 48, 101, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
   .nav-side-menu .brand {
     background-color: #23282e;
     line-height: 50px;
@@ -49,6 +59,7 @@
     margin: 0px;
     line-height: 45px;
     cursor: pointer;
+    color: #d9ecfd;
     /*    
       .collapsed{
          .arrow:before{
@@ -72,14 +83,16 @@
     padding-right: 10px;
     vertical-align: middle;
     float: right;
+   
   }
   .nav-side-menu ul .active,
   .nav-side-menu li .active {
-    border-left: 3px solid #d19b3d;
-    background: #eee;
+    border-left: 3px solid #ffffff;
     font-size: 12px;
     font-weight: 600;
-    padding: 8px 16px;
+    color: #333
+    /* padding: 8px 16px; */
+   
   }
   .nav-side-menu ul .sub-menu li.active,
   .nav-side-menu li .sub-menu li.active {
@@ -91,16 +104,16 @@
   }
   .nav-side-menu ul .sub-menu li,
   .nav-side-menu li .sub-menu li {
-    background-color: #ffffff;
+    background-color: #183168;
     border: none;
-    line-height: 20px;
+    line-height: 18px;
     border-bottom: 1px solid #727272; 
     margin-left: 0px;
     padding: 10px;
   }
   .nav-side-menu ul .sub-menu li:hover,
   .nav-side-menu li .sub-menu li:hover {
-    background-color: #e3e3e3;
+    background-color: #2f4d91;
   }
   .nav-side-menu ul .sub-menu li:before,
   .nav-side-menu li .sub-menu li:before {
@@ -118,7 +131,7 @@
   }
   .nav-side-menu li a {
     text-decoration: none;
-    color: #23282e;
+    color: #ffffff;
     font-size: 14px;
   }
   .nav-side-menu li a i {
@@ -126,17 +139,17 @@
     width: 20px;
     padding-right: 20px;
     margin: 7px 0 7px 12px;
-    color: #747474;
+    color: #fff;
   }
   .nav-side-menu li:hover {
-    border-left: 3px solid #d19b3d;
-    background-color: #e3e3e3;
+    border-left: 3px solid #fff;
+    background-color: #183168;
     -webkit-transition: all 1s ease;
     -moz-transition: all 1s ease;
     -o-transition: all 1s ease;
     -ms-transition: all 1s ease;
     transition: all 1s ease;
-    color: #ffffff;
+    color: #23282e;
   }
   /*-------------
   MENU

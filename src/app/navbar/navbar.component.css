@@ -1,3 +1,8 @@
 li{list-style:none;}
 a{font-size: 30px;}
-.navbar{background: linear-gradient(to top, #ef4b52 0%, #c5026a 100%);}
+.navbar{background: linear-gradient(to top, #ffffff 0%, #ffffff 100%);}
+.ai_logo{background: #1b3065; width: 300px;}
+.ai_logo a{width: 100%; left: 0;
+        top: 0;
+        text-align: center;
+        margin: auto;}
