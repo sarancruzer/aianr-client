@@ -22,6 +22,6 @@ export class AppComponent implements OnInit {
     if(!this._globalSettings.authenticated){
         this._router.navigate(['/login']); 
     }
-
   }
+  
 }

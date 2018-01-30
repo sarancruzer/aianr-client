@@ -1,8 +1,8 @@
-
+<app-sidebar (messageEvent)="receivedMessage($event)"></app-sidebar>
 
 <section class="content zoomIn">
     <div class="container clearfix">   
-      <div class="chat">
+      <div class="chat effect1">
         <div class="chat-header clearfix">
           <img src="../../assets/images/user.png" alt="avatar" />
           
@@ -13,7 +13,6 @@
                     <!--<div class="sim-button button27"><span><i class="fa fa-heart favt_icon pulse shadow" aria-hidden="true"></i>Favorite</span></div>-->
             </div>
           </div>
-          <i class="fa fa-star"></i>
         </div> <!-- end chat-header -->
         
         <div class="slimScrollDiv chat-history" style="overflow: scroll; height: xyz;" #scrollMe [scrollTop]="scrollMe.scrollHeight">
@@ -29,7 +28,8 @@
               </div>
               <div class="message my-message fadeInLeft">
                 <p id="valueId" [innerHTML]="row.value"></p>
-                <span (click)="addFavourites(row.value)" class="faourites"><i class="fa fa-heart favt_icon pulse shadow_1" aria-hidden="true"></i></span>
+                <span (click)="updateFavourites(row.value)" class="faourites" [ngClass]="(row.favourite)?'fav_clr':''">
+                    <i [ngClass]="(row.favourite)?'fav_clr':''" class="fa fa-heart favt_icon pulse shadow_1" aria-hidden="true"></i></span>
 
               </div>
             </div>
@@ -40,13 +40,21 @@
                 </div>
                 <div class="message other-message float-right">
                     <p id="valueId" [innerHTML]="row.value"></p>
-                    <a class="btn btn-success" (click)="reaction('like',row.value);"><i class="fa fa-thumbs-up"></i> </a> &nbsp;&nbsp;&nbsp;&nbsp;
-                    <a class="btn btn-danger" (click)="reaction('unlike',row.value);"><i class="fa fa-thumbs-down"></i> </a>
+                    <!-- <a class="btn like_btn" (click)="reaction('like',row.question);"><i [ngClass]="(row.reaction == 'like')?'animate-like':''" class="fa fa-thumbs-up"></i> </a> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a class="btn btn-danger like_btn" (click)="reaction('unlike',row.question);"><i [ngClass]="(row.reaction == 'unlike')?'animate-unlike':''" class="fa fa-thumbs-down"></i> </a> -->
+
+                    <button class="btn-secondary like-review" (click)="reaction('like',row.question);">
+                        <i [ngClass]="(row.reaction == 'like')?'animate-like':''" class="fa fa-thumbs-up" aria-hidden="true"></i> 
+                    </button>
+
+                    <button class="btn-primary like-review" (click)="reaction('unlike',row.question);">
+                        <i [ngClass]="(row.reaction == 'unlike')?'animate-like':''" class="fa fa-thumbs-down" aria-hidden="true"></i> 
+                    </button>
                     
                 </div>
               </div>
             </li>
-           
+           <!-- <h1 (messageEvent)="receivedMessage($event)">Hi</h1> -->
             
           </ul>
           
@@ -55,6 +63,7 @@
         <form class="ai_margin">
         <div class="col-lg-10">
           <div class="form-group">
+              {{message}}
             <input type="text" class="form-control ai_textbox" name="searchreq" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Text" [(ngModel)]="searchreq" (keyup.enter)="searchBot()" autofocus>        
           </div>
           </div>
@@ -80,11 +89,12 @@
        <div class="favt_p">
             <p *ngFor="let item of favouriteLists" (click)="favtoAsk(item.question)"><i class="fa fa-heart favt_icon" aria-hidden="true"></i> {{item.question}}</p>            
        </div>
-        <div class="dialog-footer">  
-            <button (click)="showDialog = !showDialog" class="btn">Close</button>
-        </div>  
+         
 </app-dialog>
-      
+
+
+
+
 
 <!--   
 

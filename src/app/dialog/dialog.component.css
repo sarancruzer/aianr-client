@@ -32,10 +32,11 @@
   
   .dialog__close-btn {
     border: 0;
-    background: none;
-    color: #2d2d2d;
+    background: #fff;
+    color: #1b3165;
     position: absolute;
-    top: 8px;
-    right: 8px;
+    top: 15px;
+    right: 15px;
     font-size: 1.2em;
+    border-radius: 50%;
   }

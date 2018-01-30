@@ -26,9 +26,9 @@ export class FavouriteService {
     
       }
 
-      addFavourites(params:any){
-        this.list ={"question":params,"sessions":localStorage.getItem("sessions")}
-        return this._http.post(this.apiUrl+'addFavourites',this.list,this.headers)
+    updateFavourites(params:any,flag:boolean){
+        this.list ={"question":params,"sessions":localStorage.getItem("sessions"),"flag":flag}
+        return this._http.post(this.apiUrl+'updateFavourites',this.list,this.headers)
         .map(res =>res.json())
         .do(data => console.log(JSON.stringify(data)));  
     }

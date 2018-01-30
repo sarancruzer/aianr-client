@@ -12,6 +12,7 @@ import { AboutComponent } from './about/about.component';
 import { FavouriteComponent } from './favourite/favourite.component';
 
 
+
 export const routes: Routes = [
     {path: '',redirectTo: 'login',pathMatch: 'full'},
     {path: '',component: FullLayoutComponent,data: {title: 'DASHBOARD'},
@@ -24,7 +25,8 @@ export const routes: Routes = [
       ]
     },
     {path: 'login',component: LoginComponent,data: {title: 'Login Page'}},
-    {path: 'logout',component: LogoutComponent,data: {title: 'Log out'}}
+    {path: 'logout',component: LogoutComponent,data: {title: 'Log out'}},
+    {path: 'about', component: AboutComponent }
   ];
 
 @NgModule({

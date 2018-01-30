@@ -11,10 +11,14 @@ import { FavouriteService } from '../_service/favourite.service';
 export class NavbarComponent implements OnInit {
 
   reactionLists = [];
-  constructor(private _router:Router,private _favouriteService:FavouriteService) { }
+  constructor(private _router:Router,private _favouriteService:FavouriteService) 
+  {
+    this.getReactions();
+
+  }
 
   ngOnInit() {
-    this.getReactions();
+    
   }
 
   logout(){

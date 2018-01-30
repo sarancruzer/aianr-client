@@ -64,3 +64,11 @@
 .faourites{
     cursor: pointer;
 }
+
+.report_link{
+    color:#fff !important;
+}
+.favt_p{
+    min-height: 300px;
+    overflow-y: scroll;
+}

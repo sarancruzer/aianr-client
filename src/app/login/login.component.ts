@@ -26,10 +26,12 @@ export class LoginComponent implements OnInit {
     private _loginService:LoginService,
     private _globalSettings:GlobalSettings    
     
-  ) { }
+  ) {
+      document.body.style.backgroundImage = "url('../../assets/images/background.jpg')";
+   }
 
   ngOnInit() {
-    this.clearLocalStorage();
+    //this.clearLocalStorage();
     this.email = "ManikandanC@quadrupleindia.com";
     this.password = "123456";
 
