@@ -1,13 +1,13 @@
 <aside id="leftsidebar" class="sidebar">
-    <!-- User Info -->
-    <div class="user-info">
-        <div class="image">
-            <img src="../../assets/images/user.png" width="48" height="48" alt="User" />
-        </div>
-        <div class="info-container">
-            <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{_globalSettings.username}}</div>
-            <div class="email">{{_globalSettings.email}}</div>
-            <!-- <div class="btn-group user-helper-dropdown">
+  <!-- User Info -->
+  <div class="user-info">
+    <div class="image">
+      <img src="../../assets/images/user.png" width="48" height="48" alt="User" />
+    </div>
+    <div class="info-container">
+      <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{_globalSettings.username}}</div>
+      <div class="email">{{_globalSettings.email}}</div>
+      <!-- <div class="btn-group user-helper-dropdown">
                 <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                 <ul class="dropdown-menu pull-right">
                     <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
@@ -19,237 +19,131 @@
                     <li><a href="javascript:void(0);" (click)="logout()"><i class="material-icons">input</i>Sign Out</a></li>
                 </ul>
             </div> -->
-        </div>
     </div>
-   
+  </div>
 
-    <!-- <div class="nav-side-menu"> 
-        <div class="layer">     
-        <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-            <div class="menu-list" >
-                <ul id="menu-content" class="menu-content collapse out">
-                    <li class="active">
-                      <a href="javascript:void(0);">
-                      <i class="fa fa-dashboard fa-lg"></i>  Dashboard
-                      </a>
-                    </li>
-                    <li data-toggle="collapse" data-target="#service" class="collapsed">
-                            <a href="javascript:void(0);"><i class="fa fa-user fa-lg"></i>  Employee <span class="arrow"></span></a>
-                          </li>  
-                          <ul class="sub-menu collapse" id="service">
-                              <li>
-                              <a href="javascript:void(0);">How many days do we work in a week</a>
-                              </li>
-                          </ul>
 
-                    <li  data-toggle="collapse" data-target="#products" class="collapsed ">
-                      <a href="javascript:void(0);"><i class="fa fa-calendar-plus-o fa-lg"></i>  Leaves <span class="arrow"></span></a>
-                    </li>
-                    <ul class="sub-menu collapse" id="products">
-                        <li>
-                            <a href="javascript:void(0);">who is on leave today</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);">today leave list</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);">How many casual leaves can be taken in a year</a>
-                        </li>
-                        <li>
-                                <a href="javascript:void(0);">How many permission can be taken in a month</a>
-                         </li>
-                        <li>
-                                    <a href="javascript:void(0);">How many permission can be taken in a month</a>
-                        </li>
-                        <li>
-                                <a href="javascript:void(0);">How many months is considered for maternity leave</a>
-                    </li>
-                    <li>
-                            <a href="javascript:void(0);">How many leaves do i get in a financial year</a>
-                         </li>
-                    <li>
-                        <a href="javascript:void(0);">How many leaves are remaining for this financial year</a>
-                     </li>
-                     <li>
-                            <a href="javascript:void(0);">How many kinds of leave does our organization provide</a>
-                         </li>
-                    <li>
-                        <a href="javascript:void(0);">How many hours is the permission considered</a>
-                        </li>
-                    <li>
-                        <a href="javascript:void(0);">What is the work hour timing</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);">Whom should I contact to inform my leave of absence</a>
-                            </li>
-                                     
-                        <li>
-                            <a href="javascript:void(0);">What is the commencement time of lunch break</a>
-                            </li>
-    
-                            <li>
-                                <a href="javascript:void(0);">How many public holidays does the organization provide in a year</a>
-                                </li>
-                    </ul>
-    
-    
-                 
-    
-    
-                    <li data-toggle="collapse" data-target="#new" class="collapsed">
-                      <a [routerLink]="['/about']"><i class="fa fa-file-text fa-lg"></i>  About </a>
-                    </li>                    
-    
-    
-                     <li>
-                      <a href="javascript:void(0);">
-                      <i class="fa fa-file-text fa-lg"></i>  Reports
-                      </a>
-                      </li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-    
-                </ul>
-         </div>
-        </div> 
+  <!-- <div class="nav-side-menu">
+    <div class="layer">
+      <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+      <div class="menu-list">
+        <ul id="menu-content" class="menu-content collapse out">
+          <li class="active" routerLinkActive="active" [routerLink]="['/dashboard']">
+            <a>
+              <i class="fa fa-dashboard fa-lg"></i> Dashboard
+            </a>
+          </li>
+
+          <li data-toggle="collapse" data-target="#service" class="collapsed">
+            <a href="javascript:void(0);">
+              <i class="fa fa-user fa-lg"></i> Employee Benefits - Queries
+              <span class="arrow"></span>
+            </a>
+          </li>
+          <ul class="sub-menu collapse" id="service">
+            <li *ngFor="let emp of empBenefits" (click)="sendMessage(emp)">
+              <a href="javascript:void(0);" >{{emp}}</a>
+            </li>
+          </ul>
+
+          <li data-toggle="collapse" data-target="#products" class="collapsed ">
+            <a href="javascript:void(0);">
+              <i class="fa fa-calendar-plus-o fa-lg"></i> Leave - Queries
+              <span class="arrow"></span>
+            </a>
+          </li>
+          <ul class="sub-menu collapse" id="products">
+            <li *ngFor="let leave of leaves" (click)="sendMessage(leave)">
+              <a href="javascript:void(0);" >{{leave}}</a>
+            </li>
+          </ul>
+
+          <li data-toggle="collapse" data-target="#otschedule" class="collapsed ">
+            <a href="javascript:void(0);">
+              <i class="fa fa-calendar-plus-o fa-lg"></i> Office Time Schedule - Queries
+              <span class="arrow"></span>
+            </a>
+          </li>
+          <ul class="sub-menu collapse" id="otschedule">
+            <li *ngFor="let ot of otSchedules" (click)="sendMessage(ot)">
+              <a href="javascript:void(0);" >{{ot}}</a>
+            </li>
+          </ul>
+
+          <li data-toggle="collapse" data-target="#new" class="collapsed">
+            <a routerLinkActive="about" [routerLink]="['/about']">
+              <i class="fa fa-file-text fa-lg"></i> About </a>
+          </li>
+
+
+          <li data-toggle="collapse" data-target="#reports" class="collapsed">
+                <a href="javascript:void(0);">
+                  <i class="fa fa-user fa-lg"></i> Reports
+                  <span class="arrow"></span>
+                </a>
+              </li>
+              <ul class="sub-menu collapse" id="reports">
+                <li *ngFor="let report of reports" (click)="sendMessage(report.report_name)">
+                  <a href="javascript:void(0);" >{{report.report_name}}</a>
+                </li>
+              </ul>       
+
+        </ul>
+      </div>
     </div>
-_____________________________________________________ -->
+  </div> -->
+
+  
+
 <div class="row">
         <div class="col-md-12">
             <ul class="nav nav-stacked back_sidebar" id="accordion1">
-                <li><a href="javascript:void(0);"><i class="fa fa-home"></i>Dashboard</a></li>
+
+                <li><a routerLinkActive="active" [routerLink]="['/dashboard']"><i class="fa fa-home"></i>Dashboard</a></li>
                 
-                <li class="panel"> <a data-toggle="collapse" data-parent="#accordion1" href="#firstLink">
-                    <i class="fa fa-user fa-lg"></i>  Employee <span class="arrow"></span></a>
-    
+                <li class="panel"> <a data-toggle="collapse" data-parent="#accordion1" href="#firstLink">Employee Benefits - Queries</a>    
                     <ul id="firstLink" class="collapse">
-                        <li>SubTest1</li>
-                        <li>SubTest1</li>
-                        <li>SubTest1</li>
+                        <li *ngFor="let emp of empBenefits" (click)="sendMessage(emp)">
+                            <a href="javascript:void(0);" >{{emp}}</a>
+                          </li>
                     </ul>
                   
                 </li>
-                <li class="panel"> <a data-toggle="collapse" data-parent="#accordion1" href="#secondLink">Test2</a>
+                <li class="panel"> <a data-toggle="collapse" data-parent="#accordion1" href="#secondLink">Leave - Queries</a>
     
                     <ul id="secondLink" class="collapse">
-                        <li>SubTest2</li>
-                        <li>SubTest2</li> 
-                        <li>SubTest2</li>
-                        <li>SubTest2</li>
+                        <li *ngFor="let leave of leaves" (click)="sendMessage(leave)">
+                            <a href="javascript:void(0);" >{{leave}}</a>
+                          </li>
                     </ul>
                 </li>
-                <li><a href="#">Test1</a>
+                <li class="panel"> <a data-toggle="collapse" data-parent="#accordion1" href="#thirdLink">Office Time Schedule - Queries</a>
+                    
+                <ul id="thirdLink" class="collapse">
+                    <li *ngFor="let leave of leaves" (click)="sendMessage(leave)">
+                        <a href="javascript:void(0);" >{{leave}}</a>
+                        </li>
+                </ul>
+
                 </li>
-                <li><a href="#">Test1</a>
+
+                <li><a routerLinkActive="about" [routerLink]="['/about']"><i class="fa fa-home"></i>About</a></li>
+
+                <li class="panel"> <a data-toggle="collapse" data-parent="#accordion1" href="#thirdLink">Reports  <span class="arrow"></span>
+                </a>
+                
+                <ul id="thirdLink" class="collapse">
+                    <li *ngFor="let report of reports" (click)="sendMessage(report.report_name)">
+                        <a href="javascript:void(0);" >{{report.report_name}}</a>
+                      </li>
+                </ul>
+
                 </li>
+
+
+
             </ul>
         </div>
     </div>
 
-    <div class="menu">
-        <ul>
-          <li><a href="javascript:void(0);"><i class="fa fa-home"></i>Dashboard</a></li>
-          
-          <li data-toggle="collapse" data-target="#new" class="collapsed">
-                <a [routerLink]="['/about']"><i class="fa fa-users "></i>  About </a>
-              </li>   
-        
-          <li (click)="menuToggle($event)">
-            <a href="javascript:void(0);" class="menu-toggle" >
-                    <i class="fa fa-user"></i>
-                <span>Employee</span>
-            </a>
-            <ul class="ml-menu">
-                    <li>
-                        <a href="javascript:void(0);">who is on leave today</a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);">today leave list</a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);">How many casual leaves can be taken in a year</a>
-                    </li>
-                    <li>
-                            <a href="javascript:void(0);">How many permission can be taken in a month</a>
-                     </li>
-                    <li>
-                                <a href="javascript:void(0);">How many permission can be taken in a month</a>
-                    </li>
-                    <li>
-                            <a href="javascript:void(0);">How many months is considered for maternity leave</a>
-                </li>
-                <li>
-                        <a href="javascript:void(0);">How many leaves do i get in a financial year</a>
-                     </li>
-                <li>
-                    <a href="javascript:void(0);">How many leaves are remaining for this financial year</a>
-                 </li>
-                 <li>
-                        <a href="javascript:void(0);">How many kinds of leave does our organization provide</a>
-                     </li>
-                <li>
-                    <a href="javascript:void(0);">How many hours is the permission considered</a>
-                    </li>
-                <li>
-                    <a href="javascript:void(0);">What is the work hour timing</a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);">Whom should I contact to inform my leave of absence</a>
-                        </li>
-                                 
-                    <li>
-                        <a href="javascript:void(0);">What is the commencement time of lunch break</a>
-                        </li>
-
-                        <li>
-                            <a href="javascript:void(0);">How many public holidays does the organization provide in a year</a>
-                            </li>
-                                     
-                    
-                </ul>
-        </li>
-        <li><i class="fa fa-user"></i>Profile</li>
-        <li><i class="fa fa-users"></i>Friends</li>
-        <li><i class="fa fa-inbox"></i>Inbox<span class="notification">12</span></li>
-        <li><i class="fa fa-cog"></i>Settings</li>
-        <li><i class="fa fa-question-circle"></i>Help</li>
-        <li><i class="fa fa-share"></i>Share</li>
-        <li><i class="fa fa-sign-out"></i>Logout</li>
-        </ul>
-      </div>
-      <script>$("ul li").click(function(e) {
-        /* Add the ripple */
-      
-        // Remove olds ones
-        $(".ripple").remove();
-      
-        // Setup
-        var posX = $(this).offset().left,
-            posY = $(this).offset().top,
-            buttonWidth = $(this).width(),
-            buttonHeight = $(this).height();
-      
-        // Add the element
-        $(this).prepend("<span class='ripple'></span>");
-      
-        // Make it round!
-        if (buttonWidth >= buttonHeight) {
-          buttonHeight = buttonWidth;
-        } else {
-          buttonWidth = buttonHeight;
-        }
-      
-        // Get the center of the element
-        var x = e.pageX - posX - buttonWidth / 2;
-        var y = e.pageY - posY - buttonHeight / 2;
-      
-        // Add the ripples CSS and start the animation
-        $(".ripple").css({
-          width: buttonWidth,
-          height: buttonHeight,
-          top: y + 'px',
-          left: x + 'px'
-        }).addClass("rippleEffect");
-      });</script>
+    

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-full-layout',
@@ -6,9 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./full-layout.component.css']
 })
 export class FullLayoutComponent implements OnInit {
-
   constructor() { }
-
   ngOnInit() {
   }
 

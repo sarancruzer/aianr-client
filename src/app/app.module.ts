@@ -18,6 +18,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { AboutComponent } from './about/about.component';
+import { ReportComponent } from './report/report.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { FavouriteComponent } from './favourite/favourite.component';
+import { TruncatePipe } from './_pipe/truncate.pipe';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -38,6 +42,10 @@ const appRoutes: Routes = [
     SidebarComponent,
     DialogComponent,
     AboutComponent,
+    ReportComponent,
+    DashboardComponent,
+    FavouriteComponent,
+    TruncatePipe,
   ],
   imports: [
     BrowserModule,

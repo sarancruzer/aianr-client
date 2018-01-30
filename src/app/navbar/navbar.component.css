@@ -1,8 +1,22 @@
 li{list-style:none;}
+a{font-size: 30px;}
+.menu {
+    min-height: 370px;
+    overflow-y: scroll;
+    height: 350px;
+}
+
+.bg-light-red {
+    background-color: rgb(201, 69, 69) !important;
+    color: #fff;
+}
+
 a{font-size: 26px;}
+
 .navbar{background: linear-gradient(to top, #ffffff 0%, #ffffff 100%);}
 .ai_logo{background: #1b3065; width: 300px;}
 .ai_logo a{width: 100%; left: 0;
         top: 0;
         text-align: center;
         margin: auto;}
+

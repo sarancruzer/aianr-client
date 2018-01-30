@@ -26,10 +26,12 @@ export class LoginComponent implements OnInit {
     private _loginService:LoginService,
     private _globalSettings:GlobalSettings    
     
-  ) { }
+  ) {
+      document.body.style.backgroundImage = "url('../../assets/images/background.jpg')";
+   }
 
   ngOnInit() {
-    this.clearLocalStorage();
+    //this.clearLocalStorage();
     this.email = "ManikandanC@quadrupleindia.com";
     this.password = "123456";
 
@@ -52,6 +54,7 @@ export class LoginComponent implements OnInit {
         let currentUser = response.result.data.currentUser;
         let statusCode = response.result.statusCode;
         let successText = response.result.successText;
+        let favourites = response.result.data.favourites;
 
         console.log("currentUser");    
         console.log(currentUser);
@@ -66,6 +69,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("employeeNumber",currentUser.employeenumber);
         localStorage.setItem("authentication",JSON.stringify(true));
         localStorage.setItem("sessions",JSON.stringify(session));
+        
         // setTimeout(() => {
         //   this._router.navigate(['/landing']); 
         // }, 2000);

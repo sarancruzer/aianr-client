@@ -20,8 +20,8 @@ export class AppComponent implements OnInit {
     console.log("this._globalSettings.authenticated");
     console.log(this._globalSettings.authenticated);
     if(!this._globalSettings.authenticated){
-        this._router.navigate(['/landing']); 
+        this._router.navigate(['/login']); 
     }
-
   }
+  
 }

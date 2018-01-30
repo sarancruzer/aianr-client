@@ -1,4 +1,4 @@
-
+<app-sidebar (messageEvent)="receivedMessage($event)"></app-sidebar>
 
 <section class="content zoomIn">
     <div class="container clearfix">   
@@ -29,7 +29,9 @@
               </div>
               <div class="message my-message fadeInLeft">
                 <p id="valueId" [innerHTML]="row.value"></p>
-                <span><a href=""><i class="fa fa-heart favt_icon pulse shadow_1" aria-hidden="true"></i></a></span>
+                <span (click)="updateFavourites(row.value)" class="faourites" [ngClass]="(row.favourite)?'fav_clr':''">
+                    <i [ngClass]="(row.favourite)?'fav_clr':''" class="fa fa-heart favt_icon pulse shadow_1" aria-hidden="true"></i></span>
+
               </div>
             </div>
             <div *ngIf="row.machine">
@@ -39,10 +41,21 @@
                 </div>
                 <div class="message other-message float-right">
                     <p id="valueId" [innerHTML]="row.value"></p>
+                    <!-- <a class="btn like_btn" (click)="reaction('like',row.question);"><i [ngClass]="(row.reaction == 'like')?'animate-like':''" class="fa fa-thumbs-up"></i> </a> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a class="btn btn-danger like_btn" (click)="reaction('unlike',row.question);"><i [ngClass]="(row.reaction == 'unlike')?'animate-unlike':''" class="fa fa-thumbs-down"></i> </a> -->
+
+                    <button class="btn-secondary like-review" (click)="reaction('like',row.question);">
+                        <i [ngClass]="(row.reaction == 'like')?'animate-like':''" class="fa fa-thumbs-up" aria-hidden="true"></i> 
+                    </button>
+
+                    <button class="btn-primary like-review" (click)="reaction('unlike',row.question);">
+                        <i [ngClass]="(row.reaction == 'unlike')?'animate-like':''" class="fa fa-thumbs-down" aria-hidden="true"></i> 
+                    </button>
+                    
                 </div>
               </div>
             </li>
-           
+           <!-- <h1 (messageEvent)="receivedMessage($event)">Hi</h1> -->
             
           </ul>
         </div>
@@ -52,12 +65,13 @@
         <form class="ai_margin">
         <div class="col-lg-10">
           <div class="form-group">
+              {{message}}
             <input type="text" class="form-control ai_textbox" name="searchreq" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Text" [(ngModel)]="searchreq" (keyup.enter)="searchBot()" autofocus>        
           </div>
           </div>
           <div class="col-lg-1">
           <div class="form-group">
-          <button type="button" class="btn btn-primary ai_send"><i class="material-icons"  (click)="searchBot()">&#xE163;</i></button>
+          <button type="button" class="btn btn-primary ai_send" (click)="searchBot()"><i class="material-icons"  >&#xE163;</i></button>
           </div>
           </div>
           <div class="col-lg-1">
@@ -80,25 +94,11 @@
             <h4>Favorite Messages</h4>
         </header>
        <div class="favt_p">
-            <p><a href=""><i class="fa fa-heart favt_icon" aria-hidden="true"></i> How many days do we work in a week</a></p>
-            <p><i class="fa fa-heart favt_icon" aria-hidden="true"></i> How many days do we work in a week</p>
-            <p><i class="fa fa-heart favt_icon" aria-hidden="true"></i> How many days do we work in a week</p>
-            <p><i class="fa fa-heart favt_icon" aria-hidden="true"></i> How many days do we work in a week</p>
-            <p><i class="fa fa-heart favt_icon" aria-hidden="true"></i> How many days do we work in a week</p>
-            <p><i class="fa fa-heart favt_icon" aria-hidden="true"></i> How many days do we work in a week</p>
-            <p><i class="fa fa-heart favt_icon" aria-hidden="true"></i> How many days do we work in a week</p>
-            <p><i class="fa fa-heart favt_icon" aria-hidden="true"></i> How many days do we work in a week</p>
-            <p><i class="fa fa-heart favt_icon" aria-hidden="true"></i> How many days do we work in a week</p>
-            <p><i class="fa fa-heart favt_icon" aria-hidden="true"></i> How many days do we work in a week</p>
-            <p><i class="fa fa-heart favt_icon" aria-hidden="true"></i> How many days do we work in a week</p>
-            <p><i class="fa fa-heart favt_icon" aria-hidden="true"></i> How many days do we work in a week</p>
 
+        <p *ngFor="let item of favouriteLists" (click)="favtoAsk(item.question)"><i class="fa fa-heart favt_icon" aria-hidden="true"></i> {{item.question}}</p>            
        </div>
-        <!-- <div class="dialog-footer">  
-            <button (click)="showDialog = !showDialog" class="btn">Close</button>
-        </div>   -->
-        </app-dialog>
-      
+         
+</app-dialog>
 
 <!--   
 
