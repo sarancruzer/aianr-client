@@ -395,6 +395,9 @@ background: rgba(255,0,0,0.4);
 .back_sidebar li a {
   color:#fff;
 }
+.back_sidebar li a i{
+  margin-right: 10px;  
+}
 .back_sidebar li ul li  {
   color:#fff;
 }
