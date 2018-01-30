@@ -23,7 +23,7 @@
   </div>
 
 
-  <div class="nav-side-menu">
+  <!-- <div class="nav-side-menu">
     <div class="layer">
       <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
       <div class="menu-list">
@@ -91,102 +91,58 @@
         </ul>
       </div>
     </div>
-  </div>
+  </div> -->
 
-  <!-- <app-landing  [childMessage]="parentMessage" style="display:none;"></app-landing> -->
+  
 
-
-  <!-- #User Info -->
-  <!-- Menu -->
-  <!-- <div class="menu">
-        <ul class="list">
-           
-            <li class="active">
-                <a href="javascript:void(0);">
-                    <i class="material-icons">home</i>
-                    <span>Home</span>
-                </a>
-            </li>
-                       
-            <li class="menu-li" (click)="menuToggle($event)">
-                <a href="javascript:void(0);" class="menu-toggle" >
-                    <i class="material-icons">assignment</i>
-                    <span>Employee</span>
-                </a>
-                <ul class="ml-menu">
-                    <li>
-                        <a href="javascript:void(0);">How many days do we work in a week</a>
-                    </li>
-                    
-                </ul>
-            </li>
-            <li>
-                <a href="javascript:void(0);" class="menu-toggle">
-                    <i class="material-icons">view_list</i>
-                    <span>Leaves</span>
-                </a>
-                <ul class="ml-menu">
-                    <li>
-                        <a href="javascript:void(0);">who is on leave today</a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);">today leave list</a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);">How many casual leaves can be taken in a year</a>
-                    </li>
-                    <li>
-                            <a href="javascript:void(0);">How many permission can be taken in a month</a>
-                     </li>
-                    <li>
-                                <a href="javascript:void(0);">How many permission can be taken in a month</a>
-                    </li>
-                    <li>
-                            <a href="javascript:void(0);">How many months is considered for maternity leave</a>
+<div class="row">
+        <div class="col-md-12">
+            <ul class="nav nav-stacked back_sidebar" id="accordion1">
+                <li><a routerLinkActive="active" [routerLink]="['/dashboard']"><i class="fa fa-home"></i>Dashboard</a></li>
+                <li class="panel"> <a data-toggle="collapse" data-parent="#accordion1" href="#firstLink">Employee Benefits - Queries</a>
+    
+                    <ul id="firstLink" class="collapse">
+                        <li *ngFor="let emp of empBenefits" (click)="sendMessage(emp)">
+                            <a href="javascript:void(0);" >{{emp}}</a>
+                          </li>
+                    </ul>
+                  
                 </li>
-                <li>
-                        <a href="javascript:void(0);">How many leaves do i get in a financial year</a>
-                     </li>
-                <li>
-                    <a href="javascript:void(0);">How many leaves are remaining for this financial year</a>
-                 </li>
-                 <li>
-                        <a href="javascript:void(0);">How many kinds of leave does our organization provide</a>
-                     </li>
-                <li>
-                    <a href="javascript:void(0);">How many hours is the permission considered</a>
-                    </li>
-                <li>
-                    <a href="javascript:void(0);">What is the work hour timing</a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);">Whom should I contact to inform my leave of absence</a>
-                        </li>
-                                 
-                    <li>
-                        <a href="javascript:void(0);">What is the commencement time of lunch break</a>
-                        </li>
-
-                        <li>
-                            <a href="javascript:void(0);">How many public holidays does the organization provide in a year</a>
-                            </li>
-                                     
+                <li class="panel"> <a data-toggle="collapse" data-parent="#accordion1" href="#secondLink">Leave - Queries</a>
+    
+                    <ul id="secondLink" class="collapse">
+                        <li *ngFor="let leave of leaves" (click)="sendMessage(leave)">
+                            <a href="javascript:void(0);" >{{leave}}</a>
+                          </li>
+                    </ul>
+                </li>
+                <li class="panel"> <a data-toggle="collapse" data-parent="#accordion1" href="#thirdLink">Office Time Schedule - Queries</a>
                     
+                <ul id="thirdLink" class="collapse">
+                    <li *ngFor="let leave of leaves" (click)="sendMessage(leave)">
+                        <a href="javascript:void(0);" >{{leave}}</a>
+                        </li>
                 </ul>
-            </li>
-            
-            <li>
-                <a href="javascript:void(0);">
-                    <i class="material-icons">update</i>
-                    <span>Changelogs</span>
+
+                </li>
+
+                <li><a routerLinkActive="about" [routerLink]="['/about']"><i class="fa fa-home"></i>About</a></li>
+
+                <li class="panel"> <a data-toggle="collapse" data-parent="#accordion1" href="#thirdLink">Reports  <span class="arrow"></span>
                 </a>
-            </li>
-           
-            <li>
-                <a href="javascript:void(0);">
-                    <i class="material-icons col-light-blue">donut_large</i>
-                    <span>Information</span>
-                </a>
-            </li>
-        </ul>
-    </div> -->
+                
+                <ul id="thirdLink" class="collapse">
+                    <li *ngFor="let report of reports" (click)="sendMessage(report.report_name)">
+                        <a href="javascript:void(0);" >{{report.report_name}}</a>
+                      </li>
+                </ul>
+
+                </li>
+
+
+
+            </ul>
+        </div>
+    </div>
+
+    

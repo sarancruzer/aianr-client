@@ -15,10 +15,11 @@
           </div>
         </div> <!-- end chat-header -->
         
-        <div class="slimScrollDiv chat-history" style="overflow: scroll; height: xyz;" #scrollMe [scrollTop]="scrollMe.scrollHeight">
-          
-         
-            <ul>
+        <!-- <div class="slimScrollDiv chat-history" style="overflow: scroll; height: xyz;" #scrollMe [scrollTop]="scrollMe.scrollHeight"> -->
+            <div class="chat-history">  
+                <div class="scrollbar" id="style-6">
+                  
+            <ul class="force-overflow">
             <li class="clearfix" *ngFor="let row of chatLists">
               <div *ngIf="row.user">
               <div class="message-data align-right">
@@ -57,6 +58,7 @@
            <!-- <h1 (messageEvent)="receivedMessage($event)">Hi</h1> -->
             
           </ul>
+        </div>
           
         </div> <!-- end chat-history -->
               
@@ -67,11 +69,16 @@
             <input type="text" class="form-control ai_textbox" name="searchreq" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Text" [(ngModel)]="searchreq" (keyup.enter)="searchBot()" autofocus>        
           </div>
           </div>
-          <div class="col-lg-2">
+          <div class="col-lg-1">
           <div class="form-group">
           <button type="button" class="btn btn-primary ai_send" (click)="searchBot()"><i class="material-icons"  >&#xE163;</i></button>
           </div>
           </div>
+          <div class="col-lg-1">
+                <div class="form-group">
+                <button type="button" class="btn btn-primary ai_mike"><i class="material-icons"  (click)="searchBot()">&#xE8C8;</i></button>
+                </div>
+                </div>
         </form>
          <!-- end chat-message -->
         
@@ -87,14 +94,11 @@
             <h4>Favorite Messages</h4>
         </header>
        <div class="favt_p">
-            <p *ngFor="let item of favouriteLists" (click)="favtoAsk(item.question)"><i class="fa fa-heart favt_icon" aria-hidden="true"></i> {{item.question}}</p>            
+
+        <p *ngFor="let item of favouriteLists" (click)="favtoAsk(item.question)"><i class="fa fa-heart favt_icon" aria-hidden="true"></i> {{item.question}}</p>            
        </div>
          
 </app-dialog>
-
-
-
-
 
 <!--   
 

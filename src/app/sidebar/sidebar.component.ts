@@ -20,7 +20,13 @@ export class SidebarComponent implements OnInit {
   private empBenefits = [];
   private reports = [];
 
-  constructor (private _router: Router, private _globalSettings: GlobalSettings, private el: ElementRef, private renderer: Renderer, private _commonService: CommonService) { }
+  innerHeight: any;
+  innerWidth: any;
+
+  constructor (private _router: Router, private _globalSettings: GlobalSettings, private el: ElementRef, private renderer: Renderer, private _commonService: CommonService) { 
+    this.innerHeight = (window.screen.height) + "px";
+    this.innerWidth = (window.screen.width) + "px";
+  }
 
     ngOnInit() {
       this._globalSettings.username = localStorage.getItem('employeeName');
@@ -150,6 +156,7 @@ export class SidebarComponent implements OnInit {
 
    }
 
+  
 
 
 

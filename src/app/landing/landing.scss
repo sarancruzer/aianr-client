@@ -30,28 +30,42 @@ padding: 10px;
 border-radius: 50px;
 color: #000;
 height: 60px;
-box-shadow: 0 0 10px #a1a1a1, 0 0 10px #d1d1d1;
+box-shadow: 1.5px 2.6px 24px 0 rgba(0, 35, 136, 0.15);
 }
 .ai_send{
 border-radius: 50% !important;
 padding: 15px 20px;
-font-size: 22px !important;}
+font-size: 22px !important;
+background: linear-gradient(to top, #1b3065 0%, #3456ae 100%);
+background-color: rgba(0, 0, 0, 0);
+box-shadow: 1.5px 2.6px 24px 0 rgba(0, 35, 136, 0.35);
+}
 .ai_send:hover {box-shadow: 0px 0px 10px 3px #ccc;}
+.ai_mike {
+  border-radius: 50% !important;
+  padding: 15px 20px;
+  font-size: 22px !important;
+  background: linear-gradient(to top, #868686 0%, #d4d4d4 100%);
+      background-color: rgba(0, 0, 0, 0);
+  background-color: transparent;
+  box-shadow: 1.5px 2.6px 24px 0 rgba(0, 35, 136, 0.35);
+}
 .chat {
   width: 100%;
   float:left;
   background: #ffffff;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-radius: 4px;
   
   color: #434651;
   
   .chat-header {
-    padding: 15px;
+    padding: 10px 15px 0px;
     border-bottom: 2px solid white;
     
     img {
       float: left;
+      border-radius: 50%;
+      height: 60px;
     }
     
     .chat-about {
@@ -128,6 +142,7 @@ position: relative;
     .message i{color: #ffffff; font-size: 25px;}
     .my-message {
       background: $green;
+      box-shadow: 1.5px 2.6px 24px 0 #4caf50;
     }
     
     .message i.fa-thumbs-up{color: #fff;}
@@ -135,7 +150,7 @@ position: relative;
 
     .other-message {
       background: $blue;
-      
+      box-shadow: 1.5px 2.6px 24px 0 rgb(74, 129, 179);
       &:after {
         border-bottom-color: $blue;
         left: 93%;
@@ -302,7 +317,7 @@ Button animation
 .button27:hover{
   border: 1px solid rgba(255,255,255,0);
   background: #f1f1f1;
-  box-shadow: 0px 0px 10px 3px #ccc;
+  box-shadow: 1.5px 2.6px 24px 0 rgba(0, 35, 136, 0.35);
 }
 .button27 a{
 	color: rgba(51,51,51,1);
@@ -506,9 +521,9 @@ Fade left
  .effect1
  {
      position:relative;
-     -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-        -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-             box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+     -webkit-box-shadow: 1.5px 2.6px 24px 0 rgba(0, 35, 136, 0.15);
+        -moz-box-shadow: 1.5px 2.6px 24px 0 rgba(0, 35, 136, 0.15);
+             box-shadow: 1.5px 2.6px 24px 0 rgba(0, 35, 136, 0.15);
  }
  .effect1:before, .effect1:after
  {
