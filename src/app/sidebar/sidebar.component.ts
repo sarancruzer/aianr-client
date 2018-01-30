@@ -8,8 +8,13 @@ import { Component, OnInit,ElementRef ,Renderer} from '@angular/core';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-
-  constructor(private _router:Router,private _globalSettings:GlobalSettings,private el: ElementRef,private renderer: Renderer) { }
+  innerHeight: any;
+  innerWidth: any;
+ 
+  constructor(private _router:Router,private _globalSettings:GlobalSettings,private el: ElementRef,private renderer: Renderer) {
+    this.innerHeight = (window.screen.height) + "px";
+    this.innerWidth = (window.screen.width) + "px";
+   }
   
     ngOnInit() {
       this._globalSettings.username = localStorage.getItem("employeeName");      
@@ -92,5 +97,6 @@ export class SidebarComponent implements OnInit {
       // }      
    }
 
+  
 
 }

@@ -15,10 +15,11 @@
           </div>
         </div> <!-- end chat-header -->
         
-        <div class="slimScrollDiv chat-history" style="overflow: scroll; height: xyz;" #scrollMe [scrollTop]="scrollMe.scrollHeight">
-          
-         
-            <ul>
+        <!-- <div class="slimScrollDiv chat-history" style="overflow: scroll; height: xyz;" #scrollMe [scrollTop]="scrollMe.scrollHeight"> -->
+            <div class="chat-history">  
+                <div class="scrollbar" id="style-6">
+                  
+            <ul class="force-overflow">
             <li class="clearfix" *ngFor="let row of chatLists">
               <div *ngIf="row.user">
               <div class="message-data align-right">
@@ -28,7 +29,7 @@
               </div>
               <div class="message my-message fadeInLeft">
                 <p id="valueId" [innerHTML]="row.value"></p>
-                <span><i class="fa fa-heart favt_icon pulse shadow_1" aria-hidden="true"></i></span>
+                <span><a href=""><i class="fa fa-heart favt_icon pulse shadow_1" aria-hidden="true"></i></a></span>
               </div>
             </div>
             <div *ngIf="row.machine">
@@ -44,6 +45,7 @@
            
             
           </ul>
+        </div>
           
         </div> <!-- end chat-history -->
               
@@ -53,11 +55,16 @@
             <input type="text" class="form-control ai_textbox" name="searchreq" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Text" [(ngModel)]="searchreq" (keyup.enter)="searchBot()" autofocus>        
           </div>
           </div>
-          <div class="col-lg-2">
+          <div class="col-lg-1">
           <div class="form-group">
           <button type="button" class="btn btn-primary ai_send"><i class="material-icons"  (click)="searchBot()">&#xE163;</i></button>
           </div>
           </div>
+          <div class="col-lg-1">
+                <div class="form-group">
+                <button type="button" class="btn btn-primary ai_mike"><i class="material-icons"  (click)="searchBot()">&#xE8C8;</i></button>
+                </div>
+                </div>
         </form>
          <!-- end chat-message -->
         
@@ -73,12 +80,23 @@
             <h4>Favorite Messages</h4>
         </header>
        <div class="favt_p">
+            <p><a href=""><i class="fa fa-heart favt_icon" aria-hidden="true"></i> How many days do we work in a week</a></p>
             <p><i class="fa fa-heart favt_icon" aria-hidden="true"></i> How many days do we work in a week</p>
             <p><i class="fa fa-heart favt_icon" aria-hidden="true"></i> How many days do we work in a week</p>
+            <p><i class="fa fa-heart favt_icon" aria-hidden="true"></i> How many days do we work in a week</p>
+            <p><i class="fa fa-heart favt_icon" aria-hidden="true"></i> How many days do we work in a week</p>
+            <p><i class="fa fa-heart favt_icon" aria-hidden="true"></i> How many days do we work in a week</p>
+            <p><i class="fa fa-heart favt_icon" aria-hidden="true"></i> How many days do we work in a week</p>
+            <p><i class="fa fa-heart favt_icon" aria-hidden="true"></i> How many days do we work in a week</p>
+            <p><i class="fa fa-heart favt_icon" aria-hidden="true"></i> How many days do we work in a week</p>
+            <p><i class="fa fa-heart favt_icon" aria-hidden="true"></i> How many days do we work in a week</p>
+            <p><i class="fa fa-heart favt_icon" aria-hidden="true"></i> How many days do we work in a week</p>
+            <p><i class="fa fa-heart favt_icon" aria-hidden="true"></i> How many days do we work in a week</p>
+
        </div>
-        <div class="dialog-footer">  
+        <!-- <div class="dialog-footer">  
             <button (click)="showDialog = !showDialog" class="btn">Close</button>
-        </div>  
+        </div>   -->
         </app-dialog>
       
 

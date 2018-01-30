@@ -2368,7 +2368,9 @@ body {
   -o-transition: all 0.5s;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
-  font-family: 'Roboto', Arial, Tahoma, sans-serif; }
+  /* font-family: 'Roboto', Arial, Tahoma, sans-serif; */
+  font-family: 'Roboto Condensed', sans-serif;
+ }
 
 h1,
 h2,
@@ -6672,13 +6674,15 @@ fieldset[disabled] .form-control {
     text-decoration: none;
     color: #fff;
     width: 20px;
-    height: 20px;
+    /* height: 20px; */
     margin-top: -4px;
     margin-right: 17px; }
     .navbar .navbar-toggle:before {
       content: '\E8D5';
       font-family: 'Material Icons';
-      font-size: 26px; }
+      font-size: 26px;
+      position: absolute;
+      right: 0; }
   .navbar .navbar-collapse.in {
     overflow: visible; }
 
@@ -6750,7 +6754,9 @@ fieldset[disabled] .form-control {
   margin-left: 5px; }
 
 .navbar-nav .dropdown-menu {
-  margin-top: -40px !important; }
+  /* margin-top: -40px !important; */
+margin-top:20px !important; }
+.icon_size{font-size: 24px !important;}
 
 .label-count {
   position: absolute;
@@ -7397,7 +7403,8 @@ fieldset[disabled] .form-control {
         font-size: 18px;
         line-height: 36px; }
     .dropdown-menu ul.menu li {
-      border-bottom: 1px solid #eee; }
+      border-bottom: 1px solid #eee;
+      padding: 10px 10px; }
       .dropdown-menu ul.menu li:last-child {
         border-bottom: none; }
       .dropdown-menu ul.menu li a {
@@ -7474,25 +7481,7 @@ fieldset[disabled] .form-control {
   margin-left: 0;
   z-index: 99999999; }
 
-.sidebar {
-  -moz-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-  font-family: "Roboto", sans-serif;
-  background: #fdfdfd;
-  width: 300px;
-  overflow: hidden;
-  display: inline-block;
-  height: calc(100vh - 70px);
-  position: fixed;
-  top: 70px;
-  left: 0;
-  -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-  -ms-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-  z-index: 11 !important; }
+
   .sidebar .legal {
     position: absolute;
     bottom: 0;
@@ -8049,7 +8038,8 @@ html.ie11 .bs-searchbox .form-control {
 
 
   .dialog-title {
-    background: linear-gradient(to top, #ef4b52 0%, #c5026a 100%);
+    /* background: linear-gradient(to top, #ef4b52 0%, #c5026a 100%); */
+    background: linear-gradient(to top, #1b3065 0%, #2b4f83 100%);
     color: #fff;
     padding: 10px 15px;
     font-size: 16px;
@@ -8066,4 +8056,5 @@ html.ie11 .bs-searchbox .form-control {
 
 .favt_p p{font-size: 16px; margin-top: 10px;}
 .favt_p p i{font-size: 16px; padding-left: 20px; color: #cf1628;}
+.favt_p a{color: #333333;}
 
