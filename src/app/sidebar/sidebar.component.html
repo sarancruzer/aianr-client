@@ -128,10 +128,10 @@
 
                 <li><a routerLinkActive="about" [routerLink]="['/about']"><i class="fa fa-home"></i>About</a></li>
 
-                <li class="panel"> <a data-toggle="collapse" data-parent="#accordion1" href="#thirdLink">Reports  <span class="arrow"></span>
+                <li class="panel"> <a data-toggle="collapse" data-parent="#accordion1" href="#fourthLink">Reports  <span class="arrow"></span>
                 </a>
                 
-                <ul id="thirdLink" class="collapse">
+                <ul id="fourthLink" class="collapse">
                     <li *ngFor="let report of reports" (click)="sendMessage(report.report_name)">
                         <a href="javascript:void(0);" >{{report.report_name}}</a>
                       </li>

@@ -24,7 +24,17 @@ export class LandingService {
   //    }
   
      getsearchResponse(searchText){
-          this.list ={"sentences":searchText,"sessions":localStorage.getItem("sessions")}
+          this.list ={
+              "sentences":searchText,
+              "sessions":localStorage.getItem("sessions"),
+              "conversation_id":localStorage.getItem("conversation_id"),
+              "conversation_status":localStorage.getItem("conversation_status"),
+              "qa_flag":localStorage.getItem("qa_flag"),
+              "qa_nerformat":localStorage.getItem("qa_nerformat"),
+              "qa_id":localStorage.getItem("qa_id")              
+
+            }
+
           return this._http.post(this.apiUrl+'searchBotsNew',this.list,this.headers)
           .map(res =>res.json())
           .do(data => console.log(JSON.stringify(data)));
