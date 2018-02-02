@@ -97,10 +97,12 @@
 
 <div class="row">
         <div class="col-md-12">
-            <ul class="nav nav-stacked back_sidebar" id="accordion1">
+            <div class="scroll_container ">
+            <ul class="nav nav-stacked back_sidebar scroll_link" id="accordion1">
+
                 <li><a routerLinkActive="active" [routerLink]="['/dashboard']"><i class="fa fa-home"></i>Dashboard</a></li>
-                <li class="panel"> <a data-toggle="collapse" data-parent="#accordion1" href="#firstLink">Employee Benefits - Queries</a>
-    
+                
+                <li class="panel"> <a data-toggle="collapse" data-parent="#accordion1" href="#firstLink">Employee Benefits - Queries</a>    
                     <ul id="firstLink" class="collapse">
                         <li *ngFor="let emp of empBenefits" (click)="sendMessage(emp)">
                             <a href="javascript:void(0);" >{{emp}}</a>
@@ -142,6 +144,15 @@
 
 
             </ul>
+        </div>
+        <div class="top_bottom_mask" style="left:413px; top:10px;">
+                <div class="corner_top_mask"></div>
+            </div>
+            <div class="left_right_mask" style="left:413px; top:11px; height:418px;"></div>
+            <div class="left_right_mask" style="left:428px; top:10px; height:418px;"></div>
+            <div class="top_bottom_mask" style="left:413px; top:420px;">
+                <div class="corner_bottom_mask"></div>
+            </div>
         </div>
     </div>
 
