@@ -23,7 +23,7 @@
             <li class="clearfix" *ngFor="let row of chatLists">
               <div *ngIf="row.user">
               <div class="message-data align-right">
-                <span class="message-data-time" >{{row.created_at | timeAgo}}</span> &nbsp; &nbsp;
+                <span class="message-data-time" >{{row.created_at}}</span> &nbsp; &nbsp;
                 <span class="message-data-name" >{{_globalSettings.username}}</span> <i class="fa fa-circle me"></i>
               
               </div>
@@ -36,7 +36,7 @@
             </div>
             <div *ngIf="row.machine">
                 <div class="message-data align-right">
-                  <span class="message-data-time" >{{row.created_at | timeAgo}}</span> &nbsp; &nbsp;
+                  <span class="message-data-time" >{{row.created_at}}</span> &nbsp; &nbsp;
                   <span class="message-data-name" >HR</span> <i class="fa fa-circle me"></i>
                 </div>
                 <div class="message other-message float-right">
@@ -76,7 +76,7 @@
           </div>
           <div class="col-lg-1">
                 <div class="form-group">
-                <button type="button" class="btn ai_mike"><i class="material-icons"  (click)="searchBot()">&#xE8C8;</i></button>
+                <button type="button" class="btn ai_mike"><i class="material-icons"  >&#xE8C8;</i></button>
                 </div>
                 </div>
         </form>

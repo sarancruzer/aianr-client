@@ -10,6 +10,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ReportComponent } from './report/report.component';
 import { AboutComponent } from './about/about.component';
 import { FavouriteComponent } from './favourite/favourite.component';
+import { ProfileComponent } from './profile/profile.component';
+import { TaskComponent } from './task/task.component';
 
 
 
@@ -21,12 +23,15 @@ export const routes: Routes = [
           {path: 'about',component: AboutComponent,data: {title: 'Langinding Page'}},          
           {path: 'report',component: ReportComponent,data: {title: 'Langinding Page'}},          
           {path: 'dashboard',component: DashboardComponent,data: {title: 'Langinding Page'}},          
-          {path: 'favourite',component: FavouriteComponent,data: {title: 'Langinding Page'}}          
+          {path: 'favourite',component: FavouriteComponent,data: {title: 'Langinding Page'}},          
+          {path: 'profile',component: ProfileComponent,data: {title: 'Profile Page'}},          
+          {path: 'task',component: TaskComponent,data: {title: 'Task Page'}}          
       ]
     },
     {path: 'login',component: LoginComponent,data: {title: 'Login Page'}},
     {path: 'logout',component: LogoutComponent,data: {title: 'Log out'}},
     {path: 'about', component: AboutComponent }
+    
   ];
 
 @NgModule({

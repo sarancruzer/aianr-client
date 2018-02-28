@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  reactionCount:any;
+  favouriteCount:any;
+  constructor(private _router:Router) { }
 
   ngOnInit() {
+
+   this.reactionCount =  localStorage.getItem("reactions").length;
+    this.favouriteCount = localStorage.getItem("favourites").length;
+
+    console.log("this.reactionCount.length");
+    console.log(this.reactionCount);
+
+    console.log("this.favouriteCount.length");
+    console.log(this.favouriteCount);
+
+    
+  }
+
+  navigate(url){
+    this._router.navigate([url]);
   }
 
 }

@@ -48,7 +48,7 @@ export class LandingComponent implements OnInit {
     if (chts === null) {
       this.chatLists.push({
         machine: true,
-        value: "Hi! "+ localStorage.getItem("employeeName") +" I can help you with AIANR related queries.",
+        value: "Hi "+ localStorage.getItem("employeeName") +" I can help you with HR related queries.",
         created_at: Date.now()
       });
     } else {
@@ -78,7 +78,7 @@ export class LandingComponent implements OnInit {
   }
 
   searchBot() {
-    if (this.searchreq != null) {
+    if (this.searchreq.trim() != null) {
       this.chatLists.push({
         user: true,
         value: this.searchreq,

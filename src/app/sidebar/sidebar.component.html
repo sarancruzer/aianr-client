@@ -102,7 +102,7 @@
 
                 <li><a routerLinkActive="active" [routerLink]="['/dashboard']"><i class="fa fa-home"></i>Dashboard</a></li>
                 
-                <li class="panel"> <a data-toggle="collapse" data-parent="#accordion1" href="#firstLink">Employee Benefits - Queries</a>    
+                <li class="panel"> <a data-toggle="collapse" data-parent="#accordion1" href="#firstLink"> <i class="fa fa-briefcase"></i> Employee Benefits - Queries</a>    
                     <ul id="firstLink" class="collapse">
                         <li *ngFor="let emp of empBenefits" (click)="sendMessage(emp)">
                             <a href="javascript:void(0);" >{{emp}}</a>
@@ -110,7 +110,7 @@
                     </ul>
                   
                 </li>
-                <li class="panel"> <a data-toggle="collapse" data-parent="#accordion1" href="#secondLink">Leave - Queries</a>
+                <li class="panel"> <a data-toggle="collapse" data-parent="#accordion1" href="#secondLink"><i class="fa fa-user fa-lg"></i> Leave - Queries</a>
     
                     <ul id="secondLink" class="collapse">
                         <li *ngFor="let leave of leaves" (click)="sendMessage(leave)">
@@ -118,19 +118,17 @@
                           </li>
                     </ul>
                 </li>
-                <li class="panel"> <a data-toggle="collapse" data-parent="#accordion1" href="#thirdLink">Office Time Schedule - Queries</a>
+                <li class="panel"> <a data-toggle="collapse" data-parent="#accordion1" href="#thirdLink"> <i class="fa fa-calendar-plus-o fa-lg"></i> Office Time Schedule - Queries</a>
                     
                 <ul id="thirdLink" class="collapse">
-                    <li *ngFor="let leave of leaves" (click)="sendMessage(leave)">
-                        <a href="javascript:void(0);" >{{leave}}</a>
+                    <li *ngFor="let otSchedule of otSchedules" (click)="sendMessage(otSchedule)">
+                        <a href="javascript:void(0);" >{{otSchedule}}</a>
                         </li>
                 </ul>
 
                 </li>
 
-                <li><a routerLinkActive="about" [routerLink]="['/about']"><i class="fa fa-home"></i>About</a></li>
-
-                <li class="panel"> <a data-toggle="collapse" data-parent="#accordion1" href="#fourthLink">Reports  <span class="arrow"></span>
+                <li class="panel"> <a data-toggle="collapse" data-parent="#accordion1" href="#fourthLink"> <i class="fa fa-home"></i> Reports  <span class="arrow"></span>
                 </a>
                 
                 <ul id="fourthLink" class="collapse">
@@ -140,6 +138,11 @@
                 </ul>
 
                 </li>
+
+
+                <li><a routerLinkActive="about" [routerLink]="['/about']"><i class="fa fa-file-text fa-lg"></i>About</a></li>
+
+               
 
 
 

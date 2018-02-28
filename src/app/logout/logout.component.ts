@@ -1,14 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-logout',
-  templateUrl: './logout.component.html',
-  styleUrls: ['./logout.component.css']
+  selector: "app-logout",
+  templateUrl: "./logout.component.html",
+  styleUrls: ["./logout.component.css"]
 })
 export class LogoutComponent implements OnInit {
-
-  constructor(private _router:Router) { }
+  constructor(private _router: Router) {}
 
   ngOnInit() {
     localStorage.removeItem("employeeName");
@@ -16,10 +15,6 @@ export class LogoutComponent implements OnInit {
     localStorage.removeItem("employeeNumber");
     localStorage.removeItem("authentication");
     localStorage.removeItem("sessions");
-
-    this._router.navigate(['/login']); 
+    this._router.navigate(["/login"]);
   }
-
-
-
 }

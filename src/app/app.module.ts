@@ -7,11 +7,15 @@ import { FormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { ModalModule } from "ngx-bootstrap";
+
+
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { LandingComponent } from './landing/landing.component';
 import { LogoutComponent } from './logout/logout.component';
-import {TimeAgoPipe} from 'time-ago-pipe';
+
 import { FullLayoutComponent } from './containers/full-layout/full-layout.component';
 import { SimpleLayoutComponent } from './containers/simple-layout/simple-layout.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -22,6 +26,8 @@ import { ReportComponent } from './report/report.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FavouriteComponent } from './favourite/favourite.component';
 import { TruncatePipe } from './_pipe/truncate.pipe';
+import { ProfileComponent } from './profile/profile.component';
+import { TaskComponent } from './task/task.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -35,7 +41,6 @@ const appRoutes: Routes = [
     LoginComponent,
     LandingComponent,
     LogoutComponent,
-    TimeAgoPipe,
     FullLayoutComponent,
     SimpleLayoutComponent,
     NavbarComponent,
@@ -46,6 +51,8 @@ const appRoutes: Routes = [
     DashboardComponent,
     FavouriteComponent,
     TruncatePipe,
+    ProfileComponent,
+    TaskComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +60,9 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FormsModule,
     AppRoutingModule,
-     BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ModalModule.forRoot()
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
