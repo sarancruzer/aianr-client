@@ -45,6 +45,13 @@ export class TaskService {
       .map((res:Response) => res.json())
       .do(data => console.log(JSON.stringify(data)));        
     }
+
+    getAllReports(){
+      this.list ={"sessions":localStorage.getItem("sessions")}
+      return this._http.post(this.apiUrl+'getAllReports',this.list,this.headers)
+      .map(res =>res.json())
+      .do(data => console.log(JSON.stringify(data)));  
+  }
     
         
   

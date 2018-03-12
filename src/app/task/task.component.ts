@@ -30,6 +30,7 @@ export class TaskComponent implements OnInit {
 
   ngOnInit() {
     this.init();
+    this.getMasterData();
   }
 
   setModelValues(){
@@ -45,17 +46,34 @@ export class TaskComponent implements OnInit {
     this.model.weekdays = "";
     this.model.receipients = "";
 
-    this.reportLists = [
-      {"id":1,"name":"reportOne"},
-      {"id":2,"name":"reportTwo"},
-      {"id":3,"name":"reportThree"},
-      {"id":4,"name":"reportFour"},
-      {"id":5,"name":"reportFive"},
-    ];
+    // this.reportLists = [
+    //   {"id":1,"name":"reportOne"},
+    //   {"id":2,"name":"reportTwo"},
+    //   {"id":3,"name":"reportThree"},
+    //   {"id":4,"name":"reportFour"},
+    //   {"id":5,"name":"reportFive"},
+    // ];
 
     this.model.report_id = "";
 
   }
+
+  getMasterData(){
+    this._service.getAllReports().subscribe(response => {
+      let res = response.result;
+      if(res.statusCode == 200){
+        this.reportLists = res.info.hits.hits;
+      }
+      if(res.statusCode == 204){
+        console.log(res.successText);
+      }        
+  },
+err =>{
+    console.log("error msg");
+    //this.donationlistprovider.showErrorToast(err);
+})
+}
+
 
   init() {
       this._service.get().subscribe(response => {
@@ -154,16 +172,7 @@ export class TaskComponent implements OnInit {
       this.model.report_name = selectElementText;            
     }
 
-    dailyChange(){
-      
-      if(this.model.daily)
-      {
-       
-      }
-
-      console.log(this.model.daily);
-
-    }
+   
 
 
    

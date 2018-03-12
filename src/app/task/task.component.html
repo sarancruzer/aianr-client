@@ -105,8 +105,8 @@
               <select name="report_id" class="form-control input-sm" [(ngModel)]="model.report_id" #report_id="ngModel" (change)="changeReport($event)"
                 required>
                 <option value=""> Select Option </option>
-                <option *ngFor="let row of reportLists" [ngValue]="row.id">
-                  {{row.name}}
+                <option *ngFor="let row of reportLists" [ngValue]="row._source.report_id">
+                  {{row._source.report_name}}
                 </option>
 
               </select>
