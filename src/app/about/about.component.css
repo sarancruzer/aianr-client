@@ -48,3 +48,36 @@ li.breadcrumb-item i.fa.fa-angle-right {
         margin-bottom: 20px;
     
     }
+    /*==================================================
+ * Effect
+ * ===============================================*/
+ .effect1
+ {
+     position:relative;
+     -webkit-box-shadow: 1.5px 2.6px 24px 0 rgba(0, 35, 136, 0.15);
+        -moz-box-shadow: 1.5px 2.6px 24px 0 rgba(0, 35, 136, 0.15);
+             box-shadow: 1.5px 2.6px 24px 0 rgba(0, 35, 136, 0.15);
+ }
+ .effect1:before, .effect1:after
+ {
+     content:"";
+     position:absolute;
+     z-index:-1;
+     -webkit-box-shadow:0 0 20px rgba(111,111,111,0.8);
+     -moz-box-shadow:0 0 20px rgba(111,111,111,0.8);
+     box-shadow:0 0 20px rgba(111,111,111,0.8);
+     top:0;
+     bottom:0;
+     -moz-border-radius:100px ;
+     border-radius:100px;
+ }
+ .txt_boby{
+    float:left;
+    background: #ffffff;
+    border-radius: 4px;  
+    color: #434651;
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .section.content-1 {
+        margin: 69px 0px 0 0px !important;
+    }}

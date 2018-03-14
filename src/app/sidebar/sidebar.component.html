@@ -7,98 +7,15 @@
       <div class="info-container">
         <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{_globalSettings.username}}</div>
         <div class="email">{{_globalSettings.email}}</div>
-        <!-- <div class="btn-group user-helper-dropdown">
-                  <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
-                  <ul class="dropdown-menu pull-right">
-                      <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
-                      <li role="seperator" class="divider"></li>
-                      <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
-                      <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
-                      <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
-                      <li role="seperator" class="divider"></li>
-                      <li><a href="javascript:void(0);" (click)="logout()"><i class="material-icons">input</i>Sign Out</a></li>
-                  </ul>
-              </div> -->
+       
       </div>
     </div>
   
   
-    <!-- <div class="nav-side-menu">
-      <div class="layer">
-        <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-        <div class="menu-list">
-          <ul id="menu-content" class="menu-content collapse out">
-            <li class="active" routerLinkActive="active" [routerLink]="['/dashboard']">
-              <a>
-                <i class="fa fa-dashboard fa-lg"></i> Dashboard
-              </a>
-            </li>
-  
-            <li data-toggle="collapse" data-target="#service" class="collapsed">
-              <a href="javascript:void(0);">
-                <i class="fa fa-user fa-lg"></i> Employee Benefits - Queries
-                <span class="arrow"></span>
-              </a>
-            </li>
-            <ul class="sub-menu collapse" id="service">
-              <li *ngFor="let emp of empBenefits" (click)="sendMessage(emp)">
-                <a href="javascript:void(0);" >{{emp}}</a>
-              </li>
-            </ul>
-  
-            <li data-toggle="collapse" data-target="#products" class="collapsed ">
-              <a href="javascript:void(0);">
-                <i class="fa fa-calendar-plus-o fa-lg"></i> Leave - Queries
-                <span class="arrow"></span>
-              </a>
-            </li>
-            <ul class="sub-menu collapse" id="products">
-              <li *ngFor="let leave of leaves" (click)="sendMessage(leave)">
-                <a href="javascript:void(0);" >{{leave}}</a>
-              </li>
-            </ul>
-  
-            <li data-toggle="collapse" data-target="#otschedule" class="collapsed ">
-              <a href="javascript:void(0);">
-                <i class="fa fa-calendar-plus-o fa-lg"></i> Office Time Schedule - Queries
-                <span class="arrow"></span>
-              </a>
-            </li>
-            <ul class="sub-menu collapse" id="otschedule">
-              <li *ngFor="let ot of otSchedules" (click)="sendMessage(ot)">
-                <a href="javascript:void(0);" >{{ot}}</a>
-              </li>
-            </ul>
-  
-            <li data-toggle="collapse" data-target="#new" class="collapsed">
-              <a routerLinkActive="about" [routerLink]="['/about']">
-                <i class="fa fa-file-text fa-lg"></i> About </a>
-            </li>
-  
-  
-            <li data-toggle="collapse" data-target="#reports" class="collapsed">
-                  <a href="javascript:void(0);">
-                    <i class="fa fa-user fa-lg"></i> Reports
-                    <span class="arrow"></span>
-                  </a>
-                </li>
-                <ul class="sub-menu collapse" id="reports">
-                  <li *ngFor="let report of reports" (click)="sendMessage(report.report_name)">
-                    <a href="javascript:void(0);" >{{report.report_name}}</a>
-                  </li>
-                </ul>
-  
-          </ul>
-        </div>
-      </div>
-    </div> -->
-  
-  
-  
     <div class="row">
       <div class="col-md-12">
-        <div class="scroll_container ">
-          <ul class="nav nav-stacked back_sidebar scroll_link" id="accordion1" >
+        <div class="scroll_container">
+          <ul class="nav nav-stacked back_sidebar scroll_link" id="accordion1">
   
             <li>
               <a routerLinkActive="active" [routerLink]="['/dashboard']">
@@ -117,7 +34,7 @@
             </li>
             <li>
               <a routerLinkActive="about" [routerLink]="['/about']">
-                <i class="fa fa-file-text fa-lg"></i>About</a>
+                <i class="fa fa-file-text"></i>About</a>
             </li>
           </ul>
         </div>

@@ -4,7 +4,7 @@
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
   font-family: "Roboto", sans-serif;
-  background: #fdfdfd;
+  background: #1c5391;
   width: 300px;
   overflow: hidden;
   display: inline-block;
@@ -74,7 +74,7 @@
 ::-webkit-scrollbar-thumb {
   -webkit-border-radius: 10px;
   border-radius: 10px;
-  background: rgba(255,0,0,0.8); 
+  background: rgba(255,255,255,0.8); 
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
 ::-webkit-scrollbar-thumb:window-inactive {
@@ -266,7 +266,7 @@ background: rgba(255,0,0,0.4);
     display: block;
     width: 100%;
     height: 100%;
-    background: url(../../assets/images/artificial_intelligence.jpg);
+    background: url(../../assets/images/side_img.jpg);
     background-size: cover;
     position: absolute;
     left: 0;
@@ -390,7 +390,7 @@ background: rgba(255,0,0,0.4);
 }
 
 .back_sidebar{
-  background: linear-gradient(to bottom, rgba(30, 87, 153,0.95) 0%,rgba(30, 87, 153,0.95) 100%), url(../../assets/images/artificial_intelligence.jpg);
+  background: linear-gradient(to bottom, rgba(30, 87, 153,0.95) 0%,rgba(30, 87, 153,0.95) 100%), url(../../assets/images/side_img.jpg);
 }
 .back_sidebar li a {
   color:#fff;
