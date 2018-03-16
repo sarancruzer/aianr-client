@@ -9,6 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ModalModule } from "ngx-bootstrap";
 
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+
 
 
 import { AppComponent } from './app.component';
@@ -28,6 +30,7 @@ import { FavouriteComponent } from './favourite/favourite.component';
 import { TruncatePipe } from './_pipe/truncate.pipe';
 import { ProfileComponent } from './profile/profile.component';
 import { TaskComponent } from './task/task.component';
+import { TaskLogsComponent } from './task-logs/task-logs.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -52,7 +55,8 @@ const appRoutes: Routes = [
     FavouriteComponent,
     TruncatePipe,
     ProfileComponent,
-    TaskComponent
+    TaskComponent,
+    TaskLogsComponent
   ],
   imports: [
     BrowserModule,
@@ -61,8 +65,12 @@ const appRoutes: Routes = [
     FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    NgxPaginationModule
     
+  ],
+  exports:[
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

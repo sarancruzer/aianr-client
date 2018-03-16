@@ -1,3 +1,4 @@
+import { TaskLogsComponent } from './task-logs/task-logs.component';
 import { SimpleLayoutComponent } from './containers/simple-layout/simple-layout.component';
 import { FullLayoutComponent } from './containers/full-layout/full-layout.component';
 import { Routes, RouterModule } from '@angular/router';
@@ -25,7 +26,8 @@ export const routes: Routes = [
           {path: 'dashboard',component: DashboardComponent,data: {title: 'Langinding Page'}},          
           {path: 'favourite',component: FavouriteComponent,data: {title: 'Langinding Page'}},          
           {path: 'profile',component: ProfileComponent,data: {title: 'Profile Page'}},          
-          {path: 'task',component: TaskComponent,data: {title: 'Task Page'}}          
+          {path: 'task',component: TaskComponent,data: {title: 'Task Page'}},          
+          {path: 'taskLogs',component: TaskLogsComponent,data: {title: 'Task Logs Page'}}          
       ]
     },
     {path: 'login',component: LoginComponent,data: {title: 'Login Page'}},
