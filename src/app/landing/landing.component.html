@@ -3,17 +3,17 @@
 <section class="content zoomIn">
     <div class="container clearfix">   
       <div class="chat effect1">
-        <div class="chat-header clearfix">
+        <!-- <div class="chat-header clearfix">
           <img src="../../assets/images/user.png" alt="avatar" />
           
           <div class="chat-about">
             <div class="chat-with">{{_globalSettings.username}}</div>
             <div class="chat-num-messages">
                     <button (click)="showDialog = !showDialog" class="sim-button button27"><i class="fa fa-heart favt_icon pulse shadow" aria-hidden="true"></i>Favorite</button>     
-                    <!--<div class="sim-button button27"><span><i class="fa fa-heart favt_icon pulse shadow" aria-hidden="true"></i>Favorite</span></div>-->
             </div>
           </div>
-        </div> <!-- end chat-header -->
+        </div>  -->
+        <!-- end chat-header -->
         
         <!-- <div class="slimScrollDiv chat-history" style="overflow: scroll; height: xyz;" #scrollMe [scrollTop]="scrollMe.scrollHeight"> -->
             <div class="chat-history" #scrollMe style="overflow: scroll; height: xyz;" [scrollTop]="scrollMe.scrollHeight">  
@@ -43,7 +43,7 @@
                     <p id="valueId" [innerHTML]="row.value"></p>
                     <!-- <a class="btn like_btn" (click)="reaction('like',row.question);"><i [ngClass]="(row.reaction == 'like')?'animate-like':''" class="fa fa-thumbs-up"></i> </a> &nbsp;&nbsp;&nbsp;&nbsp;
                     <a class="btn btn-danger like_btn" (click)="reaction('unlike',row.question);"><i [ngClass]="(row.reaction == 'unlike')?'animate-unlike':''" class="fa fa-thumbs-down"></i> </a> -->
-
+                <div class="align-right pull-right">
                     <button class="btn-secondary like-review" (click)="reaction('like',row.question);">
                         <i [ngClass]="(row.reaction == 'like')?'animate-like':''" class="fa fa-thumbs-up" aria-hidden="true"></i> 
                     </button>
@@ -51,6 +51,7 @@
                     <button class="btn-primary like-review" (click)="reaction('unlike',row.question);">
                         <i [ngClass]="(row.reaction == 'unlike')?'animate-like':''" class="fa fa-thumbs-down" aria-hidden="true"></i> 
                     </button>
+                </div>
                     
                 </div>
               </div>
@@ -62,7 +63,7 @@
           
         </div> <!-- end chat-history -->
               
-        <form class="ai_margin">
+        <form class="ai_margin_10">
         <div class="col-lg-10">
           <div class="form-group">
               {{message}}

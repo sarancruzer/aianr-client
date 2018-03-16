@@ -25,6 +25,7 @@ body {
   padding:0;
 }
 .ai_margin{margin-top:20px;}
+.ai_margin_10{margin-top:10px;}
 .ai_textbox{
 padding: 10px;
 border-radius: 50px;
@@ -54,8 +55,7 @@ box-shadow: 1.5px 2.6px 24px 0 rgba(0, 35, 136, 0.35);
   width: 100%;
   float:left;
   background: #ffffff;
-  border-radius: 4px;
-  
+  border-radius: 4px;  
   color: #434651;
   
   .chat-header {
@@ -99,7 +99,7 @@ box-shadow: 1.5px 2.6px 24px 0 rgba(0, 35, 136, 0.35);
   .chat-history {
     padding: 15px 30px 15px;
 border-bottom: 2px solid white;
-height: 400px;
+height: 500px;
 overflow-y:scroll;
 background: #d9ecfd;
 border-radius: 5px;
@@ -602,8 +602,9 @@ Fade left
   background: #4caf50 !important;
   border-radius: 3px;
   box-shadow: 0 10px 20px -8px rgb(76, 175, 80);
-  padding: 10px 17px;
-  font-size: 18px;
+  // padding: 10px 17px;
+  padding: 5px 10px;
+  font-size: 16px;
   cursor: pointer;
   border: none;
   outline: none;
@@ -624,8 +625,9 @@ Fade left
   background: #ed2553 !important;
   border-radius: 3px;
   box-shadow: 0 10px 20px -8px rgb(240, 75, 113);
-  padding: 10px 17px;
-  font-size: 18px;
+  // padding: 10px 17px;
+  padding: 5px 10px;
+  font-size: 16px;
   cursor: pointer;
   border: none;
   outline: none;
