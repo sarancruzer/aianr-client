@@ -72,7 +72,6 @@ interface _category {
         , { questions: "What are the norms for accidental insurance?", view: 0 }
         , { questions: "What is my eligibility for travel and accommodation benefits on official tour ?", view: 0 }
         , { questions: "How I can apply for loan ?", view: 0 }
-        , { questions: "How I can solve tax related issues ? How I can solve tax related issues ?", view: 0 }
         , { questions: "How do we apply for house rent allowance ?", view: 0 }
         , { questions: "How do we apply for claims and reimbursement ?", view: 0 }
         , { questions: "What is the policy to hire employees and selection process ?", view: 0 }
