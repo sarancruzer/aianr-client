@@ -16,12 +16,15 @@ interface _category {
         { questions: "What are the Norms for Casual Leave ?", view: 0 }
         , { questions: "How many casual leaves can be taken in a year?", view: 0 }
         , { questions: "How many kinds of leave does our organization provide", view: 0 }
-  
         , { questions: "How many leaves are remaining for me in this financial year ?", view: 0 }
         , { questions: "Norms for Maternity Leave", view: 0 }
         , { questions: "Norms for paternity leave", view: 0 }
         , { questions: "How many sick leave remaining for me?", view: 0 }
         , { questions: "Norms for Sick Leave", view: 0 }
+        , { questions: "What is the leave code for sick leave", view: 0 }
+        , { questions: "What is the leave code for casual leave", view: 0 }
+        , { questions: "What is the code XX?", view: 0 }
+        , { questions: "What is the code AX?", view: 0 }
         , { questions: "Norms for Permission", view: 0 }
         , { questions: "How many days privilege leave available?", view: 0 }
         , { questions: "Norms for Privilege Leave", view: 0 }
@@ -53,7 +56,7 @@ interface _category {
         , { questions: "What is the commencement time of lunch break ?", view: 0 }
         , { questions: "How do I escalate my disapproved request ?", view: 0 }
         , { questions: "Should I take prior approval for overtime", view: 0 }
-        , { questions: "Current month compensation off report", view: 0 }
+        , { questions: "Current month compoff report", view: 0 }
         , { questions: "How do I correct my attendance data error ?", view: 0 }
   
         , { questions: "Buffer time for punching", view: 0 }
@@ -84,10 +87,13 @@ interface _category {
       name: "Management - Queries"
       , link: "fourthLink"
       , categoryList: [
-        { questions: "Who is on leave today ?", view: 1 }
+        , { questions: "Who is the Deputy Manager ?", view: 1 }
+        , { questions: "Who is the Assistant Engineer ?", view: 1 }
+        , { questions: "What is the designation of Sasi Kumar ?", view: 1 }
+        , { questions: "Who is on leave today ?", view: 1 }
         , { questions: "How many employees are on leave today ?", view: 1 }
         , { questions: "How many days was XXXX on leave this month ?", view: 1 }
-        , { questions: "Is xxx was present yesterday ?", view: 1 }
+        , { questions: "Was Sasi Kumar present yesterday ?", view: 1 }
         , { questions: "How many days was XX late to office this month", view: 1 }
         , { questions: "How many days was xxxx on comp off this month ?", view: 1 }
   
@@ -99,16 +105,14 @@ interface _category {
       , categoryList: [
         { questions: "Holiday List", view: 0 }
         , { questions: "Leave Types", view: 0 }
-        , { questions: "My attendance report", view: 0 }
-        , { questions: "Weekly off details this month", view: 1 }
-        , { questions: "Employees worked during weekly off this month", view: 1 }
-        , { questions: "How many employees are under loss of pay this month ?", view: 1 }
-        , { questions: "Roster based report", view: 1 }
-        , { questions: "Early out report this month", view: 1 }
-        , { questions: "Late in Report this month", view: 1 }
-        , { questions: "Disapproved leave report this month", view: 1 }
-        , { questions: "Show approved leaves report", view: 1 }
-        , { questions: "Show the current month leave status report", view: 1 }
+        , { questions: "My Remaining leave Chart", view: 0 }
+        , { questions: "Leave Approval Status Report", view: 1 }
+        , { questions: "Today Leave List", view: 1 }
+        , { questions: "My attendance report", view: 1 }
+        , { questions: "Comp Off Status Chart", view: 1 }
+        , { questions: "Employees Official Details", view: 1 }
+        , { questions: "Employees Personal Details", view: 1 }
+        , { questions: "Comp off Application Status List", view: 1 }
       ]
     }
   ]
