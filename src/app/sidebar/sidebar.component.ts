@@ -25,9 +25,10 @@ export class SidebarComponent implements OnInit {
   innerWidth: any;
 
   constructor(private _router: Router, private _globalSettings: GlobalSettings, private el: ElementRef, private renderer: Renderer, private _commonService: CommonService) {
-    this.innerHeight = (window.screen.height) + "px";
-    this.innerWidth = (window.screen.width) + "px";
+    this.innerHeight = (window.screen.height) + 'px';
+    this.innerWidth = (window.screen.width) + 'px';
     this.menu = _menuList;
+    console.log(this.menu);
   }
 
   ngOnInit() {

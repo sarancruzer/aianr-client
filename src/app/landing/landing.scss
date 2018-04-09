@@ -55,30 +55,30 @@ box-shadow: 1.5px 2.6px 24px 0 rgba(0, 35, 136, 0.35);
   width: 100%;
   float:left;
   background: #ffffff;
-  border-radius: 4px;  
+  border-radius: 4px;
   color: #434651;
-  
+
   .chat-header {
     padding: 10px 15px 0px;
     border-bottom: 2px solid white;
-    
+
     img {
       float: left;
       border-radius: 50%;
       height: 60px;
     }
-    
+
     .chat-about {
       float: left;
       padding-left: 10px;
       margin-top: 6px;
     }
-    
+
     .chat-with {
       font-weight: bold;
       font-size: 14px;
     }
-    
+
     .chat-num-messages {
       color: $gray;
     }
@@ -87,7 +87,7 @@ box-shadow: 1.5px 2.6px 24px 0 rgba(0, 35, 136, 0.35);
       padding-right: 10px;
       font-size: 25px;
     }
-    
+
     .fa-star {
       float: right;
       color: #D8DADF;
@@ -95,7 +95,7 @@ box-shadow: 1.5px 2.6px 24px 0 rgba(0, 35, 136, 0.35);
       margin-top: 12px;
     }
   }
-  
+
   .chat-history {
     padding: 15px 30px 15px;
 border-bottom: 2px solid white;
@@ -104,18 +104,18 @@ overflow-y:scroll;
 background: #d9ecfd;
 border-radius: 5px;
 margin: 10px;
-    
+
     .message-data {
       margin-bottom: 15px;
     }
 	li{list-style:none;}
-    
+
     .message-data-time {
       color: lighten($gray, 8%);
       padding-left: 6px;
     }
-    
-    .message {      
+
+    .message {
       color: white;
 padding: 15px 15px;
 line-height: 10px;
@@ -124,7 +124,7 @@ border-radius: 7px;
 margin-bottom: 5px;
 width: 50%;
 position: relative;
-      
+
       &:after {
         bottom: 100%;
         left: 7%;
@@ -144,7 +144,7 @@ position: relative;
       background: $green;
       box-shadow: 1.5px 2.6px 24px 0 #4caf50;
     }
-    
+
     .message i.fa-thumbs-up{color: #fff;}
     .message i.fa-thumbs-down{color: #fff;}
 
@@ -156,12 +156,12 @@ position: relative;
         left: 93%;
       }
     }
-    
+
   }
-  
+
   .chat-message {
     padding: 30px;
-    
+
     textarea {
       width: 100%;
       border: none;
@@ -170,16 +170,16 @@ position: relative;
       margin-bottom: 10px;
       border-radius: 5px;
       resize: none;
-      
+
     }
-    
+
     .fa-file-o, .fa-file-image-o {
       font-size: 16px;
       color: gray;
       cursor: pointer;
-      
+
     }
-   
+
     button {
       float: right;
       color: $blue;
@@ -189,7 +189,7 @@ position: relative;
       cursor: pointer;
       font-weight: bold;
       background: #F2F5F8;
-      
+
       &:hover {
         color: darken($blue, 7%);
       }
@@ -201,11 +201,11 @@ position: relative;
     margin-right: 3px;
     font-size: 10px;
   }
-  
+
 .online {
   color: $green;
 }
-  
+
 .offline {
   color: $orange;
 }
@@ -249,7 +249,7 @@ position: relative;
   cursor: pointer;
 }
 
-/*========pulse========*/  
+/*========pulse========*/
 .pulse {
 	animation-name: pulse_animation;
 	animation-duration: 5000ms;
@@ -345,71 +345,71 @@ Button animation
 }
 .button27:hover::before{
 	-webkit-transform: translate(0,0);
-	transform: translate(0,0);	
+	transform: translate(0,0);
 }
 /*===============
 chatbox amination
 ===============*/
 @-webkit-keyframes fadeDistortion {
-  
+
       0%{
           opacity: 0;
           -webkit-transform: skewX(-8deg) skewY(-8deg);
           transform: skewX(-8deg) skewY(-8deg);
       }
-  
+
       25% {
           -webkit-transform: skewX(6deg) skewY(6deg);
           transform: skewX(6deg) skewY(6deg);
       }
-  
+
       50% {
           -webkit-transform: skewX(-4deg) skewY(-4deg);
           transform: skewX(-4deg) skewY(-4deg);
       }
-  
+
       75% {
           -webkit-transform: skewX(2deg) skewY(2deg);
           transform: skewX(2deg) skewY(2deg);
       }
-  
+
       100%{
           opacity: 1;
           -webkit-transform: none;
           transform: none;
       }
   }
-  
+
   @keyframes fadeDistortion {
-  
+
       0%{
           opacity: 0;
           -webkit-transform: skewX(-8deg) skewY(-8deg);
           transform: skewX(-8deg) skewY(-8deg);
       }
-  
+
       25% {
           -webkit-transform: skewX(6deg) skewY(6deg);
           transform: skewX(6deg) skewY(6deg);
       }
-  
+
       50% {
           -webkit-transform: skewX(-4deg) skewY(-4deg);
           transform: skewX(-4deg) skewY(-4deg);
       }
-  
+
       75% {
           -webkit-transform: skewX(2deg) skewY(2deg);
           transform: skewX(2deg) skewY(2deg);
       }
-  
+
       100%{
           opacity: 1;
           -webkit-transform: none;
           transform: none;
       }
   }
-  
+
   .fadeDistortion {
       -webkit-animation-duration: 1s;
       animation-duration: 1s;
@@ -538,12 +538,12 @@ Fade left
      -moz-border-radius:100px ;
      border-radius:100px;
  }
- 
- 
+
+
 
  .report_link{
   color:#fff !important;
-  
+
 }
 
 
@@ -569,15 +569,15 @@ Fade left
 	animation-fill-mode: forwards;
   animation-duration: 0.65s;
   color : #cf1628 !important;
-  z-index: 999; 
+  z-index: 999;
 }
 .animate-like {
 	animation-name: likeAnimation;
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
   animation-duration: 0.65s;
-  color : #333 !important; 
-  z-index: 999; 
+  color : #333 !important;
+  z-index: 999;
 }
 
 .animate-unlike {
@@ -585,8 +585,8 @@ Fade left
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
   animation-duration: 0.65s;
-  color : #333 !important; 
-  z-index: 999; 
+  color : #333 !important;
+  z-index: 999;
 }
 
 @keyframes likeAnimation {
@@ -640,4 +640,8 @@ Fade left
 
 .btn:not(.btn-link):not(.btn-circle) i {
   color: #fff;
+}
+
+.list-group-item {
+  background: #33628e !important;
 }

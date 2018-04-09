@@ -1,35 +1,41 @@
 import { FavouriteService } from './../_service/favourite.service';
 import { Component, OnInit } from '@angular/core';
+import {Location} from '@angular/common';
+
 
 @Component({
   selector: 'app-favourite',
   templateUrl: './favourite.component.html',
   styleUrls: ['./favourite.component.css'],
-  providers:[FavouriteService]
+  providers: [FavouriteService]
 })
+
 export class FavouriteComponent implements OnInit {
+  favouriteLists: any;
 
-  favouriteLists:any;
-
-  constructor(private _service:FavouriteService) { }
+  constructor(private _service: FavouriteService, private _location: Location) { }
 
   ngOnInit() {
-    //this.favouriteLists = JSON.parse(localStorage.getItem("favourites"));
+    // this.favouriteLists = JSON.parse(localStorage.getItem("favourites"));
     this.getFavourites();
   }
 
 
-  getFavourites(){
+  getFavourites() {
       this._service.getFavourites().subscribe(response => {
-          let res = response.result.data.info;
-          this.favouriteLists = res;                
-          console.log("-------------------------------");                
+          const res = response.result.data.info;
+          this.favouriteLists = res;
+          console.log('-------------------------------');
        },
-     err =>{
-        console.log("error msg");
-        //this.donationlistprovider.showErrorToast(err);
-    })
-    
+     err => {
+        console.log('error msg');
+        // this.donationlistprovider.showErrorToast(err);
+    });
+
     }
+
+  goBackCall() {
+    this._location.back();
+  }
 
 }

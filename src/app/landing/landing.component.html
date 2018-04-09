@@ -1,31 +1,31 @@
 <app-sidebar (messageEvent)="receivedMessage($event)"></app-sidebar>
 
 <section class="content zoomIn">
-    <div class="container clearfix">   
+    <div class="container clearfix">
       <div class="chat effect1">
-        <!-- <div class="chat-header clearfix">
+        <div class="chat-header clearfix">
           <img src="../../assets/images/user.png" alt="avatar" />
-          
+
           <div class="chat-about">
             <div class="chat-with">{{_globalSettings.username}}</div>
             <div class="chat-num-messages">
-                    <button (click)="showDialog = !showDialog" class="sim-button button27"><i class="fa fa-heart favt_icon pulse shadow" aria-hidden="true"></i>Favorite</button>     
+                    <button (click)="showDialog = !showDialog" class="sim-button button27"><i class="fa fa-heart favt_icon pulse shadow" aria-hidden="true"></i>Favorite</button>
             </div>
           </div>
-        </div>  -->
+        </div>
         <!-- end chat-header -->
-        
+
         <!-- <div class="slimScrollDiv chat-history" style="overflow: scroll; height: xyz;" #scrollMe [scrollTop]="scrollMe.scrollHeight"> -->
-            <div class="chat-history" #scrollMe style="overflow: scroll; height: xyz;" [scrollTop]="scrollMe.scrollHeight">  
+            <div class="chat-history" #scrollMe style="overflow: scroll; height: xyz;" [scrollTop]="scrollMe.scrollHeight">
                 <div class="scrollbar" id="style-6">
-                  
+
             <ul class="force-overflow">
             <li class="clearfix" *ngFor="let row of chatLists">
               <div *ngIf="row.user">
               <div class="message-data align-right">
                 <span class="message-data-time" >{{row.created_at}}</span> &nbsp; &nbsp;
                 <span class="message-data-name" >{{_globalSettings.username}}</span> <i class="fa fa-circle me"></i>
-              
+
               </div>
               <div class="message my-message fadeInLeft">
                 <p id="valueId" [innerHTML]="row.value"></p>
@@ -44,30 +44,30 @@
                     <!-- <a class="btn like_btn" (click)="reaction('like',row.question);"><i [ngClass]="(row.reaction == 'like')?'animate-like':''" class="fa fa-thumbs-up"></i> </a> &nbsp;&nbsp;&nbsp;&nbsp;
                     <a class="btn btn-danger like_btn" (click)="reaction('unlike',row.question);"><i [ngClass]="(row.reaction == 'unlike')?'animate-unlike':''" class="fa fa-thumbs-down"></i> </a> -->
                 <div class="align-right pull-right">
-                    <button class="btn-secondary like-review" (click)="reaction('like',row.question);">
-                        <i [ngClass]="(row.reaction == 'like')?'animate-like':''" class="fa fa-thumbs-up" aria-hidden="true"></i> 
+                    <button class="btn-secondary like-review" (click)="reaction('like',row);">
+                        <i [ngClass]="(row.reaction == 'like')?'animate-like':''" class="fa fa-thumbs-up" aria-hidden="true"></i>
                     </button>
 
-                    <button class="btn-primary like-review" (click)="reaction('unlike',row.question);">
-                        <i [ngClass]="(row.reaction == 'unlike')?'animate-like':''" class="fa fa-thumbs-down" aria-hidden="true"></i> 
+                    <button class="btn-primary like-review" (click)="reaction('unlike',row);">
+                        <i [ngClass]="(row.reaction == 'unlike')?'animate-like':''" class="fa fa-thumbs-down" aria-hidden="true"></i>
                     </button>
                 </div>
-                    
+
                 </div>
               </div>
             </li>
            <!-- <h1 (messageEvent)="receivedMessage($event)">Hi</h1> -->
-            
+
           </ul>
         </div>
-          
+
         </div> <!-- end chat-history -->
-              
+
         <form class="ai_margin_10">
         <div class="col-lg-10">
           <div class="form-group">
               {{message}}
-            <input type="text" class="form-control ai_textbox" name="searchreq" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Text" [(ngModel)]="searchreq" (keyup.enter)="searchBot()" autofocus>        
+            <input type="text" class="form-control ai_textbox" name="searchreq" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Text" [(ngModel)]="searchreq" (keyup.enter)="searchBot()" autofocus>
           </div>
           </div>
           <div class="col-lg-1">
@@ -82,26 +82,26 @@
                 </div>
         </form>
          <!-- end chat-message -->
-        
+
       </div> <!-- end chat -->
-      
+
     </div> <!-- end container -->
 
   </section>
 
-  
+
   <app-dialog [(visible)]="showDialog">
         <header class="dialog-title">
             <h4>Favorite Messages</h4>
         </header>
        <div class="favt_p">
 
-        <p *ngFor="let item of favouriteLists" (click)="favtoAsk(item.question)"><i class="fa fa-heart favt_icon" aria-hidden="true"></i> {{item.question}}</p>            
+        <p *ngFor="let item of favouriteLists" (click)="favtoAsk(item.question)"><i class="fa fa-heart favt_icon" aria-hidden="true"></i> {{item.question}}</p>
        </div>
-         
+
 </app-dialog>
 
-<!--   
+<!--
 
 <div class="container">
         <div class="row">
@@ -109,7 +109,7 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <span class="glyphicon glyphicon-comment"></span> Chats
-                       
+
                     </div>
                     <div class="panel-body" style="overflow: scroll; height: xyz;" #scrollMe [scrollTop]="scrollMe.scrollHeight">
                         <ul class="chat" >
@@ -122,13 +122,13 @@
                             <div class="header">
                                 <small class=" text-muted">
                                 <span class="glyphicon glyphicon-time"></span>{{row.created_at | timeAgo}}</small>
-                                
+
                                 <strong class="pull-right primary-font">{{_globalSettings.username}}</strong>
                             </div>
                             <p id="valueId" [innerHTML]="row.value"></p>
                         </div>
                         </div>
-                      
+
                     <div *ngIf="row.machine"><span class="chat-img pull-left">
                     <img src="http://placehold.it/50/55C1E7/fff&text={{machineImg}}" alt="User Avatar" class="img-circle" />
                     </span>
@@ -142,9 +142,9 @@
                     </div>
                     </div>
                 </li>
-                
 
-                            
+
+
                         </ul>
                     </div>
                     <div class="panel-footer">

@@ -7,21 +7,21 @@
       <div class="info-container">
         <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{_globalSettings.username}}</div>
         <div class="email">{{_globalSettings.email}}</div>
-       
+
       </div>
     </div>
-  
-  
+
+
     <div class="row">
       <div class="col-md-12">
         <div class="scroll_container">
           <ul class="nav nav-stacked back_sidebar scroll_link" id="accordion1">
-  
+
             <li>
               <a routerLinkActive="active" [routerLink]="['/dashboard']">
                 <i class="fa fa-home"></i>Dashboard</a>
             </li>
-  
+
             <li class="panel" *ngFor="let item of menu let i=index">
               <a data-toggle="collapse" data-parent="#accordion1" href="#{{item.link}}">
                 <i class="fa fa-briefcase"></i>{{item.name}}</a>
@@ -30,7 +30,7 @@
                   <a href="javascript:void(0);">{{data.questions}}</a>
                 </li>
               </ul>
-  
+
             </li>
             <li>
               <a routerLinkActive="about" [routerLink]="['/about']">
