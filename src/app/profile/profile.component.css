@@ -6,7 +6,7 @@
     max-width: 500px;
 }
 .twPc-bg {
-    background-image: url("https://pbs.twimg.com/profile_banners/50988711/1384539792/600x200");
+    background-image: url("https://images.readwrite.com/wp-content/uploads/2018/03/High-tech-background-blue-styles-vector-03-e1500621090654.jpg");
     background-position: 0 50%;
     background-size: 100% auto;
     border-bottom: 1px solid #e1e8ed;
@@ -37,8 +37,10 @@
     border-radius: 7px;
     box-sizing: border-box;
     color: #fff;
-    height: 72px;
-    width: 72px;
+    /* height: 72px;
+    width: 72px; */
+    height: 150px;
+    width: 150px;
 }
 .twPc-divUser {
     margin: 5px 0 0;
@@ -90,3 +92,69 @@ ul.twPc-Arrange {
     text-transform: uppercase;
     transition: color 0.15s ease-in-out 0s;
 }
+/*new*/
+body {
+    background-color: rgba(217, 236, 253, 1);
+    font: 14px/20px "Lato", Arial, sans-serif;
+    padding: 40px 0;
+    color: black;
+  }
+.breadcrumb {
+    padding: 8px 15px !important;
+    margin: 25px 0 0 20px !important;
+    background-color: #ffffff !important;
+    border-radius: 0 !important;
+}
+.breadcrumb > li {
+    color: #666 !important;
+    font-size: 16px !important;
+    vertical-align: middle !important;
+}
+.breadcrumb > .breadcrumb-item > a {
+    color: #ffe001;
+}
+li.breadcrumb-item i.fa.fa-angle-right {
+    font-size: 25px;
+    padding: 0 8px;
+    color: #000;
+    vertical-align: middle;
+}
+.grid-about {
+    /* background: #fff; */
+    margin-bottom: 1em;
+    padding: 1em;
+    /* border-radius: 4px; */
+    /* box-shadow: 0 1px 1px rgba(0,0,0,.05); */
+    margin: 25px 0 0 20px !important;
+}
+.grid-about p{color: #999;}
+.grid-about .section-title {
+    font-family: ralewaybold, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 35px;
+    font-style: normal;
+    text-transform: uppercase;
+    color: #252525;
+}
+.grid-about .section-title-btm {
+    
+        background-color: #ffe001;
+        height: 3px;
+        width: 100px;
+        margin-bottom: 20px;
+    
+    }
+
+/* pro*/
+.user-details {position: relative; padding: 0;     margin-top: 20px;}
+.user-details .user-image {position: relative;  z-index: 1; width: 100%; text-align: center;}
+ .user-image img { clear: both; margin: auto; position: relative;}
+
+.user-details .user-info-block {width: 100%; position: absolute; top: 55px; background: rgb(255, 255, 255); z-index: 0; padding-top: 35px;}
+ .user-info-block .user-heading {width: 100%; text-align: center; margin: 10px 0 0;}
+ .user-info-block .navigation {float: left; width: 100%; margin: 0; padding: 0; list-style: none; border-bottom: 1px solid #428BCA; border-top: 1px solid #428BCA;}
+  .navigation li {float: left; margin: 0; padding: 0;}
+   .navigation li a {padding: 20px 30px; float: left;}
+   .navigation li.active a {background: #428BCA; color: #fff;}
+ .user-info-block .user-body {float: left; padding: 5%; width: 90%;}
+  .user-body .tab-content > div {float: left; width: 100%;}
+  .user-body .tab-content h4 {width: 100%; margin: 10px 0; color: #333;}

@@ -2510,10 +2510,9 @@ section.content {
   .btn:not(.btn-link):not(.btn-circle) i {
     font-size: 20px;
     position: relative;
-    top: 3px; }
+    top:2px; }
   .btn:not(.btn-link):not(.btn-circle) span {
     position: relative;
-    top: -2px;
     margin-left: 3px; }
 
 .btn-warning,

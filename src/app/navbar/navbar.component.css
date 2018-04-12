@@ -80,13 +80,32 @@ a{font-size: 26px;}
     border-radius:50%;	
     margin-right: 10px;
 }
-.icon > a > i{color:#fff !important; position: fixed; margin-left: -14px; margin-top:-14px;}
+.icon > a > i{color:#fff !important; position: fixed; margin-left: -14px; margin-top:-15px;}
 .icon:hover{transform:translate(0, -10px);-webkit-transform:translate(0, -10px);box-shadow:3px 10px 3px #ccc;}
 .icon:active{box-shadow:3px 10px 3px #1a58c1;}
+
+.icon1 {
+	width:40px;
+	height:40px;
+	margin:10px auto;
+	text-align:center;
+	display:block;
+	background:linear-gradient(#b80101,#b10000);	
+	font-size:25px;
+	transition:all 0.5s ease-in-out;
+	-webkit-transition:all 0.5s ease-in-out;
+	cursor:pointer;	
+    border-radius:50%;	
+    margin-right: 10px;
+}
+.icon1 > a > i{color:#fff !important; position: fixed; margin-left: -14px; margin-top:-15px;}
+.icon1:hover{transform:translate(0, -10px);-webkit-transform:translate(0, -10px);box-shadow:3px 10px 3px #ccc;}
+.icon1:active{box-shadow:3px 10px 3px #b10000;}
+
 /*========pulse========*/  
 .pulse {
 	animation-name: pulse_animation;
-	animation-duration: 5000ms;
+	animation-duration: 500ms;
 	transform-origin:70% 70%;
 	animation-iteration-count: infinite;
   animation-timing-function: linear;

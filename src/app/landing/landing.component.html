@@ -4,10 +4,10 @@
     <div class="container clearfix">
       <div class="chat effect1">
         <div class="chat-header clearfix">
-          <img src="../../assets/images/user.png" alt="avatar" />
+          <!-- <img src="../../assets/images/user.png" alt="avatar" /> -->
 
           <div class="chat-about">
-            <div class="chat-with">{{_globalSettings.username}}</div>
+            <!-- <div class="chat-with">{{_globalSettings.username}}</div> -->
             <div class="chat-num-messages">
                     <button (click)="showDialog = !showDialog" class="sim-button button27"><i class="fa fa-heart favt_icon pulse shadow" aria-hidden="true"></i>Favorite</button>
             </div>
@@ -38,20 +38,21 @@
                 <div class="message-data align-right">
                   <span class="message-data-time" >{{row.created_at}}</span> &nbsp; &nbsp;
                   <span class="message-data-name" >HR</span> <i class="fa fa-circle me"></i>
+                  <div class="align-right pull-right">
+                        <button class="btn-secondary like-review" (click)="reaction('like',row);">
+                            <i [ngClass]="(row.reaction == 'like')?'animate-like':''" class="fa fa-thumbs-up" aria-hidden="true"></i>
+                        </button>
+    
+                        <button class="btn-primary like-review" (click)="reaction('unlike',row);">
+                            <i [ngClass]="(row.reaction == 'unlike')?'animate-like':''" class="fa fa-thumbs-down" aria-hidden="true"></i>
+                        </button>
+                    </div>
                 </div>
                 <div class="message other-message float-right">
-                    <p id="valueId" [innerHTML]="row.value"></p>
+                    <p id="valueId" [innerHTML]="row.value" class="pull-left"></p>
                     <!-- <a class="btn like_btn" (click)="reaction('like',row.question);"><i [ngClass]="(row.reaction == 'like')?'animate-like':''" class="fa fa-thumbs-up"></i> </a> &nbsp;&nbsp;&nbsp;&nbsp;
                     <a class="btn btn-danger like_btn" (click)="reaction('unlike',row.question);"><i [ngClass]="(row.reaction == 'unlike')?'animate-unlike':''" class="fa fa-thumbs-down"></i> </a> -->
-                <div class="align-right pull-right">
-                    <button class="btn-secondary like-review" (click)="reaction('like',row);">
-                        <i [ngClass]="(row.reaction == 'like')?'animate-like':''" class="fa fa-thumbs-up" aria-hidden="true"></i>
-                    </button>
-
-                    <button class="btn-primary like-review" (click)="reaction('unlike',row);">
-                        <i [ngClass]="(row.reaction == 'unlike')?'animate-like':''" class="fa fa-thumbs-down" aria-hidden="true"></i>
-                    </button>
-                </div>
+                
 
                 </div>
               </div>
