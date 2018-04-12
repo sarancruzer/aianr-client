@@ -133,3 +133,29 @@ a{font-size: 26px;}
     background-color: #f86c6b;
     border-color: #f86c6b;
 }
+
+.btn-sky {
+    color: #fff !important;
+    background-color: #0bacd3;
+    border-bottom:2px solid #098aa9 !important;
+    margin-bottom: 10px;
+    border-radius: 25px !important;
+    margin-right: 10px;
+    }
+    
+    .btn-sky:hover,.btn-sky.active:focus, .btn-sky:focus, .open>.dropdown-toggle.btn-sky {
+    color: #fff !important;
+    background-color: #29b6d8;
+    border-bottom:2px solid #2192ad !important;
+    outline: none;
+    margin-bottom: 10px;
+    }
+    
+    .btn-sky:active, .btn-sky.active {
+    color: #fff !important;
+    background-color: #0a97b9;
+    border-top:4px solid #087994;
+    outline-offset: none;
+    margin-top: 2px;
+    margin-bottom: 10px;
+    }

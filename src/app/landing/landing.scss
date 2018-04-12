@@ -106,7 +106,9 @@ border-radius: 5px;
 margin: 10px;
 
     .message-data {
-      margin-bottom: 15px;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      
     }
 	li{list-style:none;}
 
@@ -291,8 +293,8 @@ position: relative;
 Button animation
 ==============*/
 .sim-button{
-	line-height: 50px;
-	height: 50px;
+	line-height: 30px;
+	height: 38px;
 	text-align: center;
 	margin-right: auto;
 	margin-left: auto;
@@ -575,7 +577,7 @@ Fade left
 	animation-name: likeAnimation;
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
-  animation-duration: 0.65s;
+  animation-duration: 0.25s;
   color : #333 !important;
   z-index: 999;
 }
@@ -584,13 +586,13 @@ Fade left
 	animation-name: likeAnimation;
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
-  animation-duration: 0.65s;
+  animation-duration: 0.25s;
   color : #333 !important;
   z-index: 999;
 }
 
 @keyframes likeAnimation {
-  0%   { transform: scale(30); }
+  0%   { transform: scale(15); }
   100% { transform: scale(1); }
 }
 
@@ -600,22 +602,24 @@ Fade left
  .btn-secondary {
   display: block;
   background: #4caf50 !important;
-  border-radius: 3px;
+  border-radius: 50px;
   box-shadow: 0 10px 20px -8px rgb(76, 175, 80);
-  // padding: 10px 17px;
-  padding: 5px 10px;
-  font-size: 16px;
+  padding: 5px 6px;
+  // padding: 5px 10px;
+  font-size: 14px;
   cursor: pointer;
   border: none;
   outline: none;
-  color: #ffffff;
+  color: #fff;
   text-decoration: none;
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
   float: left;
+  line-height: 0px;
   margin-right: 5px;
 
 }
+// .btn-secondary > button > i {color: #4caf50 !important; box-shadow: 0 10px 20px -8px rgb(76, 175, 80);}
 
 .btn-primary:hover {
   transform: translateY(-3px);
@@ -623,20 +627,22 @@ Fade left
  .btn-primary {
   display: block;
   background: #ed2553 !important;
-  border-radius: 3px;
+  border-radius: 50px;
   box-shadow: 0 10px 20px -8px rgb(240, 75, 113);
-  // padding: 10px 17px;
-  padding: 5px 10px;
-  font-size: 16px;
+  padding: 5px 6px;
+  // padding: 5px 10px;
+  font-size: 14px;
   cursor: pointer;
   border: none;
   outline: none;
-  color: #ffffff;
+  color: #fff;
   text-decoration: none;
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
+  line-height: 0px;
 
 }
+// .btn-primary > button > i {color: #ed2553 !important; box-shadow: 0 10px 20px -8px rgb(240, 75, 113);}
 
 .btn:not(.btn-link):not(.btn-circle) i {
   color: #fff;

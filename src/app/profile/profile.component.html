@@ -1,66 +1,75 @@
 <app-sidebar ></app-sidebar>
-
-<section class="content zoomIn">
-  <div class="container">
-      <div class="row">
-          <div class="col-md-11">
-              <div class="panel panel-default">
-                  <div class="panel-heading">
-                      <span ><i class="fa fa-heart favt_icon" aria-hidden="true"></i> Profile </span>
-                     
-                     
+<section class="content-1 zoomIn">
+  <div class="container-fluid">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="index.html">Home</a><i class="fa fa-angle-right"></i>Profile</li>
+    </ol>
+       <!--<h2 class="section-title"><span>Profile</span></h2>
+      <div class="section-title-btm"></div>
+      <p>I am AIANR Chatbot, an AI-driven Virtual Assistant. I can help you with queries related to Human Resource Management 
+        You can type in your queries or you can select the questions from the left side categorized question Menu Bar. From categorized Menu bar you can get the queries in which I am trained to deal with</p>
+      <div class="twPc-div"> <a class="twPc-bg twPc-block"></a>
+        <div> <a title="Mert Salih Kaplan" href="https://twitter.com/mertskaplan" class="twPc-avatarLink"> <img alt="Mert Salih Kaplan" src="../../assets/images/user.png" class="twPc-avatarImg"> </a>
+          <div class="twPc-divUser">
+            <div class="twPc-divName"> <a href="https://twitter.com/mertskaplan">{{_globalSettings.username}}</a> </div>
+            <span> <a href="https://twitter.com/mertskaplan">{{_globalSettings.employeeNumber}}</a> </span> </div>
+          <div class="twPc-divStats">
+            <ul class="twPc-Arrange">
+              <li class="twPc-ArrangeSizeFit"> <a href="https://twitter.com/mertskaplan" title="9.840 Tweet"> <span class="twPc-StatLabel twPc-block">Favourites</span> <span class="twPc-StatValue">{{reactionCount}}</span> </a> </li>
+              <li class="twPc-ArrangeSizeFit"> <a href="https://twitter.com/mertskaplan/following" title="885 Following"> <span class="twPc-StatLabel twPc-block">Reactions</span> <span class="twPc-StatValue">{{favouriteCount}}</span> </a> </li>
+            
+            </ul>
+          </div>
+        </div>
+      </div> -->
+      <div class="col-sm-4 col-md-4 user-details grid-about">
+          <div class="user-image">
+              <img src="http://www.gravatar.com/avatar/2ab7b2009d27ec37bffee791819a090c?s=100&d=mm&r=g" alt="Karan Singh Sisodia" title="Karan Singh Sisodia" class="img-circle">
+          </div>
+          <div class="user-info-block">
+              <div class="user-heading">
+                  <h3><a href="https://twitter.com/mertskaplan">{{_globalSettings.username}}</a></h3>
+                  <span class="help-block"><a href="https://twitter.com/mertskaplan">{{_globalSettings.employeeNumber}}</a></span>
+              </div>
+              <ul class="navigation">
+                  <li class="active">
+                      <a data-toggle="tab" href="#information">
+                          <span class="glyphicon glyphicon-user"></span>
+                      </a>
+                  </li>
+                  <li>
+                      <a data-toggle="tab" href="#settings">
+                          <span class="glyphicon glyphicon-cog"></span>
+                      </a>
+                  </li>
+                  <li>
+                      <a data-toggle="tab" href="#email">
+                          <span class="glyphicon glyphicon-bell"></span>
+                      </a>
+                  </li>
+                  <li>
+                      <a data-toggle="tab" href="#events">
+                          <span class="glyphicon glyphicon-heart"></span>
+                      </a>
+                  </li>
+              </ul>
+              <div class="user-body">
+                  <div class="tab-content">
+                      <div id="information" class="tab-pane active">
+                          <h4>Account Information</h4>
+                      </div>
+                      <div id="settings" class="tab-pane">
+                          <h4>Settings</h4>
+                      </div>
+                      <div id="email" class="tab-pane">
+                          <h4>{{reactionCount}}</h4>
+                      </div>
+                      <div id="events" class="tab-pane">
+                          <h4>{{favouriteCount}}</h4>
+                      </div>
                   </div>
-                  <div class="panel-body" >
-
-                         
-<div class="twPc-div">
-  <a class="twPc-bg twPc-block"></a>
-
-<div>
- 
-  <a title="Mert Salih Kaplan" href="https://twitter.com/mertskaplan" class="twPc-avatarLink">
-    <img alt="Mert Salih Kaplan" src="../../assets/images/user.png" class="twPc-avatarImg">
-  </a>
-
-  <div class="twPc-divUser">
-    <div class="twPc-divName">
-      <a href="https://twitter.com/mertskaplan">{{_globalSettings.username}}</a>
-    </div>
-    <span>
-      <a href="https://twitter.com/mertskaplan">{{_globalSettings.employeeNumber}}</a>
-    </span>
-  </div>
-
-  <div class="twPc-divStats">
-    <ul class="twPc-Arrange">
-      <li class="twPc-ArrangeSizeFit">
-        <a href="https://twitter.com/mertskaplan" title="9.840 Tweet">
-          <span class="twPc-StatLabel twPc-block">Favourites</span>
-          <span class="twPc-StatValue">{{reactionCount}}</span>
-        </a>
-      </li>
-      <li class="twPc-ArrangeSizeFit">
-        <a href="https://twitter.com/mertskaplan/following" title="885 Following">
-          <span class="twPc-StatLabel twPc-block">Reactions</span>
-          <span class="twPc-StatValue">{{favouriteCount}}</span>
-        </a>
-      </li>
-      <!-- <li class="twPc-ArrangeSizeFit">
-        <a href="https://twitter.com/mertskaplan/followers" title="1.810 Followers">
-          <span class="twPc-StatLabel twPc-block">Followers</span>
-          <span class="twPc-StatValue">1.810</span>
-        </a>
-      </li> -->
-    </ul>
-  </div>
-</div>
-</div>
-                      
-                  </div>                    
               </div>
           </div>
       </div>
   </div>
-
 </section>
-

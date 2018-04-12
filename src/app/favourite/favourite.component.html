@@ -77,7 +77,12 @@
 <section class="content zoomIn effect1 txt_boby">
     <div class="container">
         <div class="row">
-          <button type="button" class="btn btn-dark-green" (click)="goBackCall()">Back</button>
+          <!-- <button type="button" class="btn btn-dark-green" (click)="goBackCall()">Back</button> -->
+          <div class="pull-right ai_back">
+            <button type="button" class="btn btn-sky text-uppercase btn-sm" (click)="goBackCall()">
+                    <span class="btn-label"><i class="glyphicon glyphicon-chevron-left"></i></span>
+                Back</button>
+          </div>
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
