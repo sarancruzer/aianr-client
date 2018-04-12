@@ -106,6 +106,7 @@ export class LandingComponent implements OnInit {
           localStorage.setItem('qa_flag', res.qa_flag);
           localStorage.setItem('qa_nerformat', res.qa_nerformat);
           localStorage.setItem('qa_id', res.qa_id);
+          localStorage.setItem('ask_list', res.ask_list);
           this.scrollToBottom();
         },
         err => {
@@ -133,7 +134,7 @@ export class LandingComponent implements OnInit {
     this.chatLists[index] = oldItem;
 
     console.log('this.reactionLists');
-    console.log(data.rand_number);
+    console.log(data);
     console.log(this.chatLists);
     localStorage.setItem('chats', JSON.stringify(this.chatLists));
     console.log(data.question);
@@ -202,9 +203,16 @@ export class LandingComponent implements OnInit {
   getFavourites() {
     this._favouriteService.getFavourites().subscribe(
       response => {
-        const res = response.result.data.info;
-        this.favouriteLists = res;
-        localStorage.setItem('favourites', JSON.stringify(res));
+        const res = response.result;
+        if (res.statusCode === 200) {
+          this.favouriteLists = res.data.info;
+          localStorage.setItem('favourites', JSON.stringify(res));
+        }
+
+        if (res.statusCode === 204) {
+          this.favouriteLists = [];
+          localStorage.setItem('favourites', JSON.stringify(res));
+        }
 
         console.log('currentUser');
       },
