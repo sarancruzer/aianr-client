@@ -5,7 +5,7 @@
     height: auto;
     min-height: 715px;
     background: #fff;
- 
+
 }
 
 section.content-1 {
@@ -14,8 +14,13 @@ section.content-1 {
     -o-transition: 0.5s;
     -webkit-transition: 0.5s;
     transition: 0.5s;
-    
+
 }
 section > div.container{
     margin: 15px 0px;
 }
+/*
+.modal-backdrop {
+z-index: 888 !important;
+}
+.modal{z-index: 889 !important;} */

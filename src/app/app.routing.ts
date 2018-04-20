@@ -1,7 +1,7 @@
 import { TaskLogsComponent } from './task-logs/task-logs.component';
 import { SimpleLayoutComponent } from './containers/simple-layout/simple-layout.component';
 import { FullLayoutComponent } from './containers/full-layout/full-layout.component';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes,  RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 import { LoginComponent } from './login/login.component';
@@ -17,27 +17,27 @@ import { TaskComponent } from './task/task.component';
 
 
 export const routes: Routes = [
-    {path: '',redirectTo: 'login',pathMatch: 'full'},
-    {path: '',component: FullLayoutComponent,data: {title: 'DASHBOARD'},
+    {path: '', redirectTo: 'login', pathMatch: 'full'},
+    {path: '', component: FullLayoutComponent, data: {title: 'DASHBOARD'},
         children: [
-          {path: 'landing',component: LandingComponent,data: {title: 'Langinding Page'}},          
-          {path: 'about',component: AboutComponent,data: {title: 'Langinding Page'}},          
-          {path: 'report',component: ReportComponent,data: {title: 'Langinding Page'}},          
-          {path: 'dashboard',component: DashboardComponent,data: {title: 'Langinding Page'}},          
-          {path: 'favourite',component: FavouriteComponent,data: {title: 'Langinding Page'}},          
-          {path: 'profile',component: ProfileComponent,data: {title: 'Profile Page'}},          
-          {path: 'task',component: TaskComponent,data: {title: 'Task Page'}},          
-          {path: 'taskLogs',component: TaskLogsComponent,data: {title: 'Task Logs Page'}}          
+          {path: 'landing', component: LandingComponent, data: {title: 'Langinding Page'}},
+          {path: 'about', component: AboutComponent, data: {title: 'Langinding Page'}},
+          {path: 'report', component: ReportComponent, data: {title: 'Langinding Page'}},
+          {path: 'dashboard', component: DashboardComponent, data: {title: 'Langinding Page'}},
+          {path: 'favourite', component: FavouriteComponent, data: {title: 'Langinding Page'}},
+          {path: 'profile', component: ProfileComponent, data: {title: 'Profile Page'}},
+          {path: 'task', component: TaskComponent, data: {title: 'Task Page'}},
+          {path: 'taskLogs', component: TaskLogsComponent, data: {title: 'Task Logs Page'}}
       ]
     },
-    {path: 'login',component: LoginComponent,data: {title: 'Login Page'}},
-    {path: 'logout',component: LogoutComponent,data: {title: 'Log out'}},
-    {path: 'about', component: AboutComponent }
-    
+    {path: 'login', component: LoginComponent, data: {title: 'Login Page'}},
+    {path: 'logout', component: LogoutComponent, data: {title: 'Log out'}},
+    {path: 'about',  component: AboutComponent }
+
   ];
 
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]    
+  exports: [ RouterModule ]
 })
 export class AppRoutingModule { }

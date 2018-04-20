@@ -35,6 +35,8 @@ export class LandingComponent implements OnInit {
   message: string; // = 'hello ANGULAR23';
   random: number;
 
+  currentItem: any;
+
   constructor(
     private _router: Router,
     private _http: Http,
@@ -85,7 +87,13 @@ export class LandingComponent implements OnInit {
 
   searchBot() {
     if (this.searchreq.trim() != null) {
+
+      const i =  this.chatLists.findIndex(x => x.value === this.searchreq);
+
       this.chatLists.push({user: true, value: this.searchreq, created_at: Date.now(), favourite: false});
+
+
+
 
       this._service.getsearchResponse(this.searchreq).subscribe(
         response => {
@@ -108,6 +116,11 @@ export class LandingComponent implements OnInit {
           localStorage.setItem('qa_id', res.qa_id);
           localStorage.setItem('ask_list', res.ask_list);
           this.scrollToBottom();
+
+          this.updateFavouritesByChats(this.searchreq, i);
+
+
+
         },
         err => {
           console.log('error msg');
@@ -150,34 +163,54 @@ export class LandingComponent implements OnInit {
     );
   }
 
-  updateFavourites(question) {
+  updateFavourites(question, index) {
+    console.log(index);
     console.log(question);
-    const updateItem = this.chatLists.find(x => x.value === question);
-    console.log('updatedItem');
-    console.log(updateItem);
-    console.log(updateItem.favourite);
+
+    console.log(this.chatLists[index].favourite);
 
     let flag;
 
-    if (updateItem.favourite === true) {
-      console.log('POP OPERATION');
-      updateItem.favourite = false;
+    if (this.chatLists[index].favourite === true) {
       flag = false;
-      const index = this.favouriteLists.indexOf(question);
-      this.favouriteLists.splice(index, 1);
-    } else if (updateItem.favourite === false) {
-      console.log('PUSH OPERATION');
-      updateItem.favourite = true;
+      this.chatLists.forEach( element => {
+        if (element.value.toLowerCase() === question.toLowerCase()) {
+           console.log('COND TRUE');
+            element.favourite = false;
+        }
+      });
+
+      this.favouriteLists.forEach( (item, ind) => {
+        console.log(item);
+        if (item.question.toLowerCase() === question.toLowerCase()) {
+            console.log('FAV TRUE');
+            this.favouriteLists.splice(ind, 1);
+        }
+      });
+    }else if (this.chatLists[index].favourite === false) {
       flag = true;
+      this.chatLists.forEach( element => {
+        if (element.value.toLowerCase() === question.toLowerCase()) {
+          console.log('COND FALSE');
+            element.favourite = true;
+        }
+      });
+      this.favouriteLists.forEach( (item, ind) => {
+        console.log(item);
+        if (item.question.toLowerCase() === question.toLowerCase()) {
+            console.log('FAV TRUE');
+            this.favouriteLists.splice(ind, 1);
+        }
+      });
+      console.log(this.favouriteLists);
       this.favouriteLists.push({ question: question });
     }
+
+    console.log(this.chatLists);
+    console.log('FAV LISTS');
+    console.log(this.favouriteLists);
+
     localStorage.setItem('favourites', JSON.stringify(this.favouriteLists));
-
-
-
-    // const newItem = updateItem;
-     // this.updateFavItem(updateItem, newItem);
-     this.updateFavItem(updateItem);
 
     this._favouriteService.updateFavourites(question, flag).subscribe(
       response => {
@@ -190,23 +223,33 @@ export class LandingComponent implements OnInit {
     );
   }
 
-  updateFavItem(updateItem) {
-    this.chatLists.forEach(element => {
-      // console.log(element);
-      element['favourite'] = updateItem.favourite;
-    });
-    console.log('this.chatLists');
-    console.log(this.chatLists);
-    localStorage.setItem('chats', JSON.stringify(this.chatLists));
+  updateFavouritesByChats(question, i) {
+
+    console.log('chat index ' + i);
+
+    if (i > -1) {
+      if (this.chatLists[i].favourite === true) {
+        this.chatLists.forEach( element => {
+          if (element.value.toLowerCase() === question.toLowerCase()) {
+             console.log('FAV COND TRUE');
+              element.favourite = true;
+          }
+        });
+      }
+    }
   }
 
   getFavourites() {
     this._favouriteService.getFavourites().subscribe(
       response => {
         const res = response.result;
+        const fav = res.data.info;
         if (res.statusCode === 200) {
-          this.favouriteLists = res.data.info;
-          localStorage.setItem('favourites', JSON.stringify(res));
+          fav.forEach(element => {
+            this.favouriteLists.push({'question': element.question});
+          });
+          // this.favouriteLists = res.data.info;
+          localStorage.setItem('favourites', JSON.stringify(this.favouriteLists));
         }
 
         if (res.statusCode === 204) {

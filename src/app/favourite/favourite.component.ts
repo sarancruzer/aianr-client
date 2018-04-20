@@ -26,12 +26,12 @@ export class FavouriteComponent implements OnInit {
           const res = response.result;
           if (res.statusCode === 200) {
             this.favouriteLists = res.data.info;
-            localStorage.setItem('favourites', JSON.stringify(res));
+            // localStorage.setItem('favourites', JSON.stringify(res));
           }
 
           if (res.statusCode === 204) {
             this.favouriteLists = [];
-            localStorage.setItem('favourites', JSON.stringify(res));
+            // localStorage.setItem('favourites', JSON.stringify(res));
           }
        },
      err => {

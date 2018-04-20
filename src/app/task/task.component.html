@@ -1,13 +1,15 @@
 <app-sidebar (messageEvent)="receivedMessage($event)"></app-sidebar>
 
+
 <section class="content zoomIn txt_boby effect1">
 
   <div class="container">
     <div class="row">
       <div class="col-md-12">
+
         <div class="panel panel-default">
           <div class="panel-heading">
-              <h3><span class="material_assignment"><i class="material-icons">assignment</i></span> Task List 
+              <h3><span class="material_assignment"><i class="material-icons">assignment</i></span> Task List
                 <div class="pull-right">
                   <!-- <button type="button" class="btn btn-sm btn-primary button2" (click)="createModalFunc(createForm)">
                     <i class="fa fa-plus-circle" aria-hidden="true"></i> Create
@@ -15,11 +17,14 @@
                   <button type="button" class="btn btn-sky text-uppercase btn-sm" (click)="createModalFunc(createForm)">
                       <span class="btn-label"><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
                       Create</button>
+                      <button type="button" class="btn btn-sky text-uppercase btn-sm" (click)="gotoHistory()">
+                          <span class="btn-label"><i class="fa fa-history" aria-hidden="true" style="color:rgb(255, 255, 255)"></i></span>
+                          History</button>
                 </div>
               </h3>
             <!-- <i class="material-icons">assignment</i>
             <span>Task List</span> -->
-            
+
 
           </div>
           <div class="panel-body">
@@ -32,7 +37,7 @@
                   <th>Report Url</th>
                   <th>Receipients</th>
                   <th>Created date</th>
-                  <th>Updated date</th>
+                  <th>Modified date</th>
                   <th>Status</th>
                   <th>Actions</th>
                 </tr>
@@ -42,9 +47,9 @@
                   <th scope="row">{{i+1}}</th>
                   <td>{{item._source.report_name}}</td>
                   <td>{{item._source.employeenumber}}</td>
-                  <td>{{item._source.receipients}}</td>
-                  <td>{{item._source.created_at}}</td>
-                  <td>{{item._source.updated_at}}</td>
+                  <td><span class="label label-primary" data-placement="top" data-toggle="tooltip" title="{{item._source.receipients | customJson}}">{{item._source.receipients | customJson | truncate:[50, '...']}}</span></td>
+                  <td>{{item._source.created_at | date: 'dd-MM-yyyy hh:mm'}}</td>
+                  <td>{{item._source.updated_at | date: 'dd-MM-yyyy hh:mm'}}</td>
                   <td>
                     <span class="label label-success">Active</span>
                   </td>
@@ -55,7 +60,7 @@
                     <button type="button" class="btn btn-outline-danger button2" data-toggle="modal" (click)="deleteModalFunc(item._id)">
                       <i class="fa fa-trash-o" aria-hidden="true"></i>
                     </button>
-                    
+
                   </td>
                 </tr>
               </tbody>
@@ -94,6 +99,8 @@
     <div class="modal-content">
 
 
+
+
       <form (ngSubmit)="create(createForm)" #createForm="ngForm" novalidate>
           <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" (click)="createModal.hide()" aria-label="Close">&times;</button>
@@ -102,7 +109,7 @@
         <!--<div class="modal-header">
           <h4 class="modal-title">Create </h4>
           <button type="button" class="close" (click)="createModal.hide()" aria-label="Close">
-            
+
             <span aria-hidden="true">&times;</span>
           </button>
         </div>-->
@@ -110,6 +117,9 @@
 
           <div class="card-body">
             <div class="form-group">
+
+
+
 
               <select name="report_id" class="form-control input-sm" [(ngModel)]="model.report_id" #report_id="ngModel" (change)="changeReport($event)"
                 required>
@@ -142,13 +152,30 @@
                   </label>
                 </div>
             </div>
-            <div class="form-group">
-                <input type="email" name="receipients" id="receipients" class="form-control input-sm" placeholder="Email Address" [(ngModel)]="model.receipients">
+            <div class="col-lg-12">
+
+                     <tag-input [(ngModel)]="model.receipients" [ngModel]="['@item']" name="receipients" [theme]="'dark'"  [editable]="true"
+                       [onlyFromAutocomplete]="false">
+                <tag-input-dropdown [showDropdownIfEmpty]="false"
+                                    [dynamicUpdate]="false"
+                                    [focusFirstElement]="true"
+                                    [zIndex]="10000"
+                                    [displayBy]="'value'"
+                                    [identifyBy]="'id'"
+                                    [autocompleteItems]="autocompleteItemsAsObjects">
+                    <ng-template let-item="item" let-index="index">
+                        ({{ index }}) {{ item.id }}: {{ item.value }}
+                    </ng-template>
+                </tag-input-dropdown>
+            </tag-input>
+
+
+                  <!-- <input type="email" name="receipients" id="receipients" class="form-control input-sm" placeholder="Email Address" [(ngModel)]="model.receipients"> -->
               </div>
                   <div class="col-xs-4 col-sm-4 col-md-4 txt-padding-btm">
                     <div class="checkbox-inline">
-                      <label> daily
-                        <input type="checkbox" class="custom-control-input" id="daily" name="daily" [(ngModel)]="model.daily" >
+                      <label>
+                        <input type="checkbox" class="custom-control-input" id="daily" name="daily" [(ngModel)]="model.daily" >Daily
                         <span class="custom-control-indicator"></span>
                       </label>
                     </div>
@@ -162,8 +189,8 @@
                   </div>
                   <div class="col-xs-4 col-sm-4 col-md-4 txt-padding-btm">
                     <div class="checkbox-inline">
-                      <label> weekly
-                        <input type="checkbox" class="custom-control-input" id="weekly" name="weekly" [(ngModel)]="model.weekly">
+                      <label>
+                        <input type="checkbox" class="custom-control-input" id="weekly" name="weekly" [(ngModel)]="model.weekly">Weekly
                       </label>
                     </div>
                     <div class="form-group" *ngIf="model.weekly">
@@ -180,19 +207,19 @@
                   </div>
                   <div class="col-xs-4 col-sm-4 col-md-4 txt-padding-btm">
                     <div class="checkbox-inline">
-                      <label> monthly
-                        <input type="checkbox" class="custom-control-input" id="monthly" name="monthly" [(ngModel)]="model.monthly">
+                      <label>
+                        <input type="checkbox" class="custom-control-input" id="monthly" name="monthly" [(ngModel)]="model.monthly">Monthly
                       </label>
                     </div>
-    
+
                     <div class="form-group" *ngIf="model.monthly">
                       <select name="days" class="form-control input-sm" [(ngModel)]="model.days">
                         <option value="1" *ngFor='let in of counter(31) ;let i = index'> {{i+1}}</option>
                       </select>
                     </div>
-    
+
                   </div>
-            
+
             <!-- <div class="row">
               <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
@@ -211,9 +238,9 @@
                   </label>
                 </div>
               </div>
-              
 
-            </div> 
+
+            </div>
 
 
 
@@ -296,130 +323,214 @@
     <div class="modal-content">
 
 
-      <form (ngSubmit)="update(updateForm)" #updateForm="ngForm" novalidate>
-          <div class="modal-header">
-              <button type="button" class="close" (click)="editModal.hide()" aria-label="Close">&times;</button>
-              <h4 class="modal-title">Update Task</h4>
-            </div>
-        <!-- <div class="modal-header">
-          <h4 class="modal-title">Update Task </h4>
-          <button type="button" class="close" (click)="editModal.hide()" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div> -->
-        <div class="modal-body">
-
-          <div class="card-body">
-            <div class="form-group">
-
-              <select name="report_id" class="form-control input-sm" [(ngModel)]="model.report_id" #report_id="ngModel" (change)="changeReport($event)"
-                required>
-                <option value=""> Select Option </option>
-                <option *ngFor="let row of reportLists" [ngValue]="row.id">
-                  {{row.name}}
-                </option>
-
-              </select>
-              <input type="hidden" name="report_name" [(ngModel)]="model.report_name" />
-              <input type="hidden" name="id" [(ngModel)]="model.id" />
-
-              <div style="color:red" *ngIf="report_id.errors && (report_id.dirty || report_id.touched || updateForm.submitted)">
-                <span class="help-block" *ngIf="report_id.errors.required" style="color:red">
-                  This field is required.
-                </span>
-              </div>
-
-            </div>
-
-            <div class="row">
-              <div class="col-xs-6 col-sm-6 col-md-6">
-                <div class="checkbox-inline">
-                  <label> Email
-                    <input type="checkbox" class="custom-control-input" name="email" id="email" [(ngModel)]="model.email" [checked]="model.email">
-                    <span class="custom-control-indicator"></span>
-                  </label>
+          <form (ngSubmit)="update(updateForm)" #updateForm="ngForm" novalidate>
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" (click)="createModal.hide()" aria-label="Close">&times;</button>
+                  <h4 class="modal-title">Create</h4>
                 </div>
-              </div>
+            <!--<div class="modal-header">
+              <h4 class="modal-title">Create </h4>
+              <button type="button" class="close" (click)="createModal.hide()" aria-label="Close">
 
-              <div class="col-xs-6 col-sm-6 col-md-6">
-                <div class="checkbox-inline">
-                  <label class="custom-control custom-checkbox"> Report
-                    <input type="checkbox" class="custom-control-input" name="report" id="report" [(ngModel)]="model.report" [checked]="model.report">
-                    <span class="custom-control-indicator"></span>
-                  </label>
-                </div>
-              </div>
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>-->
+            <div class="modal-body">
 
-            </div>
-
-
-
-            <div class="form-group">
-              <input type="email" name="receipients" id="receipients" class="form-control input-sm" placeholder="Email Address" [(ngModel)]="model.receipients">
-
-            </div>
-
-            <div class="row">
-              <div class="col-xs-4 col-sm-4 col-md-4">
-                <div class="checkbox-inline txt-padding-btm">
-                  <label> daily
-                    <input type="checkbox" class="custom-control-input" id="daily" name="daily" [(ngModel)]="model.daily">
-                    <span class="custom-control-indicator"></span>
-                  </label>
-                </div>
+              <div class="card-body">
                 <div class="form-group">
-                  <select name="delay" class="form-control input-sm" [(ngModel)]="model.delay">
-                    <option value="0"> Select </option>
-                    <option value="1"> Now</option>
-                    <option value="2"> Later</option>
+
+
+
+
+                  <select name="report_id" class="form-control input-sm" [(ngModel)]="model.report_id" #report_id="ngModel" (change)="changeReport($event)"
+                    required>
+                    <option value=""> Select Option </option>
+                    <option *ngFor="let row of reportLists" [ngValue]="row._source.report_id">
+                      {{row._source.report_name}}
+                    </option>
+
                   </select>
+                  <input type="hidden" name="report_name" [(ngModel)]="model.report_name" />
+
+                  <div style="color:red" *ngIf="report_id.errors && (report_id.dirty || report_id.touched || updateForm.submitted)">
+                    <span class="help-block" *ngIf="report_id.errors.required" style="color:red">
+                      This field is required.
+                    </span>
+                  </div>
+
                 </div>
-              </div>
-              <div class="col-xs-4 col-sm-4 col-md-4">
-                <div class="checkbox-inline txt-padding-btm">
-                  <label> weekly
-                    <input type="checkbox" class="custom-control-input" id="weekly" name="weekly" [(ngModel)]="model.weekly">
-                    <span class="custom-control-indicator"></span>
-                  </label>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 txt-padding-btm">
+                    <div class="checkbox-inline">
+                    <label>
+                      <input checked="" type="checkbox" name="email" id="email" [(ngModel)]="model.email" [checked]="model.email"> Email
+                    </label>
+                    </div>
                 </div>
-                <div class="form-group">
-                  <select name="weekdays" class="form-control input-sm" [(ngModel)]="model.weekdays">
-                    <option value="1"> Sunday</option>
-                    <option value="2"> Monday</option>
-                    <option value="3"> Tuesday</option>
-                    <option value="4"> Wednesday</option>
-                    <option value="5"> Thursday</option>
-                    <option value="6"> Friday</option>
-                    <option value="7"> Saturday</option>
-                  </select>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 txt-padding-btm">
+                    <div class="checkbox-inline">
+                      <label>
+                        <input checked="" type="checkbox" name="report" id="report" [(ngModel)]="model.report" [checked]="model.report"> Report
+                      </label>
+                    </div>
                 </div>
-              </div>
-              <div class="col-xs-4 col-sm-4 col-md-4">
-                <div class="checkbox-inline txt-padding-btm">
-                  <label> monthly
-                    <input type="checkbox" class="custom-control-input" id="monthly" name="monthly" [(ngModel)]="model.monthly">
-                    <span class="custom-control-indicator"></span>
-                  </label>
+                <div class="col-lg-12">
+
+                         <tag-input [(ngModel)]="model.receipients" [ngModel]="['@item']" name="receipients" [theme]="'dark'"  [editable]="true"
+                           [onlyFromAutocomplete]="false">
+                    <tag-input-dropdown [showDropdownIfEmpty]="false"
+                                        [dynamicUpdate]="false"
+                                        [focusFirstElement]="true"
+                                        [zIndex]="10000"
+                                        [displayBy]="'value'"
+                                        [identifyBy]="'id'"
+                                        [autocompleteItems]="autocompleteItemsAsObjects">
+                        <ng-template let-item="item" let-index="index">
+                            ({{ index }}) {{ item.id }}: {{ item.value }}
+                        </ng-template>
+                    </tag-input-dropdown>
+                </tag-input>
+
+
+                      <!-- <input type="email" name="receipients" id="receipients" class="form-control input-sm" placeholder="Email Address" [(ngModel)]="model.receipients"> -->
+                  </div>
+                      <div class="col-xs-4 col-sm-4 col-md-4 txt-padding-btm">
+                        <div class="checkbox-inline">
+                          <label>
+                            <input type="checkbox" class="custom-control-input" id="daily" name="daily" [(ngModel)]="model.daily" >Daily
+                            <span class="custom-control-indicator"></span>
+                          </label>
+                        </div>
+                        <div class="form-group" *ngIf="model.daily" >
+                          <select name="delay" class="form-control input-sm" [(ngModel)]="model.delay">
+                            <option value="0"> Select </option>
+                            <option value="1"> Now</option>
+                            <option value="2"> Later</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-xs-4 col-sm-4 col-md-4 txt-padding-btm">
+                        <div class="checkbox-inline">
+                          <label>
+                            <input type="checkbox" class="custom-control-input" id="weekly" name="weekly" [(ngModel)]="model.weekly">Weekly
+                          </label>
+                        </div>
+                        <div class="form-group" *ngIf="model.weekly">
+                          <select name="weekdays" class="form-control input-sm" [(ngModel)]="model.weekdays">
+                            <option value="1"> Sunday</option>
+                            <option value="2"> Monday</option>
+                            <option value="3"> Tuesday</option>
+                            <option value="4"> Wednesday</option>
+                            <option value="5"> Thursday</option>
+                            <option value="6"> Friday</option>
+                            <option value="7"> Saturday</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-xs-4 col-sm-4 col-md-4 txt-padding-btm">
+                        <div class="checkbox-inline">
+                          <label>
+                            <input type="checkbox" class="custom-control-input" id="monthly" name="monthly" [(ngModel)]="model.monthly">Monthly
+                          </label>
+                        </div>
+
+                        <div class="form-group" *ngIf="model.monthly">
+                          <select name="days" class="form-control input-sm" [(ngModel)]="model.days">
+                            <option value="1" *ngFor='let in of counter(31) ;let i = index'> {{i+1}}</option>
+                          </select>
+                        </div>
+
+                      </div>
+
+                <!-- <div class="row">
+                  <div class="col-xs-6 col-sm-6 col-md-6">
+                    <div class="form-group">
+                      <label class="custom-control custom-checkbox"> Email
+                        <input type="checkbox" class="custom-control-input" name="email" id="email" [(ngModel)]="model.email" [checked]="model.email">
+                        <span class="custom-control-indicator"></span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="col-xs-6 col-sm-6 col-md-6">
+                    <div class="form-group">
+                      <label class="custom-control custom-checkbox"> Report
+                        <input type="checkbox" class="custom-control-input" name="report" id="report" [(ngModel)]="model.report" [checked]="model.report">
+                        <span class="custom-control-indicator"></span>
+                      </label>
+                    </div>
+                  </div>
+
+
                 </div>
+
+
 
                 <div class="form-group">
-                  <select name="days" class="form-control input-sm" [(ngModel)]="model.days">
-                    <option value="1" *ngFor='let in of counter(31) ;let i = index'> {{i+1}}</option>
-                  </select>
+                  <input type="email" name="receipients" id="receipients" class="form-control input-sm" placeholder="Email Address" [(ngModel)]="model.receipients">
                 </div>
 
-              </div>
+                <div class="row">
+                  <div class="col-xs-4 col-sm-4 col-md-4">
+                    <div class="form-group">
+                      <label class="custom-control custom-checkbox"> daily
+                        <input type="checkbox" class="custom-control-input" id="daily" name="daily" [(ngModel)]="model.daily" >
+                        <span class="custom-control-indicator"></span>
+                      </label>
+                    </div>
+                    <div class="form-group" *ngIf="model.daily" >
+                      <select name="delay" class="form-control input-sm" [(ngModel)]="model.delay">
+                        <option value="0"> Select </option>
+                        <option value="1"> Now</option>
+                        <option value="2"> Later</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-xs-4 col-sm-4 col-md-4">
+                    <div class="form-group">
+                      <label class="custom-control custom-checkbox"> weekly
+                        <input type="checkbox" class="custom-control-input" id="weekly" name="weekly" [(ngModel)]="model.weekly">
+                        <span class="custom-control-indicator"></span>
+                      </label>
+                    </div>
+                    <div class="form-group" *ngIf="model.weekly">
+                      <select name="weekdays" class="form-control input-sm" [(ngModel)]="model.weekdays">
+                        <option value="1"> Sunday</option>
+                        <option value="2"> Monday</option>
+                        <option value="3"> Tuesday</option>
+                        <option value="4"> Wednesday</option>
+                        <option value="5"> Thursday</option>
+                        <option value="6"> Friday</option>
+                        <option value="7"> Saturday</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-xs-4 col-sm-4 col-md-4">
+                    <div class="form-group">
+                      <label class="custom-control custom-checkbox"> monthly
+                        <input type="checkbox" class="custom-control-input" id="monthly" name="monthly" [(ngModel)]="model.monthly">
+                        <span class="custom-control-indicator"></span>
+                      </label>
+                    </div>
 
+                    <div class="form-group" *ngIf="model.monthly">
+                      <select name="days" class="form-control input-sm" [(ngModel)]="model.days">
+                        <option value="1" *ngFor='let in of counter(31) ;let i = index'> {{i+1}}</option>
+                      </select>
+                    </div>
+
+                  </div>
+
+                </div>-->
+
+              </div>
+              <!--/.row-->
             </div>
-
-          </div>
-          <!--/.row-->
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" (click)="editModal.hide()">Close</button>
-          <button type="submit" class="btn btn-primary">Save </button>
-        </div>
-      </form>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" (click)="createModal.hide()">Close</button>
+              <button type="submit" class="btn btn-primary">Save </button>
+            </div>
+          </form>
     </div>
     <!-- /.modal-content -->
   </div>

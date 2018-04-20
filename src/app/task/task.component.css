@@ -5,11 +5,12 @@ body{
 .txt_boby{
     float:left;
     background: #ffffff;
-    border-radius: 4px;  
+    border-radius: 4px;
     color: #434651;
 }
 .txt-padding-btm{
     padding-bottom: 10px;
+    margin-top: 20px;
 }
 .panel-heading h3{margin-top:5px !important;font-size: 18px;color: #1b3065;}
 .button2 {cursor: pointer;
@@ -101,7 +102,7 @@ a{font-size: 26px;}
     position: absolute;
     left: 14px !important;
     opacity: 1 !important;
-} 
+}
 
 .btn-outline-success, .btn-outline-danger{
     border-radius: 4px;
@@ -142,7 +143,7 @@ a{font-size: 26px;}
     border-radius: 25px !important;
     margin-right: 10px;
     }
-    
+
     .btn-sky:hover,.btn-sky.active:focus, .btn-sky:focus, .open>.dropdown-toggle.btn-sky {
     color: #fff !important;
     background-color: #29b6d8;
@@ -150,7 +151,7 @@ a{font-size: 26px;}
     outline: none;
     margin-bottom: 10px;
     }
-    
+
     .btn-sky:active, .btn-sky.active {
     color: #fff !important;
     background-color: #0a97b9;
@@ -159,3 +160,7 @@ a{font-size: 26px;}
     margin-top: 2px;
     margin-bottom: 10px;
     }
+/*April-18*/
+.form-group {
+  margin-top: 10px !important;
+}

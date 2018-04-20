@@ -77,6 +77,9 @@ export class SidebarComponent implements OnInit {
   }
 
 
+  gotoProfile() {
+    this._router.navigate(['/profile']);
+  }
 
 
 

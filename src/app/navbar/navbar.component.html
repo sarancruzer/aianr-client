@@ -8,267 +8,37 @@
 
     </div>
     <!--dummy-->
-    
+
     <!--dummy-->
     <div class="collapse navbar-collapse" id="navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
         <!-- Call Search -->
-        <li class="icon">
+        <li class="icon" data-toggle="tooltip" data-placement="top" title="chatbox">
           <a class="js-search" data-close="true" routerLink="/landing">
             <i class="material-icons">chat_bubble</i>
           </a>
         </li>
-        <li class="icon">
+        <li class="icon" data-toggle="tooltip" data-placement="top" title="Favourite">
           <a class="js-search" data-close="true" routerLink="/favourite">
             <i class="material-icons pulse shadow_1">favorite</i>
           </a>
         </li>
-        <li class="icon">
+        <li class="icon" data-toggle="tooltip" data-placement="top" title="Task">
             <a class="js-search" data-close="true" routerLink="/task">
               <i class="material-icons">assignment</i>
             </a>
           </li>
 
-          <li class="icon">
+          <!-- <li class="icon" data-toggle="tooltip" data-placement="top" title="History">
             <a class="js-search" data-close="true" routerLink="/taskLogs">
               <i class="material-icons">history</i>
             </a>
-          </li>
+          </li> -->
 
-        <!-- #END# Call Search -->
-        <!-- Notifications -->
 
-        <!-- <li class="dropdown icon">
+        <li class="dropdown icon" data-toggle="tooltip" data-placement="top" title="Notifications">
           <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
-            <i class="material-icons">assignment</i>
-
-          </a>
-          <ul class="dropdown-menu task" (click)="$event.stopPropagation()">
-
-            <li class="header">Task</li>
-            <li class="body">
-
-              <div class="panel panel-default">
-                <div class="panel-body">
-                 
-                  <div class="row">
-                      <div class="col-md-12">
-                         <form class="form" (ngSubmit)="submitTask(form,$event)" #form="ngForm" novalidate>
-                            <div class="form-group">
-                                
-                                 <select name="report_id" class="form-control input-sm" [(ngModel)] = "model.report_id" #report_id="ngModel"  (change)="changeReport($event)" required>
-                                    <option value="" > Select Option </option>
-                                    <option *ngFor="let row of reportLists" [ngValue]="row.id">
-                                        {{row.name}}
-                                    </option>                                    
-                                </select> 
-                                <input type="hidden" name="report_name" [(ngModel)] = "model.report_name" />
-                                <div style="color:red" *ngIf="report_id.errors && (report_id.dirty || report_id.touched || form.submitted)">
-                                <span class="help-block" *ngIf="report_id.errors.required" style="color:red" >
-                                This field is required.
-                                </span>
-                                </div>
-    
-                            </div>
-                            <div class="col-lg-4 txt-padding-btm">
-                                <div class="checkbox-inline">
-                                <label>
-                                  <input checked="" type="checkbox" name="email" id="email" [(ngModel)]="model.email" [checked]="model.email"> Email
-                                </label>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 txt-padding-btm">
-                                <div class="checkbox-inline">
-                                  <label>
-                                    <input checked="" type="checkbox" name="report" id="report" [(ngModel)]="model.report" [checked]="model.report"> Report
-                                  </label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" name="receipients" id="receipients" class="form-control input-sm" placeholder="Email Address" [(ngModel)]="model.receipients">
-                            </div> 
-                            <div class="col-lg-4 txt-padding-btm">
-                            <div class="checkbox-inline">
-                              <label>
-                                <input checked="" type="checkbox" id="daily" name="daily" [(ngModel)]="model.daily"> Daily 
-                              </label>
-                            </div>
-                            </div>
-                                <div class="form-group">
-                                  <select name="delay" class="form-control input-sm" [(ngModel)]="model.delay">
-                                    <option value="0"> Select </option>
-                                    <option value="1"> Now</option>
-                                    <option value="2"> Later</option>
-                                </select> 
-                                </div>
-                                <div class="col-lg-4 txt-padding-btm">
-                                    <div class="checkbox-inline">
-                                    <label>
-                                      <input type="checkbox" id="weekly" name="weekly" [(ngModel)]="model.weekly"> Weekly
-                                  </label>
-                                  </div>
-                                  </div>
-                                  <div class="form-group">
-                                    <select name="weekdays" class="form-control input-sm" [(ngModel)]="model.weekdays">
-                                      <option value="1"> Sunday</option>
-                                      <option value="2"> Monday</option>
-                                      <option value="3"> Tuesday</option>
-                                      <option value="4"> Wednesday</option>
-                                      <option value="5"> Thursday</option>
-                                      <option value="6"> Friday</option>
-                                      <option value="7"> Saturday</option>
-                                  </select> 
-                                  </div>
-                                  <div class="col-lg-4 txt-padding-btm">
-                                  <div class="checkbox-inline">
-                                      <label>
-                                        <input type="checkbox" id="monthly" name="monthly" [(ngModel)]="model.monthly"> Monthly
-                                        <span class="custom-control-indicator"></span>
-                                    </label>                    
-                                      </div>
-                                    </div>
-                
-                                      <div class="form-group txt-padding-btm">
-                                        <select name="days" class="form-control input-sm" [(ngModel)]="model.days">
-                                          <option value="1" *ngFor='let in of counter(31) ;let i = index'> {{i+1}}</option>
-                                      </select> 
-                                      </div>
-                            <div class="form-group">
-                               <input type="submit" value="Register" class="btn btn-info btn-block">
-                            </div>
-                         </form>
-                      </div>
-                   </div>
-
-                   
-                 
-                </div>
-              </div>
-              
-            </li>
-          </ul>
-
-
-        </li> -->
-
-
-         <!-- new form-->
-
-                    <!-- <form (ngSubmit)="submitTask(form,$event)" #form="ngForm" novalidate >  
-
-                        <div class="form-group">
-                            
-                             <select name="report_id" class="form-control input-sm" [(ngModel)] = "model.report_id" #report_id="ngModel"  (change)="changeReport($event)" required>
-                                <option value="" > Select Option </option>
-                                <option *ngFor="let row of reportLists" [ngValue]="row.id">
-                                    {{row.name}}
-                                </option>
-                                
-                            </select> 
-                            <input type="hidden" name="report_name" [(ngModel)] = "model.report_name" />
-
-                            <div style="color:red" 
-                  *ngIf="report_id.errors && (report_id.dirty || report_id.touched || form.submitted)">
-                  <span class="help-block" *ngIf="report_id.errors.required" style="color:red" >
-                      This field is required.
-                  </span>
-                  </div>
-
-                        </div>
-
-                        <div class="row">
-                          <div class="col-xs-6 col-sm-6 col-md-6">
-                            <div class="form-group">
-                              <label class="custom-control custom-checkbox"> Email
-                                <input type="checkbox" class="custom-control-input" name="email" id="email" [(ngModel)]="model.email" [checked]="model.email">
-                                <span class="custom-control-indicator"></span>
-                            </label>
-                            </div>
-                            </div>
-
-                            <div class="col-xs-6 col-sm-6 col-md-6">
-                              <div class="form-group">
-                                <label class="custom-control custom-checkbox"> Report
-                                  <input type="checkbox" class="custom-control-input" name="report" id="report" [(ngModel)]="model.report" [checked]="model.report">
-                                  <span class="custom-control-indicator"></span>
-                              </label>
-                              </div>
-                              </div>
-                            
-                            </div>
-
-
-
-                        <div class="form-group">
-                          <input type="email" name="receipients" id="receipients" class="form-control input-sm" placeholder="Email Address" [(ngModel)]="model.receipients">
-
-                     </div>   
-                     
-                     <div class="row">
-                      <div class="col-xs-4 col-sm-4 col-md-4">
-                        <div class="form-group">
-                          <label class="custom-control custom-checkbox"> daily
-                            <input type="checkbox" class="custom-control-input" id="daily" name="daily" [(ngModel)]="model.daily">
-                            <span class="custom-control-indicator"></span>
-                        </label>
-                        </div>
-                        <div class="form-group">
-                          <select name="delay" class="form-control input-sm" [(ngModel)]="model.delay">
-                            <option value="0"> Select </option>
-                            <option value="1"> Now</option>
-                            <option value="2"> Later</option>
-                        </select> 
-                        </div>
-                        </div>
-                        <div class="col-xs-4 col-sm-4 col-md-4"> 
-                        <div class="form-group">
-                        <label class="custom-control custom-checkbox"> weekly
-                          <input type="checkbox" class="custom-control-input" id="weekly" name="weekly" [(ngModel)]="model.weekly">
-                          <span class="custom-control-indicator"></span>
-                      </label>
-                      </div>
-                      <div class="form-group">
-                        <select name="weekdays" class="form-control input-sm" [(ngModel)]="model.weekdays">
-                          <option value="1"> Sunday</option>
-                          <option value="2"> Monday</option>
-                          <option value="3"> Tuesday</option>
-                          <option value="4"> Wednesday</option>
-                          <option value="5"> Thursday</option>
-                          <option value="6"> Friday</option>
-                          <option value="7"> Saturday</option>
-                      </select> 
-                      </div>
-                      </div>
-                      <div class="col-xs-4 col-sm-4 col-md-4">
-                      <div class="form-group">
-                      <label class="custom-control custom-checkbox"> monthly
-                        <input type="checkbox" class="custom-control-input" id="monthly" name="monthly" [(ngModel)]="model.monthly">
-                        <span class="custom-control-indicator"></span>
-                    </label>                    
-                      </div>
-
-                      <div class="form-group">
-                        <select name="days" class="form-control input-sm" [(ngModel)]="model.days">
-                          <option value="1" *ngFor='let in of counter(31) ;let i = index'> {{i+1}}</option>
-                      </select> 
-                      </div>
-
-                      </div>
-                     
-                    </div>
-
-
-                    <input type="submit" value="Register" class="btn btn-info btn-block">
-
-                  </form> -->
-
-
-
-
-
-        <li class="dropdown icon">
-          <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
-            <i class="material-icons">notifications</i>            
+            <i class="material-icons">notifications</i>
           </a>
           <ul class="dropdown-menu">
             <li class="header">REACTIONS</li>
@@ -394,12 +164,12 @@
           </a>
         </li>
 
-      
-    
-    
-    
-    
-      
+
+
+
+
+
+
       </ul>
     </div>
   </div>

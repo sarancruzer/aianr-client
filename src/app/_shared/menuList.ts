@@ -103,15 +103,15 @@ export const _menuList: _menu[] = [
     , link: 'fivethLink'
     , categoryList: [
       { questions: 'Holiday List', view: 0 }
-      , { questions: 'Leave Types', view: 0 }
+      // , { questions: 'Leave Types', view: 0 }
       , { questions: 'My Remaining leave Chart', view: 0 }
-      , { questions: 'Leave Approval Status Report', view: 1 }
+      // , { questions: 'Leave Approval Status Report', view: 1 }
       , { questions: 'Today Leave List', view: 1 }
-      , { questions: 'My attendance report', view: 1 }
-      , { questions: 'Comp Off Status Chart', view: 1 }
+      // , { questions: 'My attendance report', view: 1 }
+      // , { questions: 'Comp Off Status Chart', view: 1 }
       , { questions: 'Employees Official Details', view: 1 }
-      , { questions: 'Employees Personal Details', view: 1 }
-      , { questions: 'Comp off Application Status List', view: 1 }
+      // , { questions: 'Employees Personal Details', view: 1 }
+      // , { questions: 'Comp off Application Status List', view: 1 }
      ]
   }
 ];

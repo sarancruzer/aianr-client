@@ -54,7 +54,7 @@ a{font-size: 26px;}
     position: absolute;
     left: 14px !important;
     opacity: 1 !important;
-} 
+}
 
 .btn-outline-success, .btn-outline-danger , .btn-outline-warning{
     border-radius: 0px;
@@ -103,3 +103,64 @@ a{font-size: 26px;}
 }
 
 
+
+.btn-outline-success, .btn-outline-danger{
+  border-radius: 4px;
+}
+
+
+.btn-outline-success {
+  color: #4dbd74;
+  background-color: transparent;
+  background-image: none;
+  border-color: #4dbd74;
+}
+
+.btn-outline-danger {
+  color: #f86c6b;
+  background-color: transparent;
+  background-image: none;
+  border-color: #f86c6b;
+}
+
+.btn-outline-success:hover {
+  color: #fff;
+  background-color: #4dbd74;
+  border-color: #4dbd74;
+}
+
+.btn-outline-danger:hover {
+  color: #fff;
+  background-color: #f86c6b;
+  border-color: #f86c6b;
+}
+
+.btn-sky {
+  color: #fff !important;
+  background-color: #0bacd3;
+  border-bottom:2px solid #098aa9 !important;
+  margin-bottom: 10px;
+  border-radius: 25px !important;
+  margin-right: 10px;
+  }
+
+  .btn-sky:hover,.btn-sky.active:focus, .btn-sky:focus, .open>.dropdown-toggle.btn-sky {
+  color: #fff !important;
+  background-color: #29b6d8;
+  border-bottom:2px solid #2192ad !important;
+  outline: none;
+  margin-bottom: 10px;
+  }
+
+  .btn-sky:active, .btn-sky.active {
+  color: #fff !important;
+  background-color: #0a97b9;
+  border-top:4px solid #087994;
+  outline-offset: none;
+  margin-top: 2px;
+  margin-bottom: 10px;
+  }
+/*April-18*/
+.form-group {
+margin-top: 10px !important;
+}

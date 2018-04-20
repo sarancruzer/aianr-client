@@ -20,7 +20,7 @@
                 <div class="scrollbar" id="style-6">
 
             <ul class="force-overflow">
-            <li class="clearfix" *ngFor="let row of chatLists">
+            <li class="clearfix" *ngFor="let row of chatLists; let i = index" [attr.data-index]="i">
               <div *ngIf="row.user">
               <div class="message-data align-right">
                 <span class="message-data-time" >{{row.created_at}}</span> &nbsp; &nbsp;
@@ -29,7 +29,7 @@
               </div>
               <div class="message my-message fadeInLeft">
                 <p id="valueId" [innerHTML]="row.value"></p>
-                <span (click)="updateFavourites(row.value)" class="faourites" [ngClass]="(row.favourite)?'fav_clr':''">
+                <span (click)="updateFavourites(row.value,i)" class="faourites" [ngClass]="(row.favourite)?'fav_clr':''">
                     <i [ngClass]="(row.favourite)?'fav_clr':''" class="fa fa-heart favt_icon pulse shadow_1" aria-hidden="true"></i></span>
 
               </div>
@@ -42,7 +42,7 @@
                         <button class="btn-secondary like-review" (click)="reaction('like',row);">
                             <i [ngClass]="(row.reaction == 'like')?'animate-like':''" class="fa fa-thumbs-up" aria-hidden="true"></i>
                         </button>
-    
+
                         <button class="btn-primary like-review" (click)="reaction('unlike',row);">
                             <i [ngClass]="(row.reaction == 'unlike')?'animate-like':''" class="fa fa-thumbs-down" aria-hidden="true"></i>
                         </button>
@@ -52,7 +52,7 @@
                     <p id="valueId" [innerHTML]="row.value" class="pull-left"></p>
                     <!-- <a class="btn like_btn" (click)="reaction('like',row.question);"><i [ngClass]="(row.reaction == 'like')?'animate-like':''" class="fa fa-thumbs-up"></i> </a> &nbsp;&nbsp;&nbsp;&nbsp;
                     <a class="btn btn-danger like_btn" (click)="reaction('unlike',row.question);"><i [ngClass]="(row.reaction == 'unlike')?'animate-unlike':''" class="fa fa-thumbs-down"></i> </a> -->
-                
+
 
                 </div>
               </div>
