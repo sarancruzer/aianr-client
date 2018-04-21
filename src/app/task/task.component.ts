@@ -49,6 +49,9 @@ export class TaskComponent implements OnInit {
     'item3'
 ];
 
+  checkedList: any = [];
+  checkboxFlag = false;
+
   constructor(private _service: TaskService, private _router: Router) {
     this.setModelValues();
    }
@@ -241,8 +244,49 @@ gotoHistory() {
       this.model.report_name = selectElementText;
     }
 
+    executeNow() {
+
+    console.log(this.selectedOptions());
+
+    const selectedIndex = this.selectedOptions();
+
+    this._service.executeTaskNow(selectedIndex).subscribe(
+      (res) => {
+        console.log('res');
+        console.log(res);
+      },
+      (err) => {
+        console.log('err');
+        console.log(err);
+      }
+    );
 
 
+
+    }
+
+  selectedOptions() { // right now: ['1','3']
+     return this.items.filter(opt => opt._source.checked).map(opt => opt._id);
+  }
+
+
+    onCheckboxChange(option, event) {
+      const cc = option;
+      console.log(option);
+
+
+      if (event.target.checked) {
+        console.log('TRUE');
+        this.checkedList.push(option._id);
+      } else {
+        console.log('FALSE');
+        for (let i = 0 ; i < this.items.length; i++) {
+          if (this.checkedList[i] === option._id) {
+            this.checkedList.splice(i, 1);
+          }
+        }
+      }
+      console.log(this.checkedList);
 
 
 

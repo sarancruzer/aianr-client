@@ -67,6 +67,14 @@ export class TaskService  {
 
   }
 
+  executeTaskNow(selectedIndex: Object) {
+      this.list =  {'sessions': localStorage.getItem('sessions'), 'selectedIndex': selectedIndex};
+      return this._http.post(this.apiUrl + 'executeTaskNow', this.list, this.headers)
+      .map(res  => res.json())
+      .do(data  =>  console.log(JSON.stringify(data)));
+
+  }
+
 
 
 }

@@ -20,6 +20,9 @@
                       <button type="button" class="btn btn-sky text-uppercase btn-sm" (click)="gotoHistory()">
                           <span class="btn-label"><i class="fa fa-history" aria-hidden="true" style="color:rgb(255, 255, 255)"></i></span>
                           History</button>
+                          <button type="button" class="btn btn-sky text-uppercase btn-sm" (click)="executeNow()">
+                            <span class="btn-label"><i class="fa fa-history" aria-hidden="true" style="color:rgb(255, 255, 255)"></i></span>
+                            Execute Now</button>
                 </div>
               </h3>
             <!-- <i class="material-icons">assignment</i>
@@ -45,6 +48,8 @@
               <tbody>
                 <tr *ngFor="let item of items; let i = index">
                   <th scope="row">{{i+1}}</th>
+                  <th> <label>
+                    <input type="checkbox" name="options" value="{{item._id}}" [(ngModel)] ="item._source.checked" /> {{item._id}}</label></th>
                   <td>{{item._source.report_name}}</td>
                   <td>{{item._source.employeenumber}}</td>
                   <td><span class="label label-primary" data-placement="top" data-toggle="tooltip" title="{{item._source.receipients | customJson}}">{{item._source.receipients | customJson | truncate:[50, '...']}}</span></td>

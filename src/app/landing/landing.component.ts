@@ -88,12 +88,7 @@ export class LandingComponent implements OnInit {
   searchBot() {
     if (this.searchreq.trim() != null) {
 
-      const i =  this.chatLists.findIndex(x => x.value === this.searchreq);
-
       this.chatLists.push({user: true, value: this.searchreq, created_at: Date.now(), favourite: false});
-
-
-
 
       this._service.getsearchResponse(this.searchreq).subscribe(
         response => {
@@ -117,10 +112,7 @@ export class LandingComponent implements OnInit {
           localStorage.setItem('ask_list', res.ask_list);
           this.scrollToBottom();
 
-          this.updateFavouritesByChats(this.searchreq, i);
-
-
-
+         // this.updateFavouritesByChats(this.searchreq, i);
         },
         err => {
           console.log('error msg');
