@@ -40,8 +40,8 @@ export class LandingService {
           .do(data => console.log(JSON.stringify(data)));
       }
 
-    sendReactions(flag: string, params: any) {
-        this.list = {'question': params, 'reaction': flag, 'sessions': localStorage.getItem('sessions')};
+    sendReactions(flag: string, question: any, question_id: any) {
+        this.list = {'question': question, 'question_id': question_id, 'reaction': flag, 'sessions': localStorage.getItem('sessions')};
         return this._http.post(this.apiUrl + 'sendReactions', this.list, this.headers)
         .map(res => res.json())
         .do(data => console.log(JSON.stringify(data)));

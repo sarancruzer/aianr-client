@@ -95,7 +95,7 @@ export class LandingComponent implements OnInit {
           const res = response.result.data;
           const session = response.result.data.session;
 
-          this.chatLists.push({machine: true, value: res.response, created_at: Date.now(), question: this.searchreq, reaction: '', rand_number: this.getRandomNumber() });
+          this.chatLists.push({machine: true, value: res.response, created_at: Date.now(), question: this.searchreq, reaction: '', rand_number: this.getRandomNumber(), question_id: res.question_id});
           this.searchreq = '';
           console.log('-------------------------------');
           console.log(session);
@@ -121,7 +121,7 @@ export class LandingComponent implements OnInit {
       );
     } else {
       // this.chatLists.push({'user':true,'value':this.searchreq,'created_at':Date.now()});
-      this.chatLists.push({machine: true, value: 'Please enter your question', created_at: Date.now() });
+      this.chatLists.push({machine: true, value: 'Please enter your question', created_at: Date.now() , question_id: res.question_id});
       localStorage.setItem('chats', JSON.stringify(this.chatLists));
     }
   }
@@ -143,10 +143,11 @@ export class LandingComponent implements OnInit {
     console.log(this.chatLists);
     localStorage.setItem('chats', JSON.stringify(this.chatLists));
     console.log(data.question);
-    this._service.sendReactions(flag, data.question).subscribe(
+    this._service.sendReactions(flag, data.question, data.question_id).subscribe(
       response => {
         const res = response.result.data;
         console.log('currentUser');
+        this.getReactions();
       },
       err => {
         console.log('error msg');
