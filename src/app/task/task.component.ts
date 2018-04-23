@@ -292,6 +292,8 @@ gotoHistory() {
 
 }
 
+}
+
 function IsJsonString(str) {
   try {
       JSON.parse(str);
