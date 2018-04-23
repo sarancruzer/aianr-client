@@ -3,7 +3,7 @@
     <div class="navbar-header ai_logo">
       <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
       <a href="javascript:void(0);" class="bars"></a>
-      <a class="navbar-brand">AIANR</a>
+      <a class="navbar-brand">AIANR - {{message}}</a>
       <!-- <img src="../../assets/images/AIANR_Logo.jpg" alt="User" /> -->
 
     </div>
@@ -36,7 +36,7 @@
           </li> -->
 
 
-        <li class="dropdown icon" data-toggle="tooltip" data-placement="top" title="Notifications">
+        <li class="dropdown icon" data-toggle="tooltip" data-placement="top" title="Notifications" (click)="getReactions()">
           <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
             <i class="material-icons">notifications</i>
           </a>
