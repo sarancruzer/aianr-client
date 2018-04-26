@@ -52,12 +52,10 @@ export const _menuList: _menu[] = [
       , { questions: 'How many late comings are allowed in a month?', view: 0 }
       , { questions: 'What is my shift details?', view: 0 }
       , { questions: 'What are the available shift in our company?', view: 0 }
-      , { questions: 'What is my shift details?', view: 0 }
       , { questions: 'How do I request for shift change ?', view: 0 }
       , { questions: 'What is the commencement time of lunch break ?', view: 0 }
       , { questions: 'How do I escalate my disapproved request ?', view: 0 }
       , { questions: 'Should I take prior approval for overtime', view: 0 }
-      , { questions: 'Current month compoff report', view: 0 }
       , { questions: 'How do I correct my attendance data error ?', view: 0 }
       , { questions: 'Buffer time for punching', view: 0 }
       , { questions: 'How do I correct mispunch ?', view: 0 }
@@ -94,8 +92,6 @@ export const _menuList: _menu[] = [
       , { questions: 'How many employees are on leave today ?', view: 1 }
       , { questions: 'How many days was Yeswanth on leave this month ?', view: 1 }
       , { questions: 'Was Yeswanth present yesterday ?', view: 1 }
-      // , { questions: 'How many days was Yeswanth late to office this month', view: 1 }
-      , { questions: 'How many days was Yeswanth on comp off this month ?', view: 1 }
     ]
   },
   {

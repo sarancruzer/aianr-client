@@ -32,7 +32,8 @@ export class LandingService {
               'qa_flag': localStorage.getItem('qa_flag'),
               'qa_nerformat': localStorage.getItem('qa_nerformat'),
               'qa_id': localStorage.getItem('qa_id'),
-              'ask_list': localStorage.getItem('ask_list')
+              'ask_list': localStorage.getItem('ask_list'),
+              'qa_count': localStorage.getItem('qa_count')
             };
 
           return this._http.post(this.apiUrl + 'searchBotsNew', this.list, this.headers)

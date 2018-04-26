@@ -64,12 +64,12 @@ export class LandingComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getFavourites();
+
     this._globalSettings.username = localStorage.getItem('employeeName');
     this.chatLists = JSON.parse(localStorage.getItem('chats'));
     this.userImg = 'U';
     this.machineImg = 'M';
-
+    this.getFavourites();
     this.getReactions();
   }
   scrollToBottom(): void {
@@ -110,6 +110,9 @@ export class LandingComponent implements OnInit {
           localStorage.setItem('qa_nerformat', res.qa_nerformat);
           localStorage.setItem('qa_id', res.qa_id);
           localStorage.setItem('ask_list', res.ask_list);
+          localStorage.setItem('qa_count', res.qa_count);
+
+
           this.scrollToBottom();
 
          // this.updateFavouritesByChats(this.searchreq, i);
@@ -121,7 +124,8 @@ export class LandingComponent implements OnInit {
       );
     } else {
       // this.chatLists.push({'user':true,'value':this.searchreq,'created_at':Date.now()});
-      this.chatLists.push({machine: true, value: 'Please enter your question', created_at: Date.now() , question_id: ''});
+
+      this.chatLists.push({machine: true, value: 'Please enter your question', created_at: Date.now() , question_id: '' });
       localStorage.setItem('chats', JSON.stringify(this.chatLists));
     }
   }
@@ -165,6 +169,7 @@ export class LandingComponent implements OnInit {
     let flag;
 
     if (this.chatLists[index].favourite === true) {
+      console.log('TRUE FAV TRUE');
       flag = false;
       this.chatLists.forEach( element => {
         if (element.value.toLowerCase() === question.toLowerCase()) {
@@ -181,6 +186,7 @@ export class LandingComponent implements OnInit {
         }
       });
     }else if (this.chatLists[index].favourite === false) {
+      console.log('FALSE FAV FALSE');
       flag = true;
       this.chatLists.forEach( element => {
         if (element.value.toLowerCase() === question.toLowerCase()) {
@@ -203,6 +209,7 @@ export class LandingComponent implements OnInit {
     console.log('FAV LISTS');
     console.log(this.favouriteLists);
 
+    localStorage.setItem('chats', JSON.stringify(this.chatLists));
     localStorage.setItem('favourites', JSON.stringify(this.favouriteLists));
 
     this._favouriteService.updateFavourites(question, flag).subscribe(

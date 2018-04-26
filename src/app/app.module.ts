@@ -73,7 +73,6 @@ const appRoutes: Routes = [
     ModalModule.forRoot(),
     NgxPaginationModule,
     TagInputModule
-
   ],
   exports: [
     NgxPaginationModule

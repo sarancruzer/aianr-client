@@ -9,9 +9,10 @@ export class CustomJsonPipe implements PipeTransform {
 
     let str = '';
     console.log('CustomJsonPipe');
-    console.log(JSON.parse(value)[0]);
+
 
     const arrList = JSON.parse(value);
+    console.log(arrList);
 
     // tslint:disable-next-line:forin
     for (const key in arrList) {

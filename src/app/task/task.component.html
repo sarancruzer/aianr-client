@@ -51,7 +51,8 @@
               <tbody>
                 <tr *ngFor="let item of items; let i = index">
                   <th scope="row">{{i+1}}</th>
-                  
+                  <th> <label>
+                    <input type="checkbox" name="options" value="{{item._source.checked}}" [(ngModel)] ="item._source.checked" /> {{item._id}}</label></th>
                   <td>{{item._source.report_name}}</td>
                   <td>{{item._source.employeenumber}}</td>
                   <td>
