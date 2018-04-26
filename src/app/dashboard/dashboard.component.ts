@@ -8,25 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  reactionCount:any;
-  favouriteCount:any;
-  constructor(private _router:Router) { }
+  reactionCount: any;
+  favouriteCount: any;
+  taskCount: any;
+  constructor(private _router: Router) { }
 
   ngOnInit() {
 
-   this.reactionCount =  localStorage.getItem("reactions").length;
-    this.favouriteCount = localStorage.getItem("favourites").length;
+   this.reactionCount =  localStorage.getItem('reactions').length;
+    this.favouriteCount = localStorage.getItem('favourites').length;
+    // this.taskCount = localStorage.getItem('tasks').length;
 
-    console.log("this.reactionCount.length");
+    console.log('this.reactionCount.length');
     console.log(this.reactionCount);
 
-    console.log("this.favouriteCount.length");
+    console.log('this.favouriteCount.length');
     console.log(this.favouriteCount);
 
-    
   }
 
-  navigate(url){
+  navigate(url) {
     this._router.navigate([url]);
   }
 
