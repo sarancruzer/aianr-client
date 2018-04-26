@@ -171,3 +171,26 @@ a{font-size: 26px;}
     .custom-checkbox .custom-control-input:focus ~ .custom-control-indicator {
       box-shadow: none !important; 
     } */
+
+/* Media 320 */
+@media only screen and (max-width: 411px) {
+.ai_logo {
+          width: 100% !important;
+         }          
+}
+    /* Media 320 */
+@media (min-width: 360px) and (max-width: 414px) {
+
+  .ai_logo {
+    width: 100% !important;
+  }
+  
+  }
+  @media (max-width: 767px){
+  .navbar .navbar-nav {
+      margin-top: 0px !important;
+  }
+  .navbar .dropdown-menu {
+    margin-left: -125px !important;
+}
+  }

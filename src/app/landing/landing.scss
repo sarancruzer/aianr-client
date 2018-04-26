@@ -97,7 +97,7 @@ box-shadow: 1.5px 2.6px 24px 0 rgba(0, 35, 136, 0.35);
   }
 
   .chat-history {
-    padding: 15px 30px 15px;
+    padding: 15px 30px;
 border-bottom: 2px solid white;
 height: 500px;
 overflow-y:scroll;
@@ -651,5 +651,62 @@ Fade left
 .list-group-item {
   background: #33628e !important;
 }
+
+/* Meida 411*/
+@media only screen and (max-width: 411px)  {
+  body {
+    padding: 5px 0 !important;
+  }
+  .chat .chat-history{
+    padding: 15px 5px !important;
+  }
+  .chat .chat-history .message {
+    width: 100% !important;
+}
+.chat .chat-header .chat-about {
+  float: none !important;
+}
+.ai_send {
+  border-radius: 10px !important;
+  padding: 10px !important;
+  font-size: 22px !important;
+  width: 100% !important;
+}
+.ai_mike{
+  border-radius: 10px !important;
+  padding: 10px !important;
+  width: 100% !important;
+}
+
+}
+
+/* Media 360 */
+@media only screen and (max-width: 360px)  {
+  body {
+    padding: 5px 0 !important;
+  }
+  .chat .chat-history{
+    padding: 15px 5px !important;
+  }
+  .chat .chat-history .message {
+    width: 100% !important;
+}
+.chat .chat-header .chat-about {
+  float: none !important;
+}
+.ai_send {
+  border-radius: 10px !important;
+  padding: 10px !important;
+  font-size: 22px !important;
+  width: 100% !important;
+}
+.ai_mike{
+  border-radius: 10px !important;
+  padding: 10px !important;
+  width: 100% !important;
+}
+
+}
+
 
 

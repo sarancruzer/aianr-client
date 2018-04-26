@@ -121,7 +121,7 @@ export class LandingComponent implements OnInit {
       );
     } else {
       // this.chatLists.push({'user':true,'value':this.searchreq,'created_at':Date.now()});
-      this.chatLists.push({machine: true, value: 'Please enter your question', created_at: Date.now() , question_id: res.question_id});
+      this.chatLists.push({machine: true, value: 'Please enter your question', created_at: Date.now() , question_id: ''});
       localStorage.setItem('chats', JSON.stringify(this.chatLists));
     }
   }

@@ -13,8 +13,9 @@
 /*background: #fafdfd;
   padding: 3em 2em;
   text-align: center;*/
-   width: 31%;
+  max-width: 400px;
   margin: 0 auto;
+  position: relative;
 }
 .signin-form h3 {
   font-size: 2em;
@@ -186,3 +187,9 @@ color:#fff;
 }
 
 /* body { background-image: url(../../assets/images/background.jpg);} */
+
+/* @media (min-width: 320px) and (max-width: 414px) {
+.signin-form {
+    width: 300px !important;
+  }
+}   */

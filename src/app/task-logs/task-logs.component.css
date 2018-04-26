@@ -1,3 +1,18 @@
+.container {
+    margin: 0 auto;
+    width: 100%;
+    background: #444753;
+    border-radius: 5px;
+    padding:0;
+  }
+.txt_boby{
+    float:left;
+    background: #ffffff;
+    border-radius: 4px;
+    color: #434651;
+    width: 100%;
+    padding: 10px;
+}
 li{list-style:none;}
 a{font-size: 30px;}
 .menu {
@@ -163,4 +178,9 @@ a{font-size: 26px;}
 /*April-18*/
 .form-group {
 margin-top: 10px !important;
+}
+.panel-heading h3 {
+    margin-top: 5px !important;
+    font-size: 18px;
+    color: #1b3065;
 }

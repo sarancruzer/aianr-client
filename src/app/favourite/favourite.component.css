@@ -80,7 +80,7 @@ ul li i {
     min-height: 400px;
     overflow-y: scroll
 }
-.ai_back button{color: #4f4f4f;}
+/* .ai_back button{color: #4f4f4f;} */
 /*==================================================
  * Effect 7
  * ===============================================*/
@@ -104,11 +104,20 @@ ul li i {
      -moz-border-radius:100px ;
      border-radius:100px;
  }
- .txt_boby{
+ .container {
+    margin: 0 auto;
+    width: 100%;
+    background: #444753;
+    border-radius: 5px;
+    padding:0;
+  }
+.txt_boby{
     float:left;
     background: #ffffff;
-    border-radius: 4px;  
+    border-radius: 4px;
     color: #434651;
+    width: 100%;
+    padding: 10px;
 }
 .panel-heading h3{margin-top:5px !important;font-size: 18px;color: #1b3065;}
 
