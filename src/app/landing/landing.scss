@@ -95,11 +95,17 @@ box-shadow: 1.5px 2.6px 24px 0 rgba(0, 35, 136, 0.35);
       margin-top: 12px;
     }
   }
+  .row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
 
   .chat-history {
     padding: 15px 30px;
 border-bottom: 2px solid white;
-height: 500px;
+// height: 500px;
 overflow-y:scroll;
 background: #d9ecfd;
 border-radius: 5px;
@@ -677,6 +683,9 @@ Fade left
   padding: 10px !important;
   width: 100% !important;
 }
+#valueId{
+  font-size: 12px !important;
+}
 
 }
 
@@ -704,6 +713,9 @@ Fade left
   border-radius: 10px !important;
   padding: 10px !important;
   width: 100% !important;
+}
+#valueId{
+  font-size: 12px !important;
 }
 
 }
