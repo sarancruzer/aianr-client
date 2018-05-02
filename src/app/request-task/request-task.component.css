@@ -1,0 +1,10 @@
+.form-control {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #757373;
+}
+
+.form-group {
+  padding: 25px;
+  margin-top: 10px;
+}

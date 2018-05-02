@@ -49,12 +49,12 @@ export class LoginComponent implements OnInit {
 
 
     this._loginService.getAuthenticate(this.email, this.password).subscribe(response => {
-        const res = response.result.data;
-        const session = response.result.data.session;
-        const currentUser = response.result.data.currentUser;
-        const statusCode = response.result.statusCode;
-        const successText = response.result.successText;
-        const favourites = response.result.data.favourites;
+        const res = response.result;
+
+        const session = res.info.session;
+        const currentUser = res.info.currentUser;
+        const statusCode = res.statusCode;
+        const successText = res.successText;
 
         console.log('currentUser');
         console.log(currentUser);
@@ -69,6 +69,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('employeeNumber', currentUser.employeenumber);
         localStorage.setItem('authentication', JSON.stringify(true));
         localStorage.setItem('sessions', JSON.stringify(session));
+        localStorage.setItem('reactions', '');
 
         localStorage.setItem('conversation_id', '');
         localStorage.setItem('conversation_status', '');

@@ -25,7 +25,7 @@ export class FavouriteComponent implements OnInit {
       this._service.getFavourites().subscribe(response => {
           const res = response.result;
           if (res.statusCode === 200) {
-            this.favouriteLists = res.data.info;
+            this.favouriteLists = res.info;
             // localStorage.setItem('favourites', JSON.stringify(res));
           }
 

@@ -11,6 +11,8 @@ import { ModalModule } from 'ngx-bootstrap';
 
 import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 
+import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
+
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -34,6 +36,13 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 import { TagInputModule } from 'ngx-chips';
 import { CustomJsonPipe } from './_pipe/custom-json.pipe';
+
+import { ICheckModule } from 'angular4-icheck';
+import { LoadingBarHttpModule } from '@ngx-loading-bar/http';
+
+import { RequestTaskComponent } from './request-task/request-task.component';
+import { ReactionComponent } from './reaction/reaction.component';
+
 
 
 const appRoutes: Routes = [
@@ -61,7 +70,9 @@ const appRoutes: Routes = [
     ProfileComponent,
     TaskComponent,
     TaskLogsComponent,
-    CustomJsonPipe
+    CustomJsonPipe,
+    RequestTaskComponent,
+    ReactionComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +83,10 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     ModalModule.forRoot(),
     NgxPaginationModule,
-    TagInputModule
+    TagInputModule,
+    ICheckModule.forRoot(),
+    LoadingBarHttpModule,
+    SweetAlert2Module.forRoot()
   ],
   exports: [
     NgxPaginationModule

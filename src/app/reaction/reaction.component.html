@@ -1,0 +1,92 @@
+<app-sidebar (messageEvent)="receivedMessage($event)"></app-sidebar>
+
+
+<section class="content zoomIn">
+
+  <div class="container clearfix">
+      <div class="txt_boby effect1">
+    <div class="row">
+      <div class="col-md-12">
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+              <h3><span class="material_assignment"><i class="material-icons">assignment</i></span> Reactions
+                <div class="pull-right task_list_1">
+                    <button type="button" class="btn btn-sky text-uppercase btn-sm" (click)="goBackCall()">
+                        <span class="btn-label"><i class="glyphicon glyphicon-chevron-left"></i></span>
+                        Back</button>
+                </div>
+              </h3>
+
+          </div>
+
+          <div class="panel-body">
+              <div class="table-responsive">
+            <table class="table table-sm table-striped table-responsive table-hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Question</th>
+                  <th>Answer</th>
+                  <th>Reacted date</th>
+                  <th>Reaction</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of items; let i = index" (click)="reactionDetail(item,i)" [class.active]='i == selectedRow'>
+                  <td scope="row">{{i+1}} </td>
+                  <td>{{item._source.question | truncate:[30, '...']}}</td>
+                  <td>{{item._source.answer | truncate:[30, '...']}}</td>
+                  <td>{{item._source.reacted_at | date: 'dd-MM-yyyy hh:mm'}}</td>
+                  <td>
+                    <span class="label label-success" *ngIf="item._source.reaction == 'like'" ><i aria-hidden="true" class="fa fa-thumbs-up"></i> </span>
+                    <span class="label label-danger" *ngIf="item._source.reaction == 'unlike'" > <i aria-hidden="true" class="fa fa-thumbs-down"></i> </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+         </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+</section>
+
+
+
+<div bsModal #viewModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-md" role="document">
+      <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" (click)="viewModal.hide()" aria-label="Close">&times;</button>
+                <h4 class="modal-title">View Details</h4>
+              </div>
+          <div class="modal-body">
+            <div class="card-body">
+
+              <table class="table table-responsive table-hover table-striped">
+                <tbody>
+                  <tr><th>Question</th> <td>{{model.question}}</td></tr>
+                  <tr><th>Answer</th> <td>{{model.answer}}</td></tr>
+                  <tr><th>Reaction</th> <td>
+                    <span class="label label-success" *ngIf="model.reaction == 'like'" ><i aria-hidden="true" class="fa fa-thumbs-up"></i> </span>
+                    <span class="label label-danger" *ngIf="model.reaction == 'unlike'" > <i aria-hidden="true" class="fa fa-thumbs-down"></i> </span>
+                  </td></tr>
+                  <tr><th>Reacted date</th> <td>{{model.reacted_at | date: 'dd-MM-yyyy hh:mm' }}</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="viewModal.hide()">Close</button>
+          </div>
+      </div>
+
+    </div>
+
+  </div>

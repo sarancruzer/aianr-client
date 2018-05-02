@@ -1,0 +1,374 @@
+<app-sidebar (messageEvent)="receivedMessage($event)"></app-sidebar>
+
+
+<section class="content zoomIn">
+
+  <div class="container clearfix">
+
+    <div class="txt_boby effect1">
+
+    <div class="row">
+      <div class="col-md-12">
+
+
+<ul class="nav nav-tabs">
+    <li class="active">
+      <a  href="#1" data-toggle="tab" (click)="init('receive')">Received Request</a>
+    </li>
+    <li><a href="#2" data-toggle="tab" (click)="init('sent')">Sent Request</a>
+    </li>
+  </ul>
+
+    <div class="tab-content ">
+      <div class="tab-pane active" id="1">
+
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3><span class="material_assignment"><i class="material-icons">assignment</i></span> Request Received List
+                  </h3>
+              </div>
+              <div class="panel-body">
+                  <div class="table-responsive">
+                <table class="table table-sm table-striped">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Approver Name</th>
+                      <th>Approver Email</th>
+                      <th>Request Type</th>
+                      <th>Created date</th>
+                      <th>Modified date</th>
+                      <th>Status</th>
+                      <th>Actions</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of items; let i = index">
+                      <td scope="row">{{i+1}} </td>
+                      <td>{{item._source.reveiver_name}}</td>
+                      <td>{{item._source.receiver_email}}</td>
+                      <td>{{item._source.request_type}}</td>
+                      <td>{{item._source.created_at | date: 'dd-MM-yyyy hh:mm'}}</td>
+                      <td>{{item._source.updated_at | date: 'dd-MM-yyyy hh:mm'}}</td>
+                      <td>
+                        <span class="label label-warning" *ngIf='item._source.status == "PENDING"' >PENDING</span>
+                        <span class="label label-success" *ngIf='item._source.status == "APPROVED"' >APPROVED</span>
+                        <span class="label label-danger" *ngIf='item._source.status == "REJECTED"' >REJECTED</span>
+                      </td>
+                      <td>
+                          <button type="button" class="btn btn-outline-success button2" data-toggle="modal" (click)="view(item._source)">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                          </button>
+
+                        <button type="button" class="btn btn-outline-success button2" data-toggle="modal" (click)="edit(item._source,item._id)">
+                          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr *ngIf="items.length <= 0"> <td colspan="8"> <div style="text-align: center"> No records found </div></td></tr>
+                  </tbody>
+                </table>
+
+              </div>
+             </div>
+            </div>
+
+      </div>
+      <div class="tab-pane" id="2">
+
+
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3><span class="material_assignment"><i class="material-icons">assignment</i></span> Request Sent List
+                  </h3>
+              </div>
+              <div class="panel-body">
+                  <div class="table-responsive">
+                <table class="table table-sm table-striped">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Approver Name</th>
+                      <th>Approver Email</th>
+                      <th>Request Type</th>
+                      <th>Created date</th>
+                      <th>Modified date</th>
+                      <th>Status</th>
+                      <th>Actions</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of items; let i = index">
+                      <td scope="row">{{i+1}} </td>
+                      <td>{{item._source.reveiver_name}}</td>
+                      <td>{{item._source.receiver_email}}</td>
+                      <td>{{item._source.request_type}}</td>
+                      <td>{{item._source.created_at | date: 'dd-MM-yyyy hh:mm'}}</td>
+                      <td>{{item._source.updated_at | date: 'dd-MM-yyyy hh:mm'}}</td>
+                      <td>
+                        <span class="label label-warning" *ngIf='item._source.status == "PENDING"' >PENDING</span>
+                        <span class="label label-success" *ngIf='item._source.status == "APPROVED"' >APPROVED</span>
+                        <span class="label label-danger" *ngIf='item._source.status == "REJECTED"' >REJECTED</span>
+                      </td>
+                      <td>
+                        <button type="button" class="btn btn-outline-success button2" data-toggle="modal" (click)="view(item._source)">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                            </button>
+
+                        <button type="button" class="btn btn-outline-success button2" data-toggle="modal" (click)="edit(item._source,item._id)">
+                          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        </button>
+
+                      </td>
+                    </tr>
+                    <tr *ngIf="items.length <= 0"> <td colspan="8"> <div style="text-align: center"> No records found  {{model | json}} </div></td></tr>
+
+                  </tbody>
+                </table>
+
+                <!-- <pre>{{model | json}}</pre> -->
+
+
+              </div>
+             </div>
+            </div>
+
+
+      </div>
+    </div>
+
+
+
+
+      </div>
+    </div>
+    </div>
+  </div>
+
+</section>
+
+
+<div bsModal #viewModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-md" role="document">
+      <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" (click)="createModal.hide()" aria-label="Close">&times;</button>
+                <h4 class="modal-title">View Details</h4>
+              </div>
+          <div class="modal-body">
+            <div class="card-body">
+
+              <table class="table table-responsive table-hover table-striped">
+                <thead>
+                  <tr>
+                  <th>Labels</th>
+                  <th>Values</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Sender Id</td> <td>{{model['sender_id']}}</td></tr>
+                  <tr><td>Approver Email</td> <td>{{model['receiver_name']}}</td></tr>
+                  <tr><td>Approver Email</td> <td>{{model['receiver_email']}}</td></tr>
+                  <tr><td>Requested date</td> <td>{{model['created_at']}}</td></tr>
+                  <tr><td>Modified date</td> <td>{{model['updated_at']}}</td></tr>
+                  <tr><td>Status</td> <td>{{model['status']}}</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="viewModal.hide()">Close</button>
+          </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+<div bsModal #editModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-md" role="document">
+      <div class="modal-content">
+
+
+            <form (ngSubmit)="update(updateForm)" #updateForm="ngForm" novalidate>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" (click)="createModal.hide()" aria-label="Close">&times;</button>
+                    <h4 class="modal-title">Create</h4>
+                  </div>
+
+              <div class="modal-body">
+                <div class="card-body">
+                  <div class="form-group">
+                      <label class="control-label col-sm-2" for="email">Approver Name:</label>
+                      <div class="col-sm-10">
+                          <input type="text" name="report_name" class="form-control" [(ngModel)]="model.receiver_name" />
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                      <label class="control-label col-sm-2" for="email">Approver Email:</label>
+                      <div class="col-sm-10">
+                          <input type="text" name="receiver_email" class="form-control" [(ngModel)]="model.receiver_email" />
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                      <label class="control-label col-sm-2" for="email">Request Type:</label>
+                      <div class="col-sm-10">
+                          <input type="text" name="request_type" class="form-control" [(ngModel)]="model.request_type" />
+                      </div>
+                  </div>
+
+                </div>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="createModal.hide()">Close</button>
+                <button type="submit" class="btn btn-primary">Update </button>
+              </div>
+            </form>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+<!--
+
+<div bsModal #createModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-md" role="document">
+    <div class="modal-content">
+
+      <form (ngSubmit)="create(createForm)" #createForm="ngForm" novalidate>
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" (click)="createModal.hide()" aria-label="Close">&times;</button>
+              <h4 class="modal-title">Create</h4>
+            </div>
+        <div class="modal-body">
+
+          <div class="card-body">
+            <div class="form-group">
+
+
+              <select name="report_id" class="form-control input-sm" [(ngModel)]="model.report_id" #report_id="ngModel" (change)="changeReport($event)"
+                required>
+                <option value=""> Select Option </option>
+                <option *ngFor="let row of reportLists" [ngValue]="row._source.report_id">
+                  {{row._source.report_name}}
+                </option>
+
+              </select>
+              <input type="hidden" name="report_name" [(ngModel)]="model.report_name" />
+
+              <div style="color:red" *ngIf="report_id.errors && (report_id.dirty || report_id.touched || createForm.submitted)">
+                <span class="help-block" *ngIf="report_id.errors.required" style="color:red">
+                  This field is required.
+                </span>
+              </div>
+
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 txt-padding-btm">
+                <div class="checkbox-inline">
+                <label>
+                  <input checked="" type="checkbox" name="email" id="email" [(ngModel)]="model.email" [checked]="model.email"> Email
+                </label>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 txt-padding-btm">
+                <div class="checkbox-inline">
+                  <label>
+                    <input checked="" type="checkbox" name="report" id="report" [(ngModel)]="model.report" [checked]="model.report"> Report
+                  </label>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                     <tag-input [(ngModel)]="model.receipients" [ngModel]="['@item']" name="receipients" [theme]="'dark'"  [editable]="true"
+                       [onlyFromAutocomplete]="false">
+                <tag-input-dropdown [showDropdownIfEmpty]="false"
+                                    [dynamicUpdate]="false"
+                                    [focusFirstElement]="true"
+                                    [zIndex]="10000"
+                                    [displayBy]="'value'"
+                                    [identifyBy]="'id'"
+                                    [autocompleteItems]="autocompleteItemsAsObjects">
+                    <ng-template let-item="item" let-index="index">
+                        ({{ index }}) {{ item.id }}: {{ item.value }}
+                    </ng-template>
+                </tag-input-dropdown>
+            </tag-input>
+
+
+              </div>
+                  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 txt-padding-btm">
+                    <div class="checkbox-inline">
+                      <label>
+                        <input type="checkbox" class="custom-control-input" id="daily" name="daily" [(ngModel)]="model.daily" >Daily
+                        <span class="custom-control-indicator"></span>
+                      </label>
+                    </div>
+                    <div class="form-group" *ngIf="model.daily" >
+                      <select name="delay" class="form-control input-sm" [(ngModel)]="model.delay">
+                        <option value="0"> Select </option>
+                        <option value="1"> Now</option>
+                        <option value="2"> Later</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 txt-padding-btm">
+                    <div class="checkbox-inline">
+                      <label>
+                        <input type="checkbox" class="custom-control-input" id="weekly" name="weekly" [(ngModel)]="model.weekly">Weekly
+                      </label>
+                    </div>
+                    <div class="form-group" *ngIf="model.weekly">
+                      <select name="weekdays" class="form-control input-sm" [(ngModel)]="model.weekdays">
+                        <option value="1"> Sunday</option>
+                        <option value="2"> Monday</option>
+                        <option value="3"> Tuesday</option>
+                        <option value="4"> Wednesday</option>
+                        <option value="5"> Thursday</option>
+                        <option value="6"> Friday</option>
+                        <option value="7"> Saturday</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 txt-padding-btm">
+                    <div class="checkbox-inline">
+                      <label>
+                        <input type="checkbox" class="custom-control-input" id="monthly" name="monthly" [(ngModel)]="model.monthly">Monthly
+                      </label>
+                    </div>
+
+                    <div class="form-group" *ngIf="model.monthly">
+                      <select name="days" class="form-control input-sm" [(ngModel)]="model.days">
+                        <option value="1" *ngFor='let in of counter(31) ;let i = index'> {{i+1}}</option>
+                      </select>
+                    </div>
+
+                  </div>
+
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="createModal.hide()">Close</button>
+          <button type="submit" class="btn btn-primary">Save </button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+-->

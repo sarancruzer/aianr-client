@@ -147,7 +147,8 @@ export class LandingComponent implements OnInit {
     console.log(this.chatLists);
     localStorage.setItem('chats', JSON.stringify(this.chatLists));
     console.log(data.question);
-    this._service.sendReactions(flag, data.question, data.question_id).subscribe(
+
+    this._service.sendReactions(flag, data.question, data.question_id, data.value).subscribe(
       response => {
         const res = response.result.data;
         console.log('currentUser');
@@ -243,7 +244,7 @@ export class LandingComponent implements OnInit {
     this._favouriteService.getFavourites().subscribe(
       response => {
         const res = response.result;
-        const fav = res.data.info;
+        const fav = res.info;
         if (res.statusCode === 200) {
           fav.forEach(element => {
             this.favouriteLists.push({'question': element.question});
@@ -269,7 +270,7 @@ export class LandingComponent implements OnInit {
   getReactions() {
     this._favouriteService.getReactions().subscribe(
       response => {
-        const res = response.result.data.info;
+        const res = response.result.info;
         this.reactionLists = res;
         localStorage.setItem('reactions', JSON.stringify(res));
       },
