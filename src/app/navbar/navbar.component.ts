@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
 import { FavouriteService } from '../_service/favourite.service';
 
 import { Task } from './../_model/task';
+import { SwalComponent } from '@toverux/ngx-sweetalert2';
+
+import swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-navbar',
@@ -14,6 +18,8 @@ import { Task } from './../_model/task';
   providers: [FavouriteService, TaskService]
 })
 export class NavbarComponent implements OnInit {
+
+  @ViewChild('logoutSwal') private logoutSwal: SwalComponent;
 
   reactionLists: any = [];
   reportLists: any = [];
@@ -62,6 +68,28 @@ export class NavbarComponent implements OnInit {
     this.model.report_name = selectElementText;
   }
 
+  logoutFunc() {
+    swal({
+      title: 'Are you sure?',
+      text: 'Are you sure want to logout!',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Ok',
+      buttonsStyling: true,
+      customClass: 'modal-content',
+      confirmButtonClass: 'btn btn-primary',
+      cancelButtonClass: 'btn'
+    }).then((result) => {
+      console.log(result);
+      if (result.value) {
+        this.logout();
+      }
+    });
+
+  }
+
   logout() {
     localStorage.removeItem('employeeName');
     localStorage.removeItem('email');
@@ -73,21 +101,27 @@ export class NavbarComponent implements OnInit {
   }
 
 
-  getReactions() {
-    this.reactionLists = JSON.parse(localStorage.getItem('reactions'));
-    console.log(this.reactionLists);
+  // getReactions() {
+  //   const reactList = JSON.parse(localStorage.getItem('reactions'));
+  //   this.reactionLists = reactList.hits.hits;
+  //   console.log('this.reactionLists');
+  //   console.log(this.reactionLists);
 
-    // this._favouriteService.getReactions().subscribe(response => {
-    //   const res = response.result.data.info;
-    //   this.reactionLists = res;
-    //   localStorage.setItem('reactions', JSON.stringify(res));
-    //   console.log('currentUser');
-    //   },
-    // err => {
-    // console.log('error msg');
-    // // this.donationlistprovider.showErrorToast(err);
-    // });
-   }
+  //  }
+
+   getReactions() {
+    this._favouriteService.getReactions().subscribe(
+      response => {
+        const res = response.result.info;
+        this.reactionLists = res.hits.hits;
+        localStorage.setItem('reactions', JSON.stringify(this.reactionLists));
+      },
+      err => {
+        console.log('error msg');
+        // this.donationlistprovider.showErrorToast(err);
+      }
+    );
+  }
 
    counter(i: number) {
     return new Array(i);
@@ -110,6 +144,8 @@ export class NavbarComponent implements OnInit {
       });
     }
   }
+
+
 
 
 

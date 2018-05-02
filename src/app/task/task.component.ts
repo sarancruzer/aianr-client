@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
   providers: [TaskService]
 })
 export class TaskComponent implements OnInit {
+
   @ViewChild('createModal') public createModal: ModalDirective;
   @ViewChild('editModal') public editModal: ModalDirective;
   @ViewChild('deleteModal') public deleteModal: ModalDirective;

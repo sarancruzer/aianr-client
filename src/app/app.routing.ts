@@ -1,3 +1,5 @@
+import { RequestTaskComponent } from './request-task/request-task.component';
+
 import { TaskLogsComponent } from './task-logs/task-logs.component';
 import { SimpleLayoutComponent } from './containers/simple-layout/simple-layout.component';
 import { FullLayoutComponent } from './containers/full-layout/full-layout.component';
@@ -13,6 +15,7 @@ import { AboutComponent } from './about/about.component';
 import { FavouriteComponent } from './favourite/favourite.component';
 import { ProfileComponent } from './profile/profile.component';
 import { TaskComponent } from './task/task.component';
+import { ReactionComponent } from './reaction/reaction.component';
 
 
 
@@ -27,7 +30,9 @@ export const routes: Routes = [
           {path: 'favourite', component: FavouriteComponent, data: {title: 'Langinding Page'}},
           {path: 'profile', component: ProfileComponent, data: {title: 'Profile Page'}},
           {path: 'task', component: TaskComponent, data: {title: 'Task Page'}},
-          {path: 'taskLogs', component: TaskLogsComponent, data: {title: 'Task Logs Page'}}
+          {path: 'taskLogs', component: TaskLogsComponent, data: {title: 'Task Logs Page'}},
+          {path: 'requestTask', component: RequestTaskComponent, data: {title: 'Request Process'}},
+          {path: 'reaction', component: ReactionComponent, data: {title: 'Reaction Page'}},
       ]
     },
     {path: 'login', component: LoginComponent, data: {title: 'Login Page'}},
