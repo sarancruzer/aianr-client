@@ -1,7 +1,7 @@
 <app-sidebar (messageEvent)="receivedMessage($event)"></app-sidebar>
 
-<section class="content zoomIn">
-    <div class="container clearfix">
+<section class="content zoomIn" >
+    <div class="container clearfix" style="overflow: scroll; height: xyz !important;" #scrollMe [scrollTop]="scrollMe.scrollHeight" >
       <div class="chat effect1">
         <div class="chat-header clearfix">
           <!-- <img src="../../assets/images/user.png" alt="avatar" /> -->
@@ -15,9 +15,9 @@
         </div>
         <!-- end chat-header -->
 
-        <!-- <div class="slimScrollDiv chat-history" style="overflow: scroll; height: xyz;" #scrollMe [scrollTop]="scrollMe.scrollHeight"> -->
-            <div class="chat-history" #scrollMe style="overflow: scroll; height: xyz;" [scrollTop]="scrollMe.scrollHeight">
-                <div class="scrollbar" id="style-6">
+        <div class="slimScrollDiv chat-history" >
+            <!-- <div class="chat-history" #scrollMe style="overflow: scroll; height: xyz;" [scrollTop]="scrollMe.scrollHeight"> -->
+            <div class="scrollbar" id="style-6" >
 
             <ul class="force-overflow">
             <li class="clearfix" *ngFor="let row of chatLists; let i = index" [attr.data-index]="i">

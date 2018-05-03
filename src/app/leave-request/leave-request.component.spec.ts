@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RequestTaskComponent } from './request-task.component';
+import { LeaveRequestComponent } from './leave-request.component';
 
-describe('RequestTaskComponent', () => {
-  let component: RequestTaskComponent;
-  let fixture: ComponentFixture<RequestTaskComponent>;
+describe('LeaveRequestComponent', () => {
+  let component: LeaveRequestComponent;
+  let fixture: ComponentFixture<LeaveRequestComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RequestTaskComponent ]
+      declarations: [ LeaveRequestComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RequestTaskComponent);
+    fixture = TestBed.createComponent(LeaveRequestComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

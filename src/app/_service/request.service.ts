@@ -21,14 +21,14 @@ export class RequestService {
 
 get(params: any) {
   this.list = {'requestFlag': params, 'sessions': localStorage.getItem('sessions')};
-  return this._http.post(this.apiUrl + 'getRequestTask',  this.list, this.headers)
+  return this._http.post(this.apiUrl + 'getLeaveRequest',  this.list, this.headers)
   .map(res => res.json())
   .do((data) => {console.log(JSON.stringify(data)); });
 }
 
 update(params: any, id: any)  {
   this.list =  {'info': params, 'sessions': localStorage.getItem('sessions')};
-  return this._http.post(this.apiUrl + 'updateRequestTask/' + id, this.list, this.headers)
+  return this._http.post(this.apiUrl + 'updateLeaveRequest/' + id, this.list, this.headers)
   .map(res  =>  res.json())
   .do(data  =>  console.log(JSON.stringify(data)));
 }

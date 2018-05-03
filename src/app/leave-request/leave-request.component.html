@@ -34,36 +34,36 @@
                     <tr>
                       <th>#</th>
                       <th>Approver Name</th>
-                      <th>Approver Email</th>
                       <th>Request Type</th>
-                      <th>Created date</th>
-                      <th>Modified date</th>
+                      <th>Applied Reason</th>
+                      <th>Approved Reason</th>
                       <th>Status</th>
+                      <th>leave date</th>
+                      <th>Approved date</th>
+                      <th>No of Days </th>
                       <th>Actions</th>
-                      <th></th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let item of items; let i = index">
+                    <tr *ngFor="let item of items | paginate: { itemsPerPage: 5, currentPage: p }; let i = index;">
                       <td scope="row">{{i+1}} </td>
-                      <td>{{item._source.reveiver_name}}</td>
-                      <td>{{item._source.receiver_email}}</td>
-                      <td>{{item._source.request_type}}</td>
-                      <td>{{item._source.created_at | date: 'dd-MM-yyyy hh:mm'}}</td>
-                      <td>{{item._source.updated_at | date: 'dd-MM-yyyy hh:mm'}}</td>
+                      <td>{{item._source.approvername}}</td>
+                      <td>{{item._source.probabilityofleave}}</td>
+                      <td>{{item._source.appliedreason}}</td>
+                      <td>{{item._source.approvalreason}}</td>
                       <td>
-                        <span class="label label-warning" *ngIf='item._source.status == "PENDING"' >PENDING</span>
-                        <span class="label label-success" *ngIf='item._source.status == "APPROVED"' >APPROVED</span>
-                        <span class="label label-danger" *ngIf='item._source.status == "REJECTED"' >REJECTED</span>
+                        <span class="label label-warning" *ngIf='item._source.approvedstatus == "Pending"' >PENDING</span>
+                        <span class="label label-success" *ngIf='item._source.approvedstatus == "Approved"' >APPROVED</span>
+                        <span class="label label-danger" *ngIf='item._source.approvedstatus == "Rejected"' >REJECTED</span>
                       </td>
+                      <td>{{item._source.leavedate | date: 'dd-MM-yyyy hh:mm'}}</td>
+                      <td>{{item._source.approveddate | date: 'dd-MM-yyyy hh:mm'}}</td>
+                      <td>{{item._source.days}} - {{item._source.fullday}}</td>
+
                       <td>
                           <button type="button" class="btn btn-outline-success button2" data-toggle="modal" (click)="view(item._source)">
                             <i class="fa fa-search" aria-hidden="true"></i>
                           </button>
-
-                        <button type="button" class="btn btn-outline-success button2" data-toggle="modal" (click)="edit(item._source,item._id)">
-                          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                        </button>
                       </td>
                     </tr>
                     <tr *ngIf="items.length <= 0"> <td colspan="8"> <div style="text-align: center"> No records found </div></td></tr>
@@ -71,6 +71,7 @@
                 </table>
 
               </div>
+              <pagination-controls (pageChange)="pageChanged($event)" ></pagination-controls>
              </div>
             </div>
 
@@ -90,35 +91,37 @@
                     <tr>
                       <th>#</th>
                       <th>Approver Name</th>
-                      <th>Approver Email</th>
                       <th>Request Type</th>
-                      <th>Created date</th>
-                      <th>Modified date</th>
+                      <th>Applied Reason</th>
+                      <th>Approved Reason</th>
                       <th>Status</th>
+                      <th>leave date</th>
+                      <th>Approved date</th>
+                      <th>No of days</th>
                       <th>Actions</th>
-                      <th></th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let item of items; let i = index">
+                    <tr *ngFor="let item of items | paginate: { itemsPerPage: 5, currentPage: p }; let i = index;">
                       <td scope="row">{{i+1}} </td>
-                      <td>{{item._source.reveiver_name}}</td>
-                      <td>{{item._source.receiver_email}}</td>
-                      <td>{{item._source.request_type}}</td>
-                      <td>{{item._source.created_at | date: 'dd-MM-yyyy hh:mm'}}</td>
-                      <td>{{item._source.updated_at | date: 'dd-MM-yyyy hh:mm'}}</td>
+                      <td>{{item._source.approvername}}</td>
+                      <td>{{item._source.probabilityofleave}}</td>
+                      <td>{{item._source.appliedreason}}</td>
+                      <td>{{item._source.approvalreason}}</td>
+
                       <td>
-                        <span class="label label-warning" *ngIf='item._source.status == "PENDING"' >PENDING</span>
-                        <span class="label label-success" *ngIf='item._source.status == "APPROVED"' >APPROVED</span>
-                        <span class="label label-danger" *ngIf='item._source.status == "REJECTED"' >REJECTED</span>
+                        <span class="label label-warning" *ngIf='item._source.approvedstatus == "Pending"' >PENDING</span>
+                        <span class="label label-success" *ngIf='item._source.approvedstatus == "Approved"' >APPROVED</span>
+                        <span class="label label-danger" *ngIf='item._source.approvedstatus == "Rejected"' >REJECTED</span>
                       </td>
+                      <td>{{item._source.leavedate | date: 'dd-MM-yyyy hh:mm'}}</td>
+                      <td>{{item._source.approveddate | date: 'dd-MM-yyyy hh:mm'}}</td>
+                      <td>{{item._source.days}} - {{item._source.fullday}}</td>
+
                       <td>
                         <button type="button" class="btn btn-outline-success button2" data-toggle="modal" (click)="view(item._source)">
                             <i class="fa fa-search" aria-hidden="true"></i>
                             </button>
-                        <!-- <button type="button" class="btn btn-outline-success button2" data-toggle="modal" (click)="edit(item._source,item._id)">
-                          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                        </button> -->
                       </td>
                     </tr>
                     <tr *ngIf="items.length <= 0"> <td colspan="8"> <div style="text-align: center"> No records found </div></td></tr>
@@ -130,6 +133,7 @@
 
 
               </div>
+              <pagination-controls (pageChange)="pageChanged($event)" ></pagination-controls>
              </div>
             </div>
 
@@ -166,12 +170,16 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><td>Sender Id</td> <td>{{model['sender_id']}}</td></tr>
-                  <tr><td>Approver Name</td> <td>{{model['receiver_name']}}</td></tr>
-                  <tr><td>Approver Email</td> <td>{{model['receiver_email']}}</td></tr>
-                  <tr><td>Requested date</td> <td>{{model['created_at']}}</td></tr>
-                  <tr><td>Modified date</td> <td>{{model['updated_at']}}</td></tr>
-                  <tr><td>Status</td> <td>{{model['status']}}</td></tr>
+
+                  <tr><td>Approver Name</td> <td>{{model['approvername']}}</td></tr>
+                  <tr><td>Request Type</td> <td>{{model['probabilityofleave']}}</td></tr>
+                  <tr><td>Applied Reason</td> <td>{{model['appliedreason']}}</td></tr>
+                  <tr><td>Approved Reason</td> <td>{{model['approvalreason']}}</td></tr>
+                  <tr><td>Status</td> <td>{{model['approvedstatus']}}</td></tr>
+                  <tr><td>Leave date</td> <td>{{model['leavedate']}}</td></tr>
+                  <tr><td>Approved date</td> <td>{{model['approveddate']}}</td></tr>
+                  <tr><td>No of days</td> <td>{{model['days']}}</td></tr>
+
                 </tbody>
               </table>
             </div>

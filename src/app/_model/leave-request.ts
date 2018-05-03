@@ -1,5 +1,4 @@
-
-export class RequestTask {
+export class LeaveRequest {
 
   public id: any;
   public sender_id: string;
@@ -12,5 +11,6 @@ export class RequestTask {
   public status: string;
   public created_at: string;
   public updated_at: string;
+
 }
 

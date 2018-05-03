@@ -6,16 +6,16 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-task-logs',
   templateUrl: './task-logs.component.html',
   styleUrls: ['./task-logs.component.css'],
-  providers:[TaskLogsService]
+  providers: [TaskLogsService]
 })
 export class TaskLogsComponent implements OnInit {
 
-  items : any = [];
+  items: any = [];
 
   p = 1;
   collection: any[];
 
-  constructor(private _service: TaskLogsService,private _location: Location) { }
+  constructor(private _service: TaskLogsService, private _location: Location) { }
 
   ngOnInit() {
 
@@ -27,11 +27,11 @@ export class TaskLogsComponent implements OnInit {
   init() {
     this._service.get().subscribe(response => {
       const res = response.result;
-      if(res.statusCode === 200){
+      if (res.statusCode === 200) {
         this.items = res.info.hits.hits;
         this.collection = this.items;
       }
-      if(res.statusCode === 204){
+      if (res.statusCode === 204) {
         console.log(res.successText);
       }
   },
