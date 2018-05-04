@@ -1,7 +1,7 @@
 <app-sidebar (messageEvent)="receivedMessage($event)"></app-sidebar>
 
 <section class="content zoomIn" >
-    <div class="container clearfix" style="overflow: scroll; height: xyz !important;" #scrollMe [scrollTop]="scrollMe.scrollHeight" >
+    <div class="container clearfix" >
       <div class="chat effect1">
         <div class="chat-header clearfix">
           <!-- <img src="../../assets/images/user.png" alt="avatar" /> -->
@@ -15,7 +15,7 @@
         </div>
         <!-- end chat-header -->
 
-        <div class="slimScrollDiv chat-history" >
+        <div class="slimScrollDiv chat-history" style="overflow: scroll; height: xyz !important;" #scrollMe [scrollTop]="scrollMe.scrollHeight" >
             <!-- <div class="chat-history" #scrollMe style="overflow: scroll; height: xyz;" [scrollTop]="scrollMe.scrollHeight"> -->
             <div class="scrollbar" id="style-6" >
 
