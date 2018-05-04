@@ -4120,12 +4120,12 @@ section.content {
     border-radius: 0; }
 
 /* Nav Tabs ==================================== */
-.nav-tabs {
+/* .nav-tabs {
   border-bottom: 2px solid #eee; }
   .nav-tabs > li {
     position: relative;
     top: 3px;
-    left: -2px; }
+    left: 1px; }
     .nav-tabs > li > a {
       border: none !important;
       color: #999 !important;
@@ -4230,7 +4230,7 @@ section.content {
   border-bottom: 2px solid #000000; }
 
 .nav-tabs.tab-col-white > li > a:before {
-  border-bottom: 2px solid #ffffff; }
+  border-bottom: 2px solid #ffffff; } */
 
 /* Thumbnails ================================== */
 .thumbnail {

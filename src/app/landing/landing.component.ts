@@ -29,8 +29,8 @@ export class LandingComponent implements OnInit {
   showDialog = false;
 
 
-  private favouriteLists = [];
-  private reactionLists = [];
+   favouriteLists = [];
+   reactionLists = [];
 
   message: string; // = 'hello ANGULAR23';
   random: number;
