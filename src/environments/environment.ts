@@ -8,4 +8,5 @@ export const environment = {
    apiUrl : 'http://localhost:5001/',
    // apiUrll : 'http://183.82.33.232:5001/',
 
+
 };
