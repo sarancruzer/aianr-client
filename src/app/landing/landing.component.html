@@ -65,18 +65,18 @@
         </div> <!-- end chat-history -->
 
         <form class="ai_margin_10">
-        <div class="col-lg-10">
+        <div class="col-lg-10 col-md-8">
           <div class="form-group">
               {{message}}
             <input type="text" class="form-control ai_textbox" name="searchreq" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Text" [(ngModel)]="searchreq" (keyup.enter)="searchBot()" autofocus>
           </div>
           </div>
-          <div class="col-lg-1">
+          <div class="col-lg-1 col-md-1">
           <div class="form-group">
           <button type="button" class="btn ai_send" (click)="searchBot()"><i class="material-icons"  >&#xE163;</i></button>
           </div>
           </div>
-          <div class="col-lg-1">
+          <div class="col-lg-1 col-md-1">
                 <div class="form-group">
                 <button type="button" class="btn ai_mike"><i class="material-icons"  >&#xE8C8;</i></button>
                 </div>

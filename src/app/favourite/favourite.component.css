@@ -77,8 +77,9 @@ ul li i {
 }
 
 .panel-body {
-    min-height: 400px;
-    overflow-y: scroll
+    height: auto;
+    /* min-height: 400px;
+    overflow-y: scroll; */
 }
 /* .ai_back button{color: #4f4f4f;} */
 /*==================================================
