@@ -8,139 +8,133 @@
     <div class="txt_boby effect1">
 
     <div class="row">
-      <div class="col-md-12">
-
-
-<ul class="nav nav-tabs">
-    <li class="active">
-      <a  href="#1" data-toggle="tab" (click)="init('receive')">Received Request</a>
-    </li>
-    <li><a href="#2" data-toggle="tab" (click)="init('sent')">Sent Request</a>
-    </li>
-  </ul>
-
-    <div class="tab-content ">
-      <div class="tab-pane active" id="1">
-
-          <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3><span class="material_assignment"><i class="material-icons">assignment</i></span> Request Received List
-                  </h3>
-              </div>
-              <div class="panel-body">
-                  <div class="table-responsive">
-                <table class="table table-sm table-striped">
-                  <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>Approver Name</th>
-                      <th>Approver Email</th>
-                      <th>Request Type</th>
-                      <th>Created date</th>
-                      <th>Modified date</th>
-                      <th>Status</th>
-                      <th>Actions</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let item of items; let i = index">
-                      <td scope="row">{{i+1}} </td>
-                      <td>{{item._source.reveiver_name}}</td>
-                      <td>{{item._source.receiver_email}}</td>
-                      <td>{{item._source.request_type}}</td>
-                      <td>{{item._source.created_at | date: 'dd-MM-yyyy hh:mm'}}</td>
-                      <td>{{item._source.updated_at | date: 'dd-MM-yyyy hh:mm'}}</td>
-                      <td>
-                        <span class="label label-warning" *ngIf='item._source.status == "PENDING"' >PENDING</span>
-                        <span class="label label-success" *ngIf='item._source.status == "APPROVED"' >APPROVED</span>
-                        <span class="label label-danger" *ngIf='item._source.status == "REJECTED"' >REJECTED</span>
-                      </td>
-                      <td>
-                          <button type="button" class="btn btn-outline-success button2" data-toggle="modal" (click)="view(item._source)">
-                            <i class="fa fa-search" aria-hidden="true"></i>
-                          </button>
-
-                        <button type="button" class="btn btn-outline-success button2" data-toggle="modal" (click)="edit(item._source,item._id)">
-                          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr *ngIf="items.length <= 0"> <td colspan="8"> <div style="text-align: center"> No records found </div></td></tr>
-                  </tbody>
-                </table>
-
-              </div>
-             </div>
+<!--new-->
+<div class="col-md-12">
+    <div class="tab" role="tabpanel">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#Section1" aria-controls="home" role="tab" data-toggle="tab">Received Request</a></li>
+            <li role="presentation"><a href="#Section2" aria-controls="profile" role="tab" data-toggle="tab">Sent Request</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content tabs">
+            <div role="tabpanel" class="tab-pane fade in active" id="Section1">
+                <!-- table 1-->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h3><span class="material_assignment"><i class="material-icons">assignment</i></span> Request Received List
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                      <table class="table table-sm table-striped">
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>Approver Name</th>
+                            <th>Approver Email</th>
+                            <th>Request Type</th>
+                            <th>Created date</th>
+                            <th>Modified date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let item of items; let i = index">
+                            <td scope="row">{{i+1}} </td>
+                            <td>{{item._source.reveiver_name}}</td>
+                            <td>{{item._source.receiver_email}}</td>
+                            <td>{{item._source.request_type}}</td>
+                            <td>{{item._source.created_at | date: 'dd-MM-yyyy hh:mm'}}</td>
+                            <td>{{item._source.updated_at | date: 'dd-MM-yyyy hh:mm'}}</td>
+                            <td>
+                              <span class="label label-warning" *ngIf='item._source.status == "PENDING"' >PENDING</span>
+                              <span class="label label-success" *ngIf='item._source.status == "APPROVED"' >APPROVED</span>
+                              <span class="label label-danger" *ngIf='item._source.status == "REJECTED"' >REJECTED</span>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-outline-success button2" data-toggle="modal" (click)="view(item._source)">
+                                  <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+      
+                              <button type="button" class="btn btn-outline-success button2" data-toggle="modal" (click)="edit(item._source,item._id)">
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                              </button>
+                            </td>
+                          </tr>
+                          <tr *ngIf="items.length <= 0"> <td colspan="8"> <div style="text-align: center"> No records found </div></td></tr>
+                        </tbody>
+                      </table>
+      
+                    </div>
+                   </div>
+                  </div>
+                <!-- table 1-->
             </div>
-
-      </div>
-      <div class="tab-pane" id="2">
-
-
-          <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3><span class="material_assignment"><i class="material-icons">assignment</i></span> Request Sent List
-                  </h3>
-              </div>
-              <div class="panel-body">
-                  <div class="table-responsive">
-                <table class="table table-sm table-striped">
-                  <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>Approver Name</th>
-                      <th>Approver Email</th>
-                      <th>Request Type</th>
-                      <th>Created date</th>
-                      <th>Modified date</th>
-                      <th>Status</th>
-                      <th>Actions</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let item of items; let i = index">
-                      <td scope="row">{{i+1}} </td>
-                      <td>{{item._source.reveiver_name}}</td>
-                      <td>{{item._source.receiver_email}}</td>
-                      <td>{{item._source.request_type}}</td>
-                      <td>{{item._source.created_at | date: 'dd-MM-yyyy hh:mm'}}</td>
-                      <td>{{item._source.updated_at | date: 'dd-MM-yyyy hh:mm'}}</td>
-                      <td>
-                        <span class="label label-warning" *ngIf='item._source.status == "PENDING"' >PENDING</span>
-                        <span class="label label-success" *ngIf='item._source.status == "APPROVED"' >APPROVED</span>
-                        <span class="label label-danger" *ngIf='item._source.status == "REJECTED"' >REJECTED</span>
-                      </td>
-                      <td>
-                        <button type="button" class="btn btn-outline-success button2" data-toggle="modal" (click)="view(item._source)">
-                            <i class="fa fa-search" aria-hidden="true"></i>
-                            </button>
-                        <!-- <button type="button" class="btn btn-outline-success button2" data-toggle="modal" (click)="edit(item._source,item._id)">
-                          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                        </button> -->
-                      </td>
-                    </tr>
-                    <tr *ngIf="items.length <= 0"> <td colspan="8"> <div style="text-align: center"> No records found </div></td></tr>
-
-                  </tbody>
-                </table>
-
-                <!-- <pre>{{model | json}}</pre> -->
-
-
-              </div>
-             </div>
+            <div role="tabpanel" class="tab-pane fade" id="Section2">
+                <!-- table 2-->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h3><span class="material_assignment"><i class="material-icons">assignment</i></span> Request Sent List
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                      <table class="table table-sm table-striped">
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>Approver Name</th>
+                            <th>Approver Email</th>
+                            <th>Request Type</th>
+                            <th>Created date</th>
+                            <th>Modified date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let item of items; let i = index">
+                            <td scope="row">{{i+1}} </td>
+                            <td>{{item._source.reveiver_name}}</td>
+                            <td>{{item._source.receiver_email}}</td>
+                            <td>{{item._source.request_type}}</td>
+                            <td>{{item._source.created_at | date: 'dd-MM-yyyy hh:mm'}}</td>
+                            <td>{{item._source.updated_at | date: 'dd-MM-yyyy hh:mm'}}</td>
+                            <td>
+                              <span class="label label-warning" *ngIf='item._source.status == "PENDING"' >PENDING</span>
+                              <span class="label label-success" *ngIf='item._source.status == "APPROVED"' >APPROVED</span>
+                              <span class="label label-danger" *ngIf='item._source.status == "REJECTED"' >REJECTED</span>
+                            </td>
+                            <td>
+                              <button type="button" class="btn btn-outline-success button2" data-toggle="modal" (click)="view(item._source)">
+                                  <i class="fa fa-search" aria-hidden="true"></i>
+                                  </button>
+                              <!-- <button type="button" class="btn btn-outline-success button2" data-toggle="modal" (click)="edit(item._source,item._id)">
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                              </button> -->
+                            </td>
+                          </tr>
+                          <tr *ngIf="items.length <= 0"> <td colspan="8"> <div style="text-align: center"> No records found </div></td></tr>
+      
+                        </tbody>
+                      </table>
+      
+                      <!-- <pre>{{model | json}}</pre> -->
+      
+      
+                    </div>
+                   </div>
+                  </div>
+                <!-- table 2-->
             </div>
-
-
-      </div>
+        </div>
     </div>
-
-
-
-
-      </div>
+</div>
+<!--new-->
     </div>
     </div>
   </div>
@@ -152,7 +146,7 @@
     <div class="modal-dialog  modal-md" role="document">
       <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" (click)="createModal.hide()" aria-label="Close">&times;</button>
+                <button type="button" class="close" data-dismiss="modal" (click)="viewModal.hide()" aria-label="Close">&times;</button>
                 <h4 class="modal-title">View Details</h4>
               </div>
           <div class="modal-body">
@@ -191,16 +185,15 @@
 <div bsModal #editModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog  modal-md" role="document">
       <div class="modal-content">
-
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" (click)="editModal.hide()" aria-label="Close">&times;</button>
+              <h4 class="modal-title">Update Status</h4>
+            </div>
 
             <form (ngSubmit)="update(updateForm,'sent')" #updateForm="ngForm" novalidate>
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" (click)="createModal.hide()" aria-label="Close">&times;</button>
-                  </div>
               <div class="modal-body">
                   <fieldset>
                       <!-- Form Name -->
-                      <legend>Update Status</legend>
 
                       <div class="form-group">
                           <label class="control-label col-sm-4" for="email">Approver Name:</label>
