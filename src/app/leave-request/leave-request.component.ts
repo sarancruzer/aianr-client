@@ -1,17 +1,16 @@
-import { RequestTask } from './../_model/request-task';
-
-import { RequestService } from './../_service/request.service';
+import { LeaveRequest } from './../_model/leave-request';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalDirective } from 'ngx-bootstrap';
+import { RequestService } from '../_service/request.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-request',
-  templateUrl: './request.component.html',
-  styleUrls: ['./request.component.css'],
+  selector: 'app-leave-request',
+  templateUrl: './leave-request.component.html',
+  styleUrls: ['./leave-request.component.css'],
   providers: [RequestService]
 })
-export class RequestComponent implements OnInit {
+export class LeaveRequestComponent implements OnInit {
 
   @ViewChild('createModal') public createModal: ModalDirective;
   @ViewChild('editModal') public editModal: ModalDirective;
@@ -19,10 +18,9 @@ export class RequestComponent implements OnInit {
 
 
   items: any = [];
-  model: RequestTask[];
-
+  p = 1;
+  model: LeaveRequest[];
   id: any;
-
   requestFlag = 'receive';
 
   constructor(private _service: RequestService, private _router: Router) {
@@ -60,6 +58,12 @@ export class RequestComponent implements OnInit {
   });
   }
 
+  pageChanged($event) {
+
+    console.log($event);
+    this.p = $event;
+  }
+
 
 
   createModalFunc(form) {
@@ -76,8 +80,9 @@ export class RequestComponent implements OnInit {
       console.log(this.model);
     }
 
-    update(form) {
+    update(form, requestFlag) {
       console.log(this.id);
+      this.requestFlag = requestFlag;
 
       if (form.valid) {
       this._service.update(this.model, this.id).subscribe(

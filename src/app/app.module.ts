@@ -40,8 +40,9 @@ import { CustomJsonPipe } from './_pipe/custom-json.pipe';
 import { ICheckModule } from 'angular4-icheck';
 import { LoadingBarHttpModule } from '@ngx-loading-bar/http';
 
-import { RequestTaskComponent } from './request-task/request-task.component';
 import { ReactionComponent } from './reaction/reaction.component';
+import { LeaveRequestComponent } from './leave-request/leave-request.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 
@@ -71,8 +72,9 @@ const appRoutes: Routes = [
     TaskComponent,
     TaskLogsComponent,
     CustomJsonPipe,
-    RequestTaskComponent,
-    ReactionComponent
+    ReactionComponent,
+    LeaveRequestComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

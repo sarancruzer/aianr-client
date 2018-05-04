@@ -1,4 +1,4 @@
-import { RequestTaskComponent } from './request-task/request-task.component';
+import { LeaveRequestComponent } from './leave-request/leave-request.component';
 
 import { TaskLogsComponent } from './task-logs/task-logs.component';
 import { SimpleLayoutComponent } from './containers/simple-layout/simple-layout.component';
@@ -16,6 +16,7 @@ import { FavouriteComponent } from './favourite/favourite.component';
 import { ProfileComponent } from './profile/profile.component';
 import { TaskComponent } from './task/task.component';
 import { ReactionComponent } from './reaction/reaction.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 
@@ -31,13 +32,14 @@ export const routes: Routes = [
           {path: 'profile', component: ProfileComponent, data: {title: 'Profile Page'}},
           {path: 'task', component: TaskComponent, data: {title: 'Task Page'}},
           {path: 'taskLogs', component: TaskLogsComponent, data: {title: 'Task Logs Page'}},
-          {path: 'requestTask', component: RequestTaskComponent, data: {title: 'Request Process'}},
+          {path: 'leaveRequest', component: LeaveRequestComponent, data: {title: 'Request Process'}},
           {path: 'reaction', component: ReactionComponent, data: {title: 'Reaction Page'}},
       ]
     },
     {path: 'login', component: LoginComponent, data: {title: 'Login Page'}},
     {path: 'logout', component: LogoutComponent, data: {title: 'Log out'}},
-    {path: 'about',  component: AboutComponent }
+    {path: 'about',  component: AboutComponent },
+    {path: '**',  component: PageNotFoundComponent }
 
   ];
 

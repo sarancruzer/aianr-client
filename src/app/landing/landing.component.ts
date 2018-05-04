@@ -86,6 +86,7 @@ export class LandingComponent implements OnInit {
   }
 
   searchBot() {
+
     if (this.searchreq.trim() != null) {
 
       this.chatLists.push({user: true, value: this.searchreq, created_at: Date.now(), favourite: false});
@@ -116,6 +117,8 @@ export class LandingComponent implements OnInit {
           this.scrollToBottom();
 
          // this.updateFavouritesByChats(this.searchreq, i);
+
+
         },
         err => {
           console.log('error msg');
@@ -280,4 +283,8 @@ export class LandingComponent implements OnInit {
       }
     );
   }
+
+
+
+
 }
